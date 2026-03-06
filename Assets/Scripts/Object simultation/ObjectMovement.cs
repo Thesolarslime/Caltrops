@@ -6,10 +6,9 @@ public class ObjectMovement : MonoBehaviour
     public bool IsControlledByPlayer;
     public bool IsPlayer;
     public bool MovementOnCooldown;
+    private bool Moving; // true while the move animation is happening
     public float BaseMovementCooldown = 1.1f; // the base time to wait at a speed of 5 before the player can move again
     public float SpeedIncrementOnMovementCooldown = 0.2f; // the amount a difference of 1 in the speed stat alters the cooldown
-
-    public string Facing;
 
     public ObjectStats Stats;
 
@@ -28,91 +27,136 @@ public class ObjectMovement : MonoBehaviour
 
     public void MoveObject(string Direction, int Distance)
     {
-        Stats.XPos = (int)transform.position.x;
-        Stats.YPos = (int)transform.position.y;
         StartCoroutine(Movement(Direction, Distance));
     }
 
     private IEnumerator Movement(string Direction, int Distance)
     {
-        switch (Direction)
+        if (!Moving)
         {
-            case "UP":
-                transform.position = new Vector3(Stats.XPos, Stats.YPos + 0.1f, 0);
-                break;
-            case "DOWN":
-                transform.position = new Vector3(Stats.XPos, Stats.YPos - 0.1f, 0);
-                break;
-            case "LEFT":
-                transform.position = new Vector3(Stats.XPos - 0.1f, Stats.YPos, 0);
-                break;
-            case "RIGHT":
-                transform.position = new Vector3(Stats.XPos + 0.1f, Stats.YPos, 0);
-                break;
+            Moving = true;
+            //Stats.XPos = (int)transform.position.x;
+            //Stats.YPos = (int)transform.position.y;
+            Stats.Facing = Direction;
+            Debug.Log("Time to move" +  Direction + " by " + Distance);
+            switch (Direction)
+            {
+                case "UP":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos + 0.1f, 0);
+                    break;
+                case "DOWN":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos - 0.1f, 0);
+                    break;
+                case "LEFT":
+                    transform.position = new Vector3(Stats.XPos - 0.1f, Stats.YPos, 0);
+                    break;
+                case "RIGHT":
+                    transform.position = new Vector3(Stats.XPos + 0.1f, Stats.YPos, 0);
+                    break;
+            }
+            yield return new WaitForSeconds(0.02f);
+            switch (Direction)
+            {
+                case "UP":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.7f, 0);
+                    break;
+                case "DOWN":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.7f, 0);
+                    break;
+                case "LEFT":
+                    transform.position = new Vector3(Stats.XPos - Distance * 0.7f, Stats.YPos, 0);
+                    break;
+                case "RIGHT":
+                    transform.position = new Vector3(Stats.XPos + Distance * 0.7f, Stats.YPos, 0);
+                    break;
+            }
+            yield return new WaitForSeconds(0.03f);
+            switch (Direction)
+            {
+                case "UP":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.9f, 0);
+                    break;
+                case "DOWN":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.9f, 0);
+                    break;
+                case "LEFT":
+                    transform.position = new Vector3(Stats.XPos - Distance * 0.9f, Stats.YPos, 0);
+                    break;
+                case "RIGHT":
+                    transform.position = new Vector3(Stats.XPos + Distance * 0.9f, Stats.YPos, 0);
+                    break;
+            }
+            yield return new WaitForSeconds(0.04f);
+            switch (Direction)
+            {
+                case "UP":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance, 0);
+                    break;
+                case "DOWN":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance, 0);
+                    break;
+                case "LEFT":
+                    transform.position = new Vector3(Stats.XPos - Distance, Stats.YPos, 0);
+                    break;
+                case "RIGHT":
+                    transform.position = new Vector3(Stats.XPos + Distance, Stats.YPos, 0);
+                    break;
+            }
+            Stats.XPos = (int)transform.position.x;
+            Stats.YPos = (int)transform.position.y;
+            Moving = false;
         }
-        yield return new WaitForSeconds(0.02f);
-        switch (Direction)
+        else
         {
-            case "UP":
-                transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.7f, 0);
-                break;
-            case "DOWN":
-                transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.7f, 0);
-                break;
-            case "LEFT":
-                transform.position = new Vector3(Stats.XPos - Distance * 0.7f, Stats.YPos, 0);
-                break;
-            case "RIGHT":
-                transform.position = new Vector3(Stats.XPos + Distance * 0.7f, Stats.YPos, 0);
-                break;
+            yield return new WaitForSeconds(0.01f);
         }
-        yield return new WaitForSeconds(0.03f);
-        switch (Direction)
-        {
-            case "UP":
-                transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.9f, 0);
-                break;
-            case "DOWN":
-                transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.9f, 0);
-                break;
-            case "LEFT":
-                transform.position = new Vector3(Stats.XPos - Distance * 0.9f, Stats.YPos, 0);
-                break;
-            case "RIGHT":
-                transform.position = new Vector3(Stats.XPos + Distance * 0.9f, Stats.YPos, 0);
-                break;
-        }
-        yield return new WaitForSeconds(0.04f);
-        switch (Direction)
-        {
-            case "UP":
-                transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance, 0);
-                break;
-            case "DOWN":
-                transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance, 0);
-                break;
-            case "LEFT":
-                transform.position = new Vector3(Stats.XPos - Distance, Stats.YPos, 0);
-                break;
-            case "RIGHT":
-                transform.position = new Vector3(Stats.XPos + Distance, Stats.YPos, 0);
-                break;
-        }
-        Stats.XPos = (int)transform.position.x;
-        Stats.YPos = (int)transform.position.y;
     }
 
     private void PlayerControlsMovement()
     {
-        if (Input.GetKey(KeyCode.A) && !MovementOnCooldown)
+        if (Input.GetKey(KeyCode.A))
         {
-            MoveObject("LEFT", 1);
-            StartCoroutine(MovementCooldown(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown)));
+            if (!MovementOnCooldown)
+            {
+                MovementOnCooldown = true;
+                MoveObject("LEFT", 1);
+                StartCoroutine(MovementCooldown(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown)));
+            }
+            if (!Moving) { transform.position = new Vector3(Stats.XPos - 0.1f, Stats.YPos, 0); }
         }
-        if (Input.GetKey(KeyCode.D) && !MovementOnCooldown)
+        else if (Input.GetKey(KeyCode.D))
         {
-            MoveObject("RIGHT", 1);
-            StartCoroutine(MovementCooldown(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown)));
+            if (!MovementOnCooldown)
+            {
+                MovementOnCooldown = true;
+                MoveObject("RIGHT", 1);
+                StartCoroutine(MovementCooldown(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown)));
+            }
+            if (!Moving) { transform.position = new Vector3(Stats.XPos + 0.1f, Stats.YPos, 0); }
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            if (!MovementOnCooldown)
+            {
+                MovementOnCooldown = true;
+                MoveObject("UP", 1);
+                StartCoroutine(MovementCooldown(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown)));
+            }
+            if (!Moving) { transform.position = new Vector3(Stats.XPos, Stats.YPos + 0.1f, 0); }
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if (!MovementOnCooldown)
+            {
+                MovementOnCooldown = true;
+                MoveObject("DOWN", 1);
+                StartCoroutine(MovementCooldown(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown)));
+            }
+            if (!Moving) { transform.position = new Vector3(Stats.XPos, Stats.YPos - 0.1f, 0); }
+        }
+        else if (MovementOnCooldown && !Moving)
+        {
+            transform.position = new Vector3(Stats.XPos, Stats.YPos, 0);
         }
     }
 
