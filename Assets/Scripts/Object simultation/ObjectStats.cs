@@ -10,10 +10,13 @@ public class ObjectStats : MonoBehaviour
     public int MaxHealth;
     public int Armour;
     public float ArmourModifier;
-    public int Mana;
-    public int MaxMana;
+    public int Mana; // PLAYER ONLY
+    public int MaxMana; // PLAYER ONLY
     public int Speed;
     public float SpeedModifier;
+    public int RegenBase; // PLAYER ONLY, base 10?, determines the number of times the player moves before they regen.
+    public int RegenModifier; // PLAYER ONLY, base 0, deducted from RegenBase to get the number of times the player moves before they regen.
+    public int RegenCount; // PLAYER ONLY, this goes up when the player moves and when it reaches RegenBase-RegenModifier the player regens and it resets to 0
 
     public string Facing; // UP DOWN LEFT RIGHT
     public int XPos;
@@ -29,5 +32,29 @@ public class ObjectStats : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Regen()
+    {
+        if (Type == "Player")
+        {
+            RegenCount++;
+            if (RegenCount >= RegenBase - RegenModifier)
+            {
+                RegenCount = 0;
+                if (Mana < MaxMana)
+                {
+                    Mana++;
+                }
+                else if (Health < MaxHealth)
+                {
+                    Health++;
+                }
+                else
+                {
+                    RegenCount = RegenBase - RegenModifier - 1;
+                }
+            }
+        }
     }
 }
