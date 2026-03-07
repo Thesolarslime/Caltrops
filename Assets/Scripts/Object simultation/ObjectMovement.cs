@@ -104,6 +104,7 @@ public class ObjectMovement : MonoBehaviour
             }
             Stats.XPos = (int)transform.position.x;
             Stats.YPos = (int)transform.position.y;
+            if (Stats.Type == "Player") { Stats.Regen(); }
             Moving = false;
         }
         else

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2fde7c21a77f4444b8bd1146971765e6
+guid: 04cab65383fde68469a5fe57960e7aca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1234416467231346186
-    second: Health bar_0
+      213: 1600203285914990
+    second: Mana bar panel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 4
   spritePivot: {x: 0, y: 0.5}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 11, y: 11, z: 12, w: 12}
+  spriteBorder: {x: 9, y: 15, z: 9, w: 15}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1

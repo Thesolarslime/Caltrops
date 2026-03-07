@@ -33,6 +33,17 @@ public class ObjectStats : MonoBehaviour
     {
         
     }
+    public void EnforceMaxStats()
+    {
+        if (Health > MaxHealth)
+        {
+            Health = MaxHealth;
+        }
+        if (Mana > MaxMana)
+        {
+            Mana = MaxMana;
+        }
+    }
 
     public void Regen()
     {
