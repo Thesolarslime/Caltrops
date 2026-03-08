@@ -16,13 +16,16 @@ public class ObjectMovement : MonoBehaviour
 
     public ObjectStats Stats;
 
+    private string[] Direction = { "UP", "RIGHT", "DOWN", "LEFT", "UP", "RIGHT", "DOWN", "LEFT", "UP", "RIGHT", "DOWN", "LEFT" };
+    private Vector2[] DirectionVectors = { new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0) };
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Stats = GetComponent<ObjectStats>();
         Stats.XPos = (int)transform.position.x;
         Stats.YPos = (int)transform.position.y;
-        EnemyMovement();
+        if (Stats.Type == "Enemy") { EnemyMovement(); }
     }
 
     // Update is called once per frame
@@ -33,7 +36,31 @@ public class ObjectMovement : MonoBehaviour
 
     public void MoveObject(string Direction, int Distance)
     {
-        StartCoroutine(Movement(Direction, Distance));
+        RaycastHit2D Hit = Physics2D.Raycast(new Vector2(Stats.XPos, Stats.YPos) + (DirectionVectors[Stats.GetFacingDirection(Direction)] * Distance), DirectionVectors[Stats.GetFacingDirection(Direction)], 0.45f);
+        bool ShouldMove = true;
+
+        if (Hit.collider != null)
+        {
+            if (Hit.collider.GetComponent<ObjectStats>() != null)
+            {
+                ObjectStats HitStats = Hit.collider.GetComponent<ObjectStats>();
+                switch (HitStats.Type)
+                {
+                    case "Wall":
+                        StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
+                    case "Enemy":
+                        StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
+                    case "Player":
+                        StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
+                        if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
+                        break;
+                    case "Trap":
+                        StartCoroutine(Movement(Direction, Distance)); ShouldMove = false; break;
+
+                }
+            }
+        }
+        if (ShouldMove) { StartCoroutine(Movement(Direction, Distance)); }
     }
 
     private IEnumerator Movement(string Direction, int Distance)
@@ -41,10 +68,8 @@ public class ObjectMovement : MonoBehaviour
         if (!Moving)
         {
             Moving = true;
-            //Stats.XPos = (int)transform.position.x;
-            //Stats.YPos = (int)transform.position.y;
             Stats.Facing = Direction;
-            Debug.Log("Time to move" +  Direction + " by " + Distance);
+            //Debug.Log("Time to move" +  Direction + " by " + Distance);
             if (Stats.Type != "Player")
             {
                 switch (Direction)
@@ -114,6 +139,56 @@ public class ObjectMovement : MonoBehaviour
             Stats.XPos = (int)transform.position.x;
             Stats.YPos = (int)transform.position.y;
             if (Stats.Type == "Player") { Stats.Regen(); }
+            Moving = false;
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    private IEnumerator MoveBump(string Direction, int Distance) // The animation for bumping into a wall or an enemy attacking in melee.
+    {
+        if (!Moving)
+        {
+            Moving = true;
+            Stats.Facing = Direction;
+            switch (Direction)
+            {
+                case "UP":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.2f, 0);
+                    break;
+                case "DOWN":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.2f, 0);
+                    break;
+                case "LEFT":
+                    transform.position = new Vector3(Stats.XPos - Distance * 0.2f, Stats.YPos, 0);
+                    break;
+                case "RIGHT":
+                    transform.position = new Vector3(Stats.XPos + Distance * 0.2f, Stats.YPos, 0);
+                    break;
+            }
+            yield return new WaitForSeconds(0.02f);
+            switch (Direction)
+            {
+                case "UP":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.1f, 0);
+                    break;
+                case "DOWN":
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.1f, 0);
+                    break;
+                case "LEFT":
+                    transform.position = new Vector3(Stats.XPos - Distance * 0.1f, Stats.YPos, 0);
+                    break;
+                case "RIGHT":
+                    transform.position = new Vector3(Stats.XPos + Distance * 0.1f, Stats.YPos, 0);
+                    break;
+            }
+            yield return new WaitForSeconds(0.02f);
+            transform.position = new Vector3(Stats.XPos, Stats.YPos, 0);
+
+            Stats.XPos = (int)transform.position.x;
+            Stats.YPos = (int)transform.position.y;
             Moving = false;
         }
         else
@@ -208,6 +283,8 @@ public class ObjectMovement : MonoBehaviour
                 break;
             case "BACK":
                 MoveObject(Stats.Facing, -1);
+                break;
+            case "WAIT":
                 break;
         }
         yield return new WaitForSeconds(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown));

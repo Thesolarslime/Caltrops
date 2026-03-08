@@ -1,10 +1,11 @@
 using System.Globalization;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class ObjectStats : MonoBehaviour
 {
     public string Name;
-    public string Type; //player, enemy, wall, trap, item
+    public string Type; //Player, Enemy, Wall, Trap, Item
 
     public int Health;
     public int MaxHealth;
@@ -18,9 +19,14 @@ public class ObjectStats : MonoBehaviour
     public int RegenModifier; // PLAYER ONLY, base 0, deducted from RegenBase to get the number of times the player moves before they regen.
     public int RegenCount; // PLAYER ONLY, this goes up when the player moves and when it reaches RegenBase-RegenModifier the player regens and it resets to 0
 
+    public int EnemyMeleeDamage; // how much damage an enemy deals on a normal attack
+
     public string Facing; // UP DOWN LEFT RIGHT
+    public int FacingNumber; // A numerical version of which way you're facing, use 4 for up, 5 for right, 6 for down, and 7 for left. 0-3 and 8-11 also follow this pattern, thats for spinning related mechanics.
     public int XPos;
     public int YPos;
+
+    [SerializeField] private Animator CameraHurtAnimation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,7 +37,17 @@ public class ObjectStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        switch (Facing) // set the number for which direction this is facing based on the string version
+        {
+            case "UP":
+                FacingNumber = 4; break;
+            case "RIGHT":
+                FacingNumber = 5; break;
+            case "DOWN":
+                FacingNumber = 6; break;
+            case "LEFT":
+                FacingNumber = 7; break;
+        }
     }
     public void EnforceMaxStats()
     {
@@ -43,6 +59,13 @@ public class ObjectStats : MonoBehaviour
         {
             Mana = MaxMana;
         }
+    }
+
+    public void TakeDamage(int Damage)
+    {
+        Health -= Damage; // MAKE THIS BETTER LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        if (Type == "Player") { CameraHurtAnimation.SetTrigger("Hurt"); }
     }
 
     public void Regen()
@@ -67,5 +90,21 @@ public class ObjectStats : MonoBehaviour
                 }
             }
         }
+    }
+
+    public int GetFacingDirection(string Direction)
+    {
+        switch (Direction)
+        {
+            case "UP":
+                return 4;
+            case "RIGHT":
+                return 5;
+            case "DOWN":
+                return 6;
+            case "LEFT":
+                return 7;
+        }
+        return 4;
     }
 }
