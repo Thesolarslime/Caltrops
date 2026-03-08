@@ -10,19 +10,25 @@ public class ObjectMovement : MonoBehaviour
     public float BaseMovementCooldown = 1.1f; // the base time to wait at a speed of 5 before the player can move again
     public float SpeedIncrementOnMovementCooldown = 0.2f; // the amount a difference of 1 in the speed stat alters the cooldown
 
+    private int EnemyPathCount = 0;
+    public string[] EnemyPath; // an array with instructions the enemy executes in order one every time it can move.
+    // UP, DOWN, LEFT, RIGHT, FORWARD, BACK, FLEFT, FRIGHT, WAIT
+
     public ObjectStats Stats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Stats = GetComponent<ObjectStats>();
+        Stats.XPos = (int)transform.position.x;
+        Stats.YPos = (int)transform.position.y;
+        EnemyMovement();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (IsControlledByPlayer) { PlayerControlsMovement(); }
-        else { EnemyMovement(); }
     }
 
     public void MoveObject(string Direction, int Distance)
@@ -39,51 +45,54 @@ public class ObjectMovement : MonoBehaviour
             //Stats.YPos = (int)transform.position.y;
             Stats.Facing = Direction;
             Debug.Log("Time to move" +  Direction + " by " + Distance);
-            switch (Direction)
+            if (Stats.Type != "Player")
             {
-                case "UP":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos + 0.1f, 0);
-                    break;
-                case "DOWN":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos - 0.1f, 0);
-                    break;
-                case "LEFT":
-                    transform.position = new Vector3(Stats.XPos - 0.1f, Stats.YPos, 0);
-                    break;
-                case "RIGHT":
-                    transform.position = new Vector3(Stats.XPos + 0.1f, Stats.YPos, 0);
-                    break;
+                switch (Direction)
+                {
+                    case "UP":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.1f, 0);
+                        break;
+                    case "DOWN":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.1f, 0);
+                        break;
+                    case "LEFT":
+                        transform.position = new Vector3(Stats.XPos - Distance * 0.1f, Stats.YPos, 0);
+                        break;
+                    case "RIGHT":
+                        transform.position = new Vector3(Stats.XPos + Distance * 0.1f, Stats.YPos, 0);
+                        break;
+                }
+                yield return new WaitForSeconds(0.05f);
             }
-            yield return new WaitForSeconds(0.02f);
             switch (Direction)
             {
                 case "UP":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.7f, 0);
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.8f, 0);
                     break;
                 case "DOWN":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.7f, 0);
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.8f, 0);
                     break;
                 case "LEFT":
-                    transform.position = new Vector3(Stats.XPos - Distance * 0.7f, Stats.YPos, 0);
+                    transform.position = new Vector3(Stats.XPos - Distance * 0.8f, Stats.YPos, 0);
                     break;
                 case "RIGHT":
-                    transform.position = new Vector3(Stats.XPos + Distance * 0.7f, Stats.YPos, 0);
+                    transform.position = new Vector3(Stats.XPos + Distance * 0.8f, Stats.YPos, 0);
                     break;
             }
             yield return new WaitForSeconds(0.03f);
             switch (Direction)
             {
                 case "UP":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.9f, 0);
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.92f, 0);
                     break;
                 case "DOWN":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.9f, 0);
+                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.92f, 0);
                     break;
                 case "LEFT":
-                    transform.position = new Vector3(Stats.XPos - Distance * 0.9f, Stats.YPos, 0);
+                    transform.position = new Vector3(Stats.XPos - Distance * 0.92f, Stats.YPos, 0);
                     break;
                 case "RIGHT":
-                    transform.position = new Vector3(Stats.XPos + Distance * 0.9f, Stats.YPos, 0);
+                    transform.position = new Vector3(Stats.XPos + Distance * 0.92f, Stats.YPos, 0);
                     break;
             }
             yield return new WaitForSeconds(0.04f);
@@ -170,6 +179,38 @@ public class ObjectMovement : MonoBehaviour
 
     private void EnemyMovement()
     {
+        if (!MovementOnCooldown)
+        {
+            StartCoroutine(EnemyActions(EnemyPath[EnemyPathCount]));
+            EnemyPathCount++;
+            if (EnemyPathCount >= EnemyPath.Length) { EnemyPathCount = 0; }
+        }
+    }
 
+    private IEnumerator EnemyActions(string Act)
+    {
+        switch (Act)
+        {
+            case "LEFT":
+                MoveObject("LEFT", 1);
+                break;
+            case "RIGHT":
+                MoveObject("RIGHT", 1);
+                break;
+            case "UP":
+                MoveObject("UP", 1);
+                break;
+            case "DOWN":
+                MoveObject("DOWN", 1);
+                break;
+            case "FORWARD":
+                MoveObject(Stats.Facing, 1);
+                break;
+            case "BACK":
+                MoveObject(Stats.Facing, -1);
+                break;
+        }
+        yield return new WaitForSeconds(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown));
+        EnemyMovement();
     }
 }
