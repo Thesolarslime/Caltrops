@@ -55,7 +55,10 @@ public class ObjectMovement : MonoBehaviour
                         if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
                         break;
                     case "Trap":
-                        StartCoroutine(Movement(Direction, Distance)); ShouldMove = false; break;
+                        StartCoroutine(Movement(Direction, Distance)); ShouldMove = false;
+                        if (Stats.Type == "Player") { Hit.collider.GetComponent<TrapManager>().TriggerTrap(true, Stats); }
+                        else { Hit.collider.GetComponent<TrapManager>().TriggerTrap(false, Stats); }
+                        break;
 
                 }
             }
