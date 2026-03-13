@@ -20,11 +20,14 @@ public class ObjectStats : MonoBehaviour
     public int RegenCount; // PLAYER ONLY, this goes up when the player moves and when it reaches RegenBase-RegenModifier the player regens and it resets to 0
 
     public int EnemyMeleeDamage; // how much damage an enemy deals on a normal attack
+    public bool EnemyAttacksInMelee; // if true, the enemy will attempt to melee attack the player if they move next to them
 
     public string Facing; // UP DOWN LEFT RIGHT
     public int FacingNumber; // A numerical version of which way you're facing, use 4 for up, 5 for right, 6 for down, and 7 for left. 0-3 and 8-11 also follow this pattern, thats for spinning related mechanics.
     public int XPos;
     public int YPos;
+
+    public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 and above are for particles the object uses for other things
 
     [SerializeField] private Animator CameraHurtAnimation;
 

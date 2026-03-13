@@ -7,6 +7,7 @@ public class ObjectMovement : MonoBehaviour
     public bool IsPlayer;
     public bool MovementOnCooldown;
     private bool Moving; // true while the move animation is happening
+    public bool EnemyMeleeAttacking; // true while an enemy is interrupting it's path to melee attack the player.
     public float BaseMovementCooldown = 1.1f; // the base time to wait at a speed of 5 before the player can move again
     public float SpeedIncrementOnMovementCooldown = 0.2f; // the amount a difference of 1 in the speed stat alters the cooldown
 
@@ -44,7 +45,7 @@ public class ObjectMovement : MonoBehaviour
             if (Hit.collider.GetComponent<ObjectStats>() != null)
             {
                 ObjectStats HitStats = Hit.collider.GetComponent<ObjectStats>();
-                switch (HitStats.Type)
+                switch (HitStats.Type) // Decides what to do based on what this object is about to move into
                 {
                     case "Wall":
                         StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
@@ -259,9 +260,17 @@ public class ObjectMovement : MonoBehaviour
     {
         if (!MovementOnCooldown)
         {
-            StartCoroutine(EnemyActions(EnemyPath[EnemyPathCount]));
-            EnemyPathCount++;
-            if (EnemyPathCount >= EnemyPath.Length) { EnemyPathCount = 0; }
+            if (EnemyMeleeAttacking)
+            {
+                StartCoroutine(EnemyActions("FORWARD"));
+                EnemyMeleeAttacking = false;
+            }
+            else
+            {
+                StartCoroutine(EnemyActions(EnemyPath[EnemyPathCount]));
+                EnemyPathCount++;
+                if (EnemyPathCount >= EnemyPath.Length) { EnemyPathCount = 0; }
+            } 
         }
     }
 
@@ -292,5 +301,12 @@ public class ObjectMovement : MonoBehaviour
         }
         yield return new WaitForSeconds(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown));
         EnemyMovement();
+    }
+
+    public void InterruptToAttackPlayer(string Direction)
+    {
+        EnemyMeleeAttacking = true;
+        Stats.Facing = Direction;
+        Stats.ObjectParticles[0].Play(); // play the surprise particle
     }
 }
