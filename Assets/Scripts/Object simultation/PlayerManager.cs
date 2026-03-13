@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
         CheckNeighbouringTiles();
     }
 
-    public void CheckNeighbouringTiles()
+    public void CheckNeighbouringTiles() // checks the 4 tiles around and tells the appropriate enemies to attack
     {
         RaycastHit2D Hit = Physics2D.Raycast(new Vector2(Stats.XPos, Stats.YPos) + new Vector2(0, 1), Vector2.up, 0.45f);
         if (Hit.collider != null)

@@ -27,7 +27,7 @@ public class ObjectStats : MonoBehaviour
     public int XPos;
     public int YPos;
 
-    public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 and above are for particles the object uses for other things
+    public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 is for bump into something particle 3 and above are for particles the object uses for other things
 
     [SerializeField] private Animator CameraHurtAnimation;
 

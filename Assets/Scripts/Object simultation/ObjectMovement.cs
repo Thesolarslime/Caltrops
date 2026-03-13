@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectMovement : MonoBehaviour
@@ -7,6 +8,7 @@ public class ObjectMovement : MonoBehaviour
     public bool IsPlayer;
     public bool MovementOnCooldown;
     private bool Moving; // true while the move animation is happening
+    private bool GoBack; // becomes true temporarily mid-move when an enemy needs to go back instead.
     public bool EnemyMeleeAttacking; // true while an enemy is interrupting it's path to melee attack the player.
     public float BaseMovementCooldown = 1.1f; // the base time to wait at a speed of 5 before the player can move again
     public float SpeedIncrementOnMovementCooldown = 0.2f; // the amount a difference of 1 in the speed stat alters the cooldown
@@ -16,6 +18,7 @@ public class ObjectMovement : MonoBehaviour
     // UP, DOWN, LEFT, RIGHT, FORWARD, BACK, FLEFT, FRIGHT, WAIT
 
     public ObjectStats Stats;
+    private BoxCollider2D ObjectCollider;
 
     private string[] Direction = { "UP", "RIGHT", "DOWN", "LEFT", "UP", "RIGHT", "DOWN", "LEFT", "UP", "RIGHT", "DOWN", "LEFT" };
     private Vector2[] DirectionVectors = { new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0) };
@@ -109,45 +112,109 @@ public class ObjectMovement : MonoBehaviour
                     break;
             }
             yield return new WaitForSeconds(0.03f);
-            switch (Direction)
+            if (GoBack) // if an enemy is about to bump into another enemy at the same time, go back
             {
-                case "UP":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.92f, 0);
-                    break;
-                case "DOWN":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.92f, 0);
-                    break;
-                case "LEFT":
-                    transform.position = new Vector3(Stats.XPos - Distance * 0.92f, Stats.YPos, 0);
-                    break;
-                case "RIGHT":
-                    transform.position = new Vector3(Stats.XPos + Distance * 0.92f, Stats.YPos, 0);
-                    break;
+                Stats.ObjectParticles[2].Play();
+                yield return new WaitForSeconds(0.02f);
+                switch (Direction)
+                {
+                    case "UP":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.1f, 0);
+                        break;
+                    case "DOWN":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.1f, 0);
+                        break;
+                    case "LEFT":
+                        transform.position = new Vector3(Stats.XPos - Distance * 0.1f, Stats.YPos, 0);
+                        break;
+                    case "RIGHT":
+                        transform.position = new Vector3(Stats.XPos + Distance * 0.1f, Stats.YPos, 0);
+                        break;
+                }
+                yield return new WaitForSeconds(0.03f);
+                switch (Direction)
+                {
+                    case "UP":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos, 0);
+                        break;
+                    case "DOWN":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos, 0);
+                        break;
+                    case "LEFT":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos, 0);
+                        break;
+                    case "RIGHT":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos, 0);
+                        break;
+                }
+                Stats.XPos = (int)transform.position.x;
+                Stats.YPos = (int)transform.position.y;
+                GoBack = false;
+                Moving = false;
             }
-            yield return new WaitForSeconds(0.04f);
-            switch (Direction)
+            else
             {
-                case "UP":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance, 0);
-                    break;
-                case "DOWN":
-                    transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance, 0);
-                    break;
-                case "LEFT":
-                    transform.position = new Vector3(Stats.XPos - Distance, Stats.YPos, 0);
-                    break;
-                case "RIGHT":
-                    transform.position = new Vector3(Stats.XPos + Distance, Stats.YPos, 0);
-                    break;
+                switch (Direction)
+                {
+                    case "UP":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance * 0.92f, 0);
+                        break;
+                    case "DOWN":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance * 0.92f, 0);
+                        break;
+                    case "LEFT":
+                        transform.position = new Vector3(Stats.XPos - Distance * 0.92f, Stats.YPos, 0);
+                        break;
+                    case "RIGHT":
+                        transform.position = new Vector3(Stats.XPos + Distance * 0.92f, Stats.YPos, 0);
+                        break;
+                }
+                yield return new WaitForSeconds(0.04f);
+                switch (Direction)
+                {
+                    case "UP":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos + Distance, 0);
+                        break;
+                    case "DOWN":
+                        transform.position = new Vector3(Stats.XPos, Stats.YPos - Distance, 0);
+                        break;
+                    case "LEFT":
+                        transform.position = new Vector3(Stats.XPos - Distance, Stats.YPos, 0);
+                        break;
+                    case "RIGHT":
+                        transform.position = new Vector3(Stats.XPos + Distance, Stats.YPos, 0);
+                        break;
+                }
+                Stats.XPos = (int)transform.position.x;
+                Stats.YPos = (int)transform.position.y;
+                if (Stats.Type == "Player") { Stats.Regen(); }
+                Moving = false;
             }
-            Stats.XPos = (int)transform.position.x;
-            Stats.YPos = (int)transform.position.y;
-            if (Stats.Type == "Player") { Stats.Regen(); }
-            Moving = false;
+                
         }
         else
         {
             yield return new WaitForSeconds(0.01f);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<ObjectMovement>() != null && collision.gameObject.GetComponent<ObjectStats>() != null)
+        {
+            if (collision.gameObject.GetComponent<ObjectStats>().Type == "Enemy" && Stats.Type == "Enemy")
+            {
+                GoBack = false;
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<ObjectMovement>() != null && collision.gameObject.GetComponent<ObjectStats>() != null)
+        {
+            if (collision.gameObject.GetComponent<ObjectStats>().Type == "Enemy" && Moving && Stats.Type == "Enemy")
+            {
+                GoBack = true;
+            }
         }
     }
 
