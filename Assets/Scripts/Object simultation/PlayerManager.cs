@@ -6,6 +6,9 @@ public class PlayerManager : MonoBehaviour
     private ObjectStats Stats;
     private ObjectMovement Movement;
 
+    public GameObject TileSelect;
+    public GameObject TileSelectMask;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +20,11 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         CheckNeighbouringTiles();
+    }
+
+    public void CaltropCasting()
+    {
+
     }
 
     public void CheckNeighbouringTiles() // checks the 4 tiles around and tells the appropriate enemies to attack
