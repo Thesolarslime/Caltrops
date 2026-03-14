@@ -62,6 +62,7 @@ public class ObjectMovement : MonoBehaviour
                         StartCoroutine(Movement(Direction, Distance)); ShouldMove = false;
                         if (Stats.Type == "Player") { Hit.collider.GetComponent<TrapManager>().TriggerTrap(true, Stats); }
                         else { Hit.collider.GetComponent<TrapManager>().TriggerTrap(false, Stats); }
+                        Hit.collider.GetComponent<TrapManager>().MostRecentTriggerer = Stats;
                         break;
 
                 }
@@ -72,7 +73,7 @@ public class ObjectMovement : MonoBehaviour
 
     private IEnumerator Movement(string Direction, int Distance)
     {
-        if (!Moving)
+        if (!Moving && !Stats.Dead)
         {
             Moving = true;
             Stats.Facing = Direction;
