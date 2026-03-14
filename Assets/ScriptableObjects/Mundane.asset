@@ -16,10 +16,10 @@ MonoBehaviour:
   Description: There's nothing special about them, just a regular bunch of caltrops.
   Icon: {fileID: 0}
   Tile: {fileID: 0}
-  DirectionPlaced: 
-  DistancePlaced: 0
-  CastTime: 0
-  Damage: 0
-  Durability: 0
-  Infliction: 
+  DirectionPlaced: Forward
+  DistancePlaced: 1
+  CastTime: 1
+  Damage: 3
+  Durability: 1
+  Infliction: None
   InflictionDuration: 0
