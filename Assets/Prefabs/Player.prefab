@@ -130,8 +130,8 @@ MonoBehaviour:
   ObjectParticles:
   - {fileID: 945362127007902019}
   - {fileID: 5463805711627519779}
-  - {fileID: 3643341746014368916}
   - {fileID: 3464177426573880339}
+  - {fileID: 3643341746014368916}
   CameraHurtAnimation: {fileID: 0}
 --- !u!114 &2504628790250776138
 MonoBehaviour:

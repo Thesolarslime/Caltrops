@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections;
 using System.Globalization;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -27,14 +29,18 @@ public class ObjectStats : MonoBehaviour
     public int XPos;
     public int YPos;
 
-    public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 is for bump into something particle 3 and above are for particles the object uses for other things
+    public bool Dead;
+
+    public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 is for hurt particle, 3 is for bump into something particle 4 and above are for particles the object uses for other things
+    private SpriteRenderer ObjectSprite;
 
     [SerializeField] private Animator CameraHurtAnimation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        ObjectSprite = GetComponent<SpriteRenderer>();
+        Dead = false;
     }
 
     // Update is called once per frame
@@ -66,9 +72,38 @@ public class ObjectStats : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
-        Health -= Damage; // MAKE THIS BETTER LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Health -= Damage;
 
-        if (Type == "Player") { CameraHurtAnimation.SetTrigger("Hurt"); }
+        if (Health > 0)
+        {
+            if (Type == "Player") { CameraHurtAnimation.SetTrigger("Hurt"); }
+            ObjectParticles[2].Play();
+        }
+        else
+        {
+            StartCoroutine(Die());
+        }
+    }
+
+    public IEnumerator Die()
+    {
+        Dead = true;
+        if (Type != "Player")
+        {
+            ObjectParticles[1].Play();
+            ObjectSprite.enabled = false;
+            yield return new WaitForSeconds(1);
+            Destroy(gameObject);
+        }
+        else
+        {
+            ObjectParticles[1].Play();
+            ObjectParticles[2].Play();
+            ObjectSprite.enabled = false;
+            CameraHurtAnimation.SetTrigger("Hurt");
+            yield return new WaitForSeconds(1); //MAKE THE PLAYER DIE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Destroy(gameObject);
+        }
     }
 
     public void Regen()

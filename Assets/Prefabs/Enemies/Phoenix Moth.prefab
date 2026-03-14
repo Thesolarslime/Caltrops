@@ -129,6 +129,7 @@ MonoBehaviour:
   - {fileID: 8286424401820021544}
   - {fileID: 1406442751204208765}
   - {fileID: 1406442751204208765}
+  - {fileID: 1406442751204208765}
   CameraHurtAnimation: {fileID: 0}
 --- !u!114 &620842049205230689
 MonoBehaviour:
