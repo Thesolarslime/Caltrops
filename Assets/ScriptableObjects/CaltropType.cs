@@ -4,6 +4,7 @@ using UnityEngine;
 public class CaltropType : ScriptableObject
 {
     public string Name;
+    public GameObject Prefab;
     public string Description;
     public Sprite Icon; // what it look like in ui
     public Sprite Tile; // what it look like on the ground
@@ -14,4 +15,5 @@ public class CaltropType : ScriptableObject
     public int Durability; // how many times a caltrop can be stepped on before it dies
     public string Infliction; // "None" for no effect, Stun, Disorient, 
     public float InflictionDuration; // duration in seconds of the infliction effect if there is one
+    public bool PlayerImmune; // if true, the player won't trigger the caltrop when stepping on it
 }

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Mundane
   m_EditorClassIdentifier: 
   Name: Mundane
+  Prefab: {fileID: 1266272448489078347, guid: e3514c1ed2a3df749bd1793278ea1dea, type: 3}
   Description: There's nothing special about them, just a regular bunch of caltrops.
-  Icon: {fileID: 0}
-  Tile: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 699ad492a3c32de4cab1aa24ebf863b5, type: 3}
+  Tile: {fileID: 21300000, guid: 699ad492a3c32de4cab1aa24ebf863b5, type: 3}
   DirectionPlaced: Forward
   DistancePlaced: 1
   CastTime: 1
@@ -23,3 +24,4 @@ MonoBehaviour:
   Durability: 1
   Infliction: None
   InflictionDuration: 0
+  PlayerImmune: 0
