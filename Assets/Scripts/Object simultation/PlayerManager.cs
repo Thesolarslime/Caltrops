@@ -112,7 +112,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
         CastAmountCanIncrease = true;
     }
