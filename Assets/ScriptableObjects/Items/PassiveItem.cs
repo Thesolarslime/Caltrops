@@ -10,6 +10,6 @@ public class PassiveItem : ScriptableObject
     public int MaxManaMod;
     public int ArmourMod;
     public int SpeedMod;
-    public int CastTimeMod;
+    public float CastTimeMod;
     public int RegenMod;
 }
