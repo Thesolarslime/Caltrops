@@ -3,8 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitches : MonoBehaviour
 {
+    private GameManager GameManager;
     public void StartGame()
     {
-        SceneManager.LoadScene("Level1");
+        GameManager = FindAnyObjectByType<GameManager>();
+        GameManager.ChangeLevel("Level1");
     }
 }

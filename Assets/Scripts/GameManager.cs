@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         //store the player's stats here
 
         HasPlayer = false;
-        SceneManager.LoadScene(Scene); //THIS SHOULD GO TO A LOADING SCENE THAT CHECKS THE GAMEMANAGERS SCENETOGOTO STRING AND THEN LOADS THE RIGHT ONE
+        SceneToGoTo = Scene;
+        SceneManager.LoadScene("Loading"); //THIS SHOULD GO TO A LOADING SCENE THAT CHECKS THE GAMEMANAGERS SCENETOGOTO STRING AND THEN LOADS THE RIGHT ONE
     }
 }

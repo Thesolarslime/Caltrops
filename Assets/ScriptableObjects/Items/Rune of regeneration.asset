@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fbaa4705975554f9d5f6ad8346f0bd, type: 3}
   m_Name: Rune of regeneration
   m_EditorClassIdentifier: 
-  Name: 
-  Image: {fileID: 0}
+  Name: Rune of Regeneration
+  Description: Reduce your regen cooldown by 1 move
+  Image: {fileID: 21300000, guid: bdb261c55bfe17145af8013d488bf0e6, type: 3}
   MaxHealthMod: 0
   MaxManaMod: 0
   ArmourMod: 0
   SpeedMod: 0
   CastTimeMod: 0
-  RegenMod: 0
+  RegenMod: 1
+  OnPickupXP: 0
+  OnPickupUselessMarble: 0

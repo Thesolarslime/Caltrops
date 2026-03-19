@@ -4,6 +4,7 @@ using UnityEngine;
 public class PassiveItem : ScriptableObject
 {
     public string Name;
+    public string Description;
     public Sprite Image;
 
     public int MaxHealthMod;
@@ -12,4 +13,7 @@ public class PassiveItem : ScriptableObject
     public int SpeedMod;
     public float CastTimeMod;
     public int RegenMod;
+
+    public int OnPickupXP;
+    public bool OnPickupUselessMarble;
 }

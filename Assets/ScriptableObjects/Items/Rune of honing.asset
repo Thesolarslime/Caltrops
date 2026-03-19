@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fbaa4705975554f9d5f6ad8346f0bd, type: 3}
   m_Name: Rune of honing
   m_EditorClassIdentifier: 
-  Name: 
-  Image: {fileID: 0}
+  Name: Rune of honing
+  Description: Reduce your caltrop casting time by 0.2 seconds.
+  Image: {fileID: 21300000, guid: 197d4daabca1c2a49b95828f3a096273, type: 3}
   MaxHealthMod: 0
   MaxManaMod: 0
   ArmourMod: 0
   SpeedMod: 0
-  CastTimeMod: 0
+  CastTimeMod: -0.2
   RegenMod: 0
+  OnPickupXP: 0
+  OnPickupUselessMarble: 0

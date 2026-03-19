@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rune of agility
   m_EditorClassIdentifier: 
   Name: Rune of agility
+  Description: Gain 1 move speed.
   Image: {fileID: 21300000, guid: 4df7f4c427417d84baab7b2010db1077, type: 3}
   MaxHealthMod: 0
   MaxManaMod: 0
@@ -20,3 +21,5 @@ MonoBehaviour:
   SpeedMod: 1
   CastTimeMod: 0
   RegenMod: 0
+  OnPickupXP: 0
+  OnPickupUselessMarble: 0
