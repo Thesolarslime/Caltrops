@@ -16,11 +16,17 @@ public class PlayerManager : MonoBehaviour
     private bool CastAmountCanIncrease;
     public float CastTimeFulfilled;
 
+    public GameManager GameManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Stats = GetComponent<ObjectStats>();
         Movement = GetComponent<ObjectMovement>();
+
+        GameManager = FindAnyObjectByType<GameManager>();
+
+        GameManager.GetPlayer(this);
 
         CastAmountCanIncrease = true;
     }

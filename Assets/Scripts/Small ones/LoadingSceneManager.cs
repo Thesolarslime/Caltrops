@@ -24,27 +24,35 @@ public class LoadingSceneManager : MonoBehaviour
         {
             case "Level1":
                 Text.text = "LEVEL 1\n\nTHE BOX";
+                GameManager.CurrentLevelID = 1;
                 break;
             case "Level2":
                 Text.text = "LEVEL 2\n\nINNER RING";
+                GameManager.CurrentLevelID = 2;
                 break;
             case "Level3":
                 Text.text = "LEVEL 3\n\nMIDDLE RING";
+                GameManager.CurrentLevelID = 4;
                 break;
             case "Level4":
                 Text.text = "LEVEL 4\n\nOUTER RING";
+                GameManager.CurrentLevelID = 6;
                 break;
             case "MainMenu":
                 Text.text = "ESCAPE FAILED";
+                GameManager.CurrentLevelID = 0;
                 break;
             case "Boss1":
                 Text.text = "THE ROGUE";
+                GameManager.CurrentLevelID = 3;
                 break;
             case "Boss2":
                 Text.text = "THE ARCHMAGE";
+                GameManager.CurrentLevelID = 5;
                 break;
             case "Boss3":
                 Text.text = "THE HERO";
+                GameManager.CurrentLevelID = 7;
                 break;
         }
     }

@@ -90,6 +90,25 @@ public class TrapManager : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
                 Sprite.sprite = TrapSprites[0];
                 break;
+            case "Door":
+                switch (FindAnyObjectByType<GameManager>().CurrentLevelID)
+                {
+                    case 1:
+                        FindAnyObjectByType<GameManager>().ChangeLevel("Level2"); break;
+                    case 2:
+                        FindAnyObjectByType<GameManager>().ChangeLevel("Boss1"); break;
+                    case 3:
+                        FindAnyObjectByType<GameManager>().ChangeLevel("Level3"); break;
+                    case 4:
+                        FindAnyObjectByType<GameManager>().ChangeLevel("Boss2"); break;
+                    case 5:
+                        FindAnyObjectByType<GameManager>().ChangeLevel("Level4"); break;
+                    case 6:
+                        FindAnyObjectByType<GameManager>().ChangeLevel("Boss3"); break;
+                    case 7:
+                        FindAnyObjectByType<GameManager>().ChangeLevel("Win"); break;
+                }
+                break;
         }
     }
 }

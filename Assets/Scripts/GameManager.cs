@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public bool HasPlayer;
     public string SceneToGoTo;
+    public int CurrentLevelID;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,15 +43,35 @@ public class GameManager : MonoBehaviour
         PlayerMovement = Player.GetComponent<ObjectMovement>();
         HasPlayer = true;
 
-        //give the player their stats back here if it is not 1st level scene or something
+        if (CurrentLevelID > 1) { GiveStats(); }
     }
 
     public void ChangeLevel(string Scene)
     {
-        //store the player's stats here
+        if (HasPlayer) { StoreStats(); }
 
         HasPlayer = false;
         SceneToGoTo = Scene;
         SceneManager.LoadScene("Loading"); //THIS SHOULD GO TO A LOADING SCENE THAT CHECKS THE GAMEMANAGERS SCENETOGOTO STRING AND THEN LOADS THE RIGHT ONE
+    }
+
+    public void StoreStats()
+    {
+        Health = PlayerStats.Health;
+        MaxHealth = PlayerStats.MaxHealth;
+        Mana = PlayerStats.Mana;
+        MaxMana = PlayerStats.MaxMana;
+        SelectedCaltrop = Player.SelectedCaltrop;
+        CaltropCycle = Player.CaltropCycle;
+    }
+
+    public void GiveStats()
+    {
+        PlayerStats.Health = Health;
+        PlayerStats.MaxHealth = MaxHealth;
+        PlayerStats.Mana = Mana;
+        PlayerStats.MaxMana = MaxMana;
+        Player.SelectedCaltrop = SelectedCaltrop;
+        Player.CaltropCycle = CaltropCycle;
     }
 }
