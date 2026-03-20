@@ -5441,10 +5441,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.021786492
-    y: -0.058139533
-    width: 1.0457516
-    height: 1.1162791
+    x: -0.012820514
+    y: -0.045454547
+    width: 1.0256411
+    height: 1.0909091
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -15292,6 +15292,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -270, y: 0, z: 0}
+--- !u!1 &1915857436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915857437}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1915857437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915857436}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.31126368, y: -0.4386232, z: 0.000807439}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928241321
 GameObject:
   m_ObjectHideFlags: 0
@@ -15380,6 +15411,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e9b25c7d134114a956f52dd73189a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 0
+  MaxHealth: 0
+  Mana: 0
+  MaxMana: 0
+  XP: 0
+  Level: 0
+  SelectedCaltrop: 0
+  CaltropCycle: []
+  PassiveItems: []
+  Player: {fileID: 0}
+  HasPlayer: 0
+  SceneToGoTo: 
+  CurrentLevelID: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -15393,3 +15437,4 @@ SceneRoots:
   - {fileID: 519408432}
   - {fileID: 1144160189}
   - {fileID: 1928241322}
+  - {fileID: 1915857437}
