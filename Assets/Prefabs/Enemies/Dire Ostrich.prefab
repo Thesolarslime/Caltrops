@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5440056374999485784}
   - component: {fileID: 2802072841933766882}
   m_Layer: 0
-  m_Name: Phoenix Moth
+  m_Name: Dire Ostrich
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c87fc6028b3ee344ab2a3fa17eeac3db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bc2f26ce369b4e64b93e3b9ef903bf22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,20 +106,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a68cc199a8f43645b0d464b25bd6f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Phoenix Moth
+  Name: Dire Ostrich
   Type: Enemy
-  Health: 1
-  MaxHealth: 1
+  Health: 10
+  MaxHealth: 10
   Armour: 0
   ArmourModifier: 0
   Mana: 0
   MaxMana: 0
-  Speed: 4
+  Speed: 8
   SpeedModifier: 0
   RegenBase: 0
   RegenModifier: 0
   RegenCount: 0
-  EnemyMeleeDamage: 1
+  EnemyMeleeDamage: 2
   EnemyAttacksInMelee: 1
   Facing: LEFT
   FacingNumber: 0
@@ -154,6 +154,10 @@ MonoBehaviour:
   - RIGHT
   - DOWN
   - LEFT
+  - UP
+  - LEFT
+  - DOWN
+  - RIGHT
   - UP
   Stats: {fileID: 0}
 --- !u!61 &8710758272435265117
@@ -218,8 +222,8 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 0.9490197, g: 0.73333335, b: 0.09411766, a: 1}
-  m_Intensity: 5
+  m_Color: {r: 0.48584908, g: 1, b: 0.7976563, a: 1}
+  m_Intensity: 4
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000

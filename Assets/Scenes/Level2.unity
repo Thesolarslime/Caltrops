@@ -165,6 +165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PossibleRooms:
   - {fileID: 7613306831255574135, guid: dbe80148686407b42b07def2a8ca30da, type: 3}
+  - {fileID: 7613306831255574135, guid: eee7d0879fedfea49a31b5f021bdf264, type: 3}
+  - {fileID: 7613306831255574135, guid: fa027967c3f9b874ab5771dc2f53e241, type: 3}
 --- !u!1 &332425553
 GameObject:
   m_ObjectHideFlags: 0
@@ -25212,10 +25214,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.045454543
-    y: -0.045454547
-    width: 1.090909
-    height: 1.0909091
+    x: 0.125
+    y: 0.1
+    width: 0.75000006
+    height: 0.8
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
