@@ -80,7 +80,6 @@ public class ObjectMovement : MonoBehaviour
             Moving = true;
             Stats.Facing = Direction;
             if (Stats.Type == "Player") { Sound.PlaySound(2, true, 0.3f); }
-            else { Sound.PlaySound(2, true, 0.1f); }
             //Debug.Log("Time to move" +  Direction + " by " + Distance);
             if (Stats.Type != "Player")
             {
@@ -100,6 +99,7 @@ public class ObjectMovement : MonoBehaviour
                         break;
                 }
                 yield return new WaitForSeconds(0.05f);
+                if (Stats.Type != "Player") { Sound.PlaySound(2, true, 0.1f); }
             }
             switch (Direction)
             {
