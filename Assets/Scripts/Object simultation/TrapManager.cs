@@ -54,7 +54,7 @@ public class TrapManager : MonoBehaviour
 
     public void TriggerTrap(bool PlayerTriggered, ObjectStats Triggerer)
     {
-        if (TrapHasAnimation) { TrapAnimator.SetTrigger("TrapTrigger"); }
+        if (TrapHasAnimation) { TrapAnimator.SetTrigger("TrapTrigger"); Sound.PlaySound(3, true, 0.8f); }
 
         if (PlayerTriggered || (!OnlyPlayerCanTrigger))
         {
@@ -83,6 +83,7 @@ public class TrapManager : MonoBehaviour
                 break;
             case "Spike trap":
                 Sprite.sprite = TrapSprites[1];
+                Sound.PlaySound(2, true, 0.8f);
                 if (MostRecentTriggerer.XPos == Stats.XPos && MostRecentTriggerer.YPos == Stats.YPos)
                 {
                     MostRecentTriggerer.TakeDamage(TrapDamage);

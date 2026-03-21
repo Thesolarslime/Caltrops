@@ -392,9 +392,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66f07764e9b179489b8e09cc581b256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sound: {fileID: 0}
   AudioClips:
+  - {fileID: 8300000, guid: ca9195a4898a1ca4f84dab085eff39e9, type: 3}
   - {fileID: 8300000, guid: 69c24f457e406d0498efe5ea2d68f3e6, type: 3}
-  - {fileID: 8300000, guid: 39abcfd86ccd6ae4ab0aaf5f69b6ec59, type: 3}
+  - {fileID: 8300000, guid: 7f4a154d57f5a874a9e5dbfd30b8c086, type: 3}
 --- !u!1001 &1068443550632278597
 PrefabInstance:
   m_ObjectHideFlags: 0

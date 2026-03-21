@@ -79,11 +79,15 @@ public class ObjectStats : MonoBehaviour
 
         if (Health > 0)
         {
+            if (Type == "Player") { Sound.PlaySound(Random.Range(0, 2), true, 0.6f); }
+            else { Sound.PlaySound(0, true, 0.5f); }
             if (Type == "Player") { CameraHurtAnimation.SetTrigger("Hurt"); }
             ObjectParticles[2].Play();
         }
         else
         {
+            if (Type == "Player") { Sound.PlaySound(3, true, 0.6f); }
+            else { Sound.PlaySound(1, true, 0.5f); }
             StartCoroutine(Die());
         }
     }
