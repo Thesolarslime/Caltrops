@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadingSceneManager : MonoBehaviour
 {
     private GameManager GameManager;
+    private AudioPlayer Sound;
 
     public TextMeshProUGUI Text;
 
@@ -14,6 +15,7 @@ public class LoadingSceneManager : MonoBehaviour
     void Start()
     {
         GameManager = FindAnyObjectByType<GameManager>();
+        Sound = GetComponent<AudioPlayer>();
         ChangeText();
         StartCoroutine(Loading());
     }
@@ -25,10 +27,12 @@ public class LoadingSceneManager : MonoBehaviour
             case "Level1":
                 Text.text = "LEVEL 1\n\nTHE BOX";
                 GameManager.CurrentLevelID = 1;
+                Sound.PlaySound(0, false, 1);
                 break;
             case "Level2":
                 Text.text = "LEVEL 2\n\nINNER RING";
                 GameManager.CurrentLevelID = 2;
+                Sound.PlaySound(1, false, 1);
                 break;
             case "Level3":
                 Text.text = "LEVEL 3\n\nMIDDLE RING";

@@ -18,6 +18,7 @@ public class ObjectMovement : MonoBehaviour
     // UP, DOWN, LEFT, RIGHT, FORWARD, BACK, FLEFT, FRIGHT, WAIT
 
     public ObjectStats Stats;
+    private AudioPlayer Sound;
     private BoxCollider2D ObjectCollider;
 
     private string[] Direction = { "UP", "RIGHT", "DOWN", "LEFT", "UP", "RIGHT", "DOWN", "LEFT", "UP", "RIGHT", "DOWN", "LEFT" };
@@ -27,6 +28,7 @@ public class ObjectMovement : MonoBehaviour
     void Start()
     {
         Stats = GetComponent<ObjectStats>();
+        Sound = GetComponent<AudioPlayer>();
         Stats.XPos = (int)transform.position.x;
         Stats.YPos = (int)transform.position.y;
         if (Stats.Type == "Enemy") { EnemyMovement(); }
@@ -77,6 +79,7 @@ public class ObjectMovement : MonoBehaviour
         {
             Moving = true;
             Stats.Facing = Direction;
+            if (Stats.Type == "Player") { Sound.PlaySound(0, true, 0.3f); }
             //Debug.Log("Time to move" +  Direction + " by " + Distance);
             if (Stats.Type != "Player")
             {

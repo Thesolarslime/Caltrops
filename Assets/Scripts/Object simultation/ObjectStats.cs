@@ -34,12 +34,15 @@ public class ObjectStats : MonoBehaviour
     public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 is for hurt particle, 3 is for bump into something particle 4 and above are for particles the object uses for other things
     private SpriteRenderer ObjectSprite;
 
+    private AudioPlayer Sound;
+
     [SerializeField] private Animator CameraHurtAnimation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ObjectSprite = GetComponent<SpriteRenderer>();
+        Sound = GetComponent<AudioPlayer>();
         Dead = false;
     }
 

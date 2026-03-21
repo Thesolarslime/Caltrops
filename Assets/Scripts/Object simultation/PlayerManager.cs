@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     private ObjectStats Stats;
     private ObjectMovement Movement;
+    private AudioPlayer Sound;
 
     public GameObject TileSelect;
     public GameObject TileSelectMask;
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     {
         Stats = GetComponent<ObjectStats>();
         Movement = GetComponent<ObjectMovement>();
+        Sound = GetComponent<AudioPlayer>();
 
         GameManager = FindAnyObjectByType<GameManager>();
 

@@ -6,6 +6,7 @@ public class TrapManager : MonoBehaviour
 {
     private ObjectStats Stats;
     private ObjectMovement Movement;
+    private AudioPlayer Sound;
     private SpriteRenderer Sprite;
     public CaltropType Caltrop;
 
@@ -26,6 +27,7 @@ public class TrapManager : MonoBehaviour
     {
         Stats = GetComponent<ObjectStats>();
         Movement = GetComponent<ObjectMovement>();
+        Sound = GetComponent<AudioPlayer>();
         Sprite = GetComponent<SpriteRenderer>();
 
         if (TrapHasAnimation) { TrapAnimator = GetComponent<Animator>(); }
