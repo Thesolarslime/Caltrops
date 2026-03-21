@@ -9,10 +9,4 @@ public class RoomLoader : MonoBehaviour
     {
         Instantiate(PossibleRooms[Random.Range(0, PossibleRooms.Length)], gameObject.transform);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
