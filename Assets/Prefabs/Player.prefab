@@ -5157,6 +5157,7 @@ MonoBehaviour:
   IsControlledByPlayer: 1
   IsPlayer: 1
   MovementOnCooldown: 0
+  Moving: 0
   EnemyMeleeAttacking: 0
   BaseMovementCooldown: 1.1
   SpeedIncrementOnMovementCooldown: 0.2
@@ -5225,7 +5226,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightOuterRadius: 8
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

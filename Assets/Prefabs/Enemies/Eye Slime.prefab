@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2802072841933766882}
   - component: {fileID: -6776658546230141035}
   - component: {fileID: -564329766280452904}
+  - component: {fileID: 3989208851837713488}
   m_Layer: 0
   m_Name: Eye Slime
   m_TagString: Untagged
@@ -415,6 +416,28 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ca9195a4898a1ca4f84dab085eff39e9, type: 3}
   - {fileID: 8300000, guid: 69c24f457e406d0498efe5ea2d68f3e6, type: 3}
   - {fileID: 8300000, guid: 7f4a154d57f5a874a9e5dbfd30b8c086, type: 3}
+--- !u!95 &3989208851837713488
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180812656686860354}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ff20aabdb607694b9cdf9dd940913c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1068443550632278597
 PrefabInstance:
   m_ObjectHideFlags: 0
