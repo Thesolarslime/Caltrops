@@ -10912,7 +10912,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0.1, z: 0}
+    m_Position: {x: 0, y: 0.0936, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
@@ -25213,10 +25213,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.125
-    y: 0.1
-    width: 0.75000006
-    height: 0.8
+    x: 0.061946906
+    y: -0.009836066
+    width: 0.47197643
+    height: 0.47213113
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -55135,6 +55135,7 @@ MonoBehaviour:
   RegenCount: 0
   EnemyMeleeDamage: 0
   EnemyAttacksInMelee: 0
+  XPValue: 0
   Facing: 
   FacingNumber: 0
   XPos: 0
