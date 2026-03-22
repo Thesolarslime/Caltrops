@@ -5570,10 +5570,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.013513514
-    y: 0.013513514
-    width: 0.972973
-    height: 0.972973
+    x: 0.027531957
+    y: 0.027868852
+    width: 0.94395286
+    height: 0.94426227
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -15554,7 +15554,8 @@ MonoBehaviour:
   Mana: 0
   MaxMana: 0
   XP: 0
-  Level: 0
+  Level: 1
+  XPRequirements: 320000007d000000e10000007701000026020000ee020000e80300001405000072060000d0070000c4090000
   SelectedCaltrop: 0
   CaltropCycle: []
   PassiveItems: []

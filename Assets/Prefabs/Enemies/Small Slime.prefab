@@ -125,6 +125,7 @@ MonoBehaviour:
   RegenCount: 0
   EnemyMeleeDamage: 1
   EnemyAttacksInMelee: 1
+  XPValue: 25
   Facing: LEFT
   FacingNumber: 0
   XPos: 0

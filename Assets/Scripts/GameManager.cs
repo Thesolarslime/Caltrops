@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int MaxMana;
     public int XP;
     public int Level;
+    public int[] XPRequirements;
     public int SelectedCaltrop;
     public CaltropType[] CaltropCycle;
     public PassiveItem[] PassiveItems;
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void GainXP(int Amount)
     {
-
+        XP += Amount; //MAKE THIS BETTER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
     public void ChangeLevel(string Scene)

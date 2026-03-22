@@ -124,6 +124,7 @@ MonoBehaviour:
   RegenCount: 0
   EnemyMeleeDamage: 1
   EnemyAttacksInMelee: 1
+  XPValue: 15
   Facing: LEFT
   FacingNumber: 0
   XPos: 0
@@ -151,6 +152,7 @@ MonoBehaviour:
   IsControlledByPlayer: 0
   IsPlayer: 0
   MovementOnCooldown: 0
+  Moving: 0
   EnemyMeleeAttacking: 0
   BaseMovementCooldown: 1.1
   SpeedIncrementOnMovementCooldown: 0.2
