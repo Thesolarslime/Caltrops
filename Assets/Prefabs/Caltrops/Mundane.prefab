@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Caltrop
   Type: Trap
+  Class: Construct
   Health: 1
   MaxHealth: 1
   Armour: 0
@@ -134,6 +135,7 @@ MonoBehaviour:
   - {fileID: 1590217425232927635}
   - {fileID: 1590217425232927635}
   - {fileID: 1590217425232927635}
+  ObjectLight: {fileID: 0}
   CameraHurtAnimation: {fileID: 0}
 --- !u!114 &7002281657265295661
 MonoBehaviour:

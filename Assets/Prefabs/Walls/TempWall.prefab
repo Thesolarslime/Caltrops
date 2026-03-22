@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Wall
   Type: Wall
+  Class: Construct
   Health: 25
   MaxHealth: 25
   Armour: 3
@@ -188,6 +189,7 @@ MonoBehaviour:
   YPos: 0
   Dead: 0
   ObjectParticles: []
+  ObjectLight: {fileID: 0}
   CameraHurtAnimation: {fileID: 0}
 --- !u!114 &6546518658780378987
 MonoBehaviour:

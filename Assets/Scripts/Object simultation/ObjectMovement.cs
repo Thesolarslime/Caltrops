@@ -7,7 +7,7 @@ public class ObjectMovement : MonoBehaviour
     public bool IsControlledByPlayer;
     public bool IsPlayer;
     public bool MovementOnCooldown;
-    private bool Moving; // true while the move animation is happening
+    public bool Moving; // true while the move animation is happening
     private bool GoBack; // becomes true temporarily mid-move when an enemy needs to go back instead.
     public bool EnemyMeleeAttacking; // true while an enemy is interrupting it's path to melee attack the player.
     public float BaseMovementCooldown = 1.1f; // the base time to wait at a speed of 5 before the player can move again
@@ -377,8 +377,11 @@ public class ObjectMovement : MonoBehaviour
 
     public void InterruptToAttackPlayer(string Direction)
     {
-        EnemyMeleeAttacking = true;
-        Stats.Facing = Direction;
-        Stats.ObjectParticles[0].Play(); // play the surprise particle
+        if (!Stats.Dead)
+        {
+            EnemyMeleeAttacking = true;
+            Stats.Facing = Direction;
+            Stats.ObjectParticles[0].Play(); // play the surprise particle
+        }
     }
 }

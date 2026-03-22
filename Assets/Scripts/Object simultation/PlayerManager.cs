@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     public int SelectedCaltrop;
     public CaltropType[] CaltropCycle;
     private bool CastAmountCanIncrease;
+    public bool CanSummonCaltrop; // false if the selected tile for a caltrop isn't an empty space
     public float CastTimeFulfilled;
 
     public GameManager GameManager;
@@ -47,7 +48,24 @@ public class PlayerManager : MonoBehaviour
         {
             if (CastAmountCanIncrease)
             {
-                StartCoroutine(CaltropCastTime());
+                CastTimeFulfilled += Time.deltaTime;
+                if (CastTimeFulfilled > CaltropCycle[SelectedCaltrop].CastTime) { CastTimeFulfilled = CaltropCycle[SelectedCaltrop].CastTime; } //making sure it doesn't go over
+                if (CastTimeFulfilled >= CaltropCycle[SelectedCaltrop].CastTime)
+                {
+                    if (CanSummonCaltrop && Stats.Mana >= CaltropCycle[SelectedCaltrop].ManaCost && !Movement.Moving)
+                    {
+                        Instantiate(CaltropCycle[SelectedCaltrop].Prefab, new Vector3(TileSelect.transform.position.x, TileSelect.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
+                        CastTimeFulfilled = 0;
+                        Stats.Mana -= CaltropCycle[SelectedCaltrop].ManaCost;
+                        if (SelectedCaltrop == 2) { SelectedCaltrop = 0; }
+                        else { SelectedCaltrop++; }
+                        StartCoroutine(CaltropCastCooldown());
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
         }
         else
@@ -100,28 +118,10 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public IEnumerator CaltropCastTime()
+    public IEnumerator CaltropCastCooldown()
     {
         CastAmountCanIncrease = false;
-        CastTimeFulfilled += 0.01f;
-        if (CastTimeFulfilled >= CaltropCycle[SelectedCaltrop].CastTime)
-        {
-            Instantiate(CaltropCycle[SelectedCaltrop].Prefab, new Vector3(TileSelect.transform.position.x, TileSelect.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
-            CastTimeFulfilled = 0;
-            if (SelectedCaltrop == 2)
-            {
-                SelectedCaltrop = 0;
-            }
-            else
-            {
-                SelectedCaltrop++;
-            }
-                yield return new WaitForSeconds(1f);
-        }
-        else
-        {
-            yield return new WaitForSecondsRealtime(0.01f);
-        }
+        yield return new WaitForSeconds(1f);
         CastAmountCanIncrease = true;
     }
 

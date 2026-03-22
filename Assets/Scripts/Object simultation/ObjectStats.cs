@@ -3,11 +3,13 @@ using System.Collections;
 using System.Globalization;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ObjectStats : MonoBehaviour
 {
     public string Name;
     public string Type; //Player, Enemy, Wall, Trap, Item
+    public string Class; //Construct for traps, walls, and construct enemies, animal for player and animal enemies, spirit for... spirits
 
     public int Health;
     public int MaxHealth;
@@ -33,6 +35,7 @@ public class ObjectStats : MonoBehaviour
 
     public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 is for hurt particle, 3 is for bump into something particle 4 and above are for particles the object uses for other things
     private SpriteRenderer ObjectSprite;
+    public Light2D ObjectLight; //EVERY ENEMY NEEDS A LIGHT NOW
 
     private AudioPlayer Sound;
 
@@ -99,6 +102,7 @@ public class ObjectStats : MonoBehaviour
         {
             ObjectParticles[1].Play();
             ObjectSprite.enabled = false;
+            if (Type == "Enemy") { ObjectLight.enabled = false; }
             yield return new WaitForSeconds(1);
             Destroy(gameObject);
         }

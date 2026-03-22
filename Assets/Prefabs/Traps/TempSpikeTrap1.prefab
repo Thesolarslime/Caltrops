@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Spike trap
   Type: Trap
+  Class: Construct
   Health: 3
   MaxHealth: 3
   Armour: 1
@@ -128,6 +129,7 @@ MonoBehaviour:
   YPos: 0
   Dead: 0
   ObjectParticles: []
+  ObjectLight: {fileID: 0}
   CameraHurtAnimation: {fileID: 0}
 --- !u!114 &6803673703373439010
 MonoBehaviour:

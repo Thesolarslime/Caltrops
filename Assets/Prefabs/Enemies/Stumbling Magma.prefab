@@ -110,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Stumbling Magma
   Type: Enemy
+  Class: Construct
   Health: 3
   MaxHealth: 3
   Armour: 0
@@ -133,6 +134,7 @@ MonoBehaviour:
   - {fileID: 1406442751204208765}
   - {fileID: 1406442751204208765}
   - {fileID: 1406442751204208765}
+  ObjectLight: {fileID: 5440056374999485784}
   CameraHurtAnimation: {fileID: 0}
 --- !u!114 &620842049205230689
 MonoBehaviour:

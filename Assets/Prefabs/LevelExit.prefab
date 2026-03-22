@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Door
   Type: Trap
+  Class: Construct
   Health: 10000
   MaxHealth: 10000
   Armour: 100
@@ -172,6 +173,7 @@ MonoBehaviour:
   YPos: 0
   Dead: 0
   ObjectParticles: []
+  ObjectLight: {fileID: 0}
   CameraHurtAnimation: {fileID: 0}
 --- !u!114 &7170585515489290303
 MonoBehaviour:
@@ -323,5 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66f07764e9b179489b8e09cc581b256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sound: {fileID: 0}
   AudioClips:
   - {fileID: 8300000, guid: 8b01e4bf0f1770d4e9390947cbeddc83, type: 3}

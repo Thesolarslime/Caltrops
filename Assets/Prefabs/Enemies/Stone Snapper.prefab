@@ -110,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Stone Snapper
   Type: Enemy
+  Class: Construct
   Health: 4
   MaxHealth: 4
   Armour: 0
@@ -133,6 +134,7 @@ MonoBehaviour:
   - {fileID: 1406442751204208765}
   - {fileID: 1406442751204208765}
   - {fileID: 1406442751204208765}
+  ObjectLight: {fileID: 5440056374999485784}
   CameraHurtAnimation: {fileID: 0}
 --- !u!114 &620842049205230689
 MonoBehaviour:
@@ -221,15 +223,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 2
-  m_LightType: 3
+  m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 0.90196085, g: 0.09019608, b: 0.21960786, a: 1}
   m_Intensity: 5
   m_LightVolumeIntensity: 1
-  m_LightVolumeEnabled: 0
+  m_LightVolumeEnabled: 1
   m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
+  m_LightCookieSprite: {fileID: 21300000, guid: 9bf8072aa1474124f83a89f45498940e, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
@@ -244,8 +246,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+    m_Center: {x: 0.015625, y: 0.203125, z: 0}
+    m_Extent: {x: 0.078125, y: 0.078125, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

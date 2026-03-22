@@ -11,6 +11,7 @@ public class CaltropType : ScriptableObject
     public string DirectionPlaced; // what direction "Forward, Leftside, Rightside, Back, Up, Down, Left, Right" (Leftside and Rightside are based on faced direction)
     public int DistancePlaced; // how far
     public float CastTime; // how long in seconds it takes to summon this caltrop
+    public int ManaCost; // how much mana it needs
     public int Damage; // how much damage a caltrop does
     public int Durability; // how many times a caltrop can be stepped on before it dies
     public string Infliction; // "None" for no effect, Stun, Disorient, 

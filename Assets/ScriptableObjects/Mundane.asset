@@ -20,6 +20,7 @@ MonoBehaviour:
   DirectionPlaced: Forward
   DistancePlaced: 1
   CastTime: 1
+  ManaCost: 1
   Damage: 3
   Durability: 1
   Infliction: None

@@ -110,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Phoenix Moth
   Type: Enemy
+  Class: Animal
   Health: 1
   MaxHealth: 1
   Armour: 0
@@ -133,6 +134,7 @@ MonoBehaviour:
   - {fileID: 1406442751204208765}
   - {fileID: 1406442751204208765}
   - {fileID: 1406442751204208765}
+  ObjectLight: {fileID: 5440056374999485784}
   CameraHurtAnimation: {fileID: 0}
 --- !u!114 &620842049205230689
 MonoBehaviour:
