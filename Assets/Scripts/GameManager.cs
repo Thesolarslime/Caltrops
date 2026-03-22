@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
         if (CurrentLevelID > 1) { GiveStats(); }
     }
 
+    public void GainXP(int Amount)
+    {
+
+    }
+
     public void ChangeLevel(string Scene)
     {
         if (HasPlayer) { StoreStats(); }

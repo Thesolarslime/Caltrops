@@ -25,6 +25,7 @@ public class ObjectStats : MonoBehaviour
 
     public int EnemyMeleeDamage; // how much damage an enemy deals on a normal attack
     public bool EnemyAttacksInMelee; // if true, the enemy will attempt to melee attack the player if they move next to them
+    public int XPValue; // how valuable a member to society this enemy is
 
     public string Facing; // UP DOWN LEFT RIGHT
     public int FacingNumber; // A numerical version of which way you're facing, use 4 for up, 5 for right, 6 for down, and 7 for left. 0-3 and 8-11 also follow this pattern, thats for spinning related mechanics.
@@ -39,11 +40,14 @@ public class ObjectStats : MonoBehaviour
 
     private AudioPlayer Sound;
 
+    private GameManager GameManager;
+
     [SerializeField] private Animator CameraHurtAnimation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameManager = FindAnyObjectByType<GameManager>();
         ObjectSprite = GetComponent<SpriteRenderer>();
         Sound = GetComponent<AudioPlayer>();
         Dead = false;
@@ -102,7 +106,7 @@ public class ObjectStats : MonoBehaviour
         {
             ObjectParticles[1].Play();
             ObjectSprite.enabled = false;
-            if (Type == "Enemy") { ObjectLight.enabled = false; }
+            if (Type == "Enemy") { ObjectLight.enabled = false; GameManager.GainXP(XPValue); }
             yield return new WaitForSeconds(1);
             Destroy(gameObject);
         }
