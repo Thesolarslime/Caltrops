@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 91ca40b3004ad854aa42b5553e4a1ca0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 724d6c2e69f1f914494a74e9a1cfb823, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.03125, y: 0.5, z: 0.03125, w: 0.03125}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11adf0f0b48fc754ca4f293021aee49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WallSprite: {fileID: 21300000, guid: 91ca40b3004ad854aa42b5553e4a1ca0, type: 3}
-  WallAboveWallSprite: {fileID: 21300000, guid: 62c4a1b67c3fca24a908c9453709b14d, type: 3}
+  WallSprite: {fileID: 21300000, guid: 724d6c2e69f1f914494a74e9a1cfb823, type: 3}
+  WallAboveWallSprite: {fileID: 21300000, guid: 09c459ca477e0ff439db47ff420fd0ee, type: 3}
   Stats: {fileID: 0}
 --- !u!114 &6544076857410650494
 MonoBehaviour:
@@ -206,6 +206,7 @@ MonoBehaviour:
   IsControlledByPlayer: 0
   IsPlayer: 0
   MovementOnCooldown: 0
+  Moving: 0
   EnemyMeleeAttacking: 0
   BaseMovementCooldown: 1.1
   SpeedIncrementOnMovementCooldown: 0.2

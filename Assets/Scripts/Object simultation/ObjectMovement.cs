@@ -348,6 +348,8 @@ public class ObjectMovement : MonoBehaviour
 
     private IEnumerator EnemyActions(string Act)
     {
+        if (Act == "WANDER") { Act = Direction[Random.Range(0, 4)]; }
+
         switch (Act)
         {
             case "LEFT":

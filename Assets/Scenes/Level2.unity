@@ -20109,7 +20109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: 2449c08231e8f2944aa0f22134da9abf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d0c664b566cafb42a336dc130ee9b13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -25215,10 +25215,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.045454543
-    y: -0.045454547
-    width: 1.090909
-    height: 1.0909091
+    x: 0.061946906
+    y: -0.009836066
+    width: 0.47197643
+    height: 0.47213113
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -55103,6 +55103,7 @@ MonoBehaviour:
   IsControlledByPlayer: 0
   IsPlayer: 0
   MovementOnCooldown: 0
+  Moving: 0
   EnemyMeleeAttacking: 0
   BaseMovementCooldown: 1.1
   SpeedIncrementOnMovementCooldown: 0.2
@@ -55122,6 +55123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Door
   Type: Trap
+  Class: 
   Health: 10000
   MaxHealth: 10000
   Armour: 100
@@ -55141,6 +55143,7 @@ MonoBehaviour:
   YPos: 0
   Dead: 0
   ObjectParticles: []
+  ObjectLight: {fileID: 0}
   CameraHurtAnimation: {fileID: 0}
 --- !u!61 &957774787
 BoxCollider2D:
