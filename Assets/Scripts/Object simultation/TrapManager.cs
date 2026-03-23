@@ -112,6 +112,10 @@ public class TrapManager : MonoBehaviour
                         FindAnyObjectByType<GameManager>().ChangeLevel("Win"); break;
                 }
                 break;
+            case "Key":
+                GetComponent<DoorKeyManager>().KeyGot = true;
+                Stats.StartCoroutine(Stats.Die());
+                break;
         }
     }
 }

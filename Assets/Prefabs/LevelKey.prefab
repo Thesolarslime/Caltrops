@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -4610368166188017814}
   - component: {fileID: 4284307293811024287}
   m_Layer: 0
-  m_Name: LevelExit
+  m_Name: LevelKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d46b801e6f73e3642826c302df1fb6f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5249b4652794e440895ea659bca531d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a68cc199a8f43645b0d464b25bd6f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Door
+  Name: Key
   Type: Trap
   Class: Construct
   Health: 10000
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827a7e4f9fc96684cb38340254bbb228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: Door
+  Type: Key
   KeyGot: 0
   DoorTrapManager: {fileID: 1809314683085213974}
   Sprite: {fileID: 9190539237955039977}
