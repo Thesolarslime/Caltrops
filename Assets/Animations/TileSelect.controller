@@ -58,7 +58,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New State
-  m_Speed: 5000
+  m_Speed: 50
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2158044007408691898}
@@ -138,7 +138,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TileSelectRed
-  m_Speed: 5000
+  m_Speed: 50
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5245322243883688549}

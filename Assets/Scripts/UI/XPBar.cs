@@ -15,17 +15,17 @@ public class XPBar : MonoBehaviour
     {
         if (GameManager.XP != 0)
         {
-            float Percentage = GameManager.XP / GameManager.XPRequirements[GameManager.Level - 1];
+            float Percentage = (float)GameManager.XP / (float)GameManager.XPRequirements[GameManager.Level - 1];
 
-            float XDis = (-14.375f + (14.375f * Percentage)) - transform.position.x;
+            float XDis = (-7.125f + (14.375f * Percentage)) - transform.localPosition.x;
 
-            transform.position = new Vector3(transform.position.x + (XDis * 0.15f), -4.125f, 0);
+            transform.localPosition = new Vector3(transform.localPosition.x + (XDis * 0.15f), 0, 0);
         }
         else
         {
-            float XDis = -14.375f - transform.position.x;
+            float XDis = -14.375f - transform.localPosition.x;
 
-            transform.position = new Vector3(transform.position.x + (XDis * 0.15f), -4.125f, 0) + new Vector3(-7.25f, 0, 0);
+            transform.localPosition = new Vector3(transform.localPosition.x + (XDis * 0.15f), -4.125f, 0) + new Vector3(-7.25f, 0, 0);
         }
     }
 }
