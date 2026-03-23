@@ -56,7 +56,7 @@ public class TrapManager : MonoBehaviour
     {
         if (TrapHasAnimation) { TrapAnimator.SetTrigger("TrapTrigger"); Sound.PlaySound(3, true, 0.8f); }
 
-        if (PlayerTriggered || (!OnlyPlayerCanTrigger))
+        if ((PlayerTriggered || (!OnlyPlayerCanTrigger)) && !Stats.Dead)
         {
             if (!PlayerCantTrigger || !PlayerTriggered)
             {
