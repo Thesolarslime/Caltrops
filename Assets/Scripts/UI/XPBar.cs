@@ -11,7 +11,7 @@ public class XPBar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (GameManager.XP != 0)
         {
@@ -25,7 +25,7 @@ public class XPBar : MonoBehaviour
         {
             float XDis = -14.375f - transform.localPosition.x;
 
-            transform.localPosition = new Vector3(transform.localPosition.x + (XDis * 0.15f), -4.125f, 0) + new Vector3(-7.25f, 0, 0);
+            transform.localPosition = new Vector3(transform.localPosition.x + (XDis * 0.1f), -4.125f, 0) + new Vector3(-7.25f, 0, 0);
         }
     }
 }
