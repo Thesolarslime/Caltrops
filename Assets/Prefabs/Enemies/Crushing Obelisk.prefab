@@ -111,8 +111,8 @@ MonoBehaviour:
   Name: Crushing Obelisk
   Type: Enemy
   Class: Animal
-  Health: 6
-  MaxHealth: 6
+  Health: 1
+  MaxHealth: 1
   Armour: 0
   ArmourModifier: 0
   Mana: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   RegenBase: 0
   RegenModifier: 0
   RegenCount: 0
-  EnemyMeleeDamage: 3
+  EnemyMeleeDamage: 1
   EnemyAttacksInMelee: 1
   XPValue: 40
   Facing: LEFT

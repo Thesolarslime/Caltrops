@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6647042443113417930}
   - component: {fileID: 5669352715365013433}
   m_Layer: 0
-  m_Name: Left-Right Corridor Loader
+  m_Name: BottomRightCorner Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PossibleRooms:
-  - {fileID: 7613306831255574135, guid: 85a0e88a7979cdb4a9c7493e0e1265e4, type: 3}
-  - {fileID: 7613306831255574135, guid: 27a8828ca1ba85d41b7f07ec977c4b13, type: 3}
-  - {fileID: 7613306831255574135, guid: 94f4c009e3272444282ebcaf4454a34d, type: 3}
+  - {fileID: 7613306831255574135, guid: 7e74ffa8d5883f04eb3b0026c318b993, type: 3}
+  - {fileID: 7613306831255574135, guid: 38810510ede14fd4589464db82ccd413, type: 3}
