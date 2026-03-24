@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6647042443113417930}
   - component: {fileID: 5669352715365013433}
   m_Layer: 0
-  m_Name: 3x3 Room Loader
+  m_Name: Basic Trap Random Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PossibleRooms:
-  - {fileID: 7613306831255574135, guid: 57611f254a8f25445a48f3139b5c9c6f, type: 3}
-  - {fileID: 7613306831255574135, guid: eb8e7694938e87944b4f88bc0d2e4360, type: 3}
-  - {fileID: 7613306831255574135, guid: 7ef1f85221fe29a4d9c4b61bd68286aa, type: 3}
-  - {fileID: 7613306831255574135, guid: c0d1ea8749b4336478c67305e85f4879, type: 3}
-  - {fileID: 7613306831255574135, guid: 7419e5c802b7e7c49b3e37a20bce4894, type: 3}
-  - {fileID: 7613306831255574135, guid: b9267f84f16114e48b3557b6f86675d1, type: 3}
+  - {fileID: 192435672298137909, guid: 1aaf2df453268994c8ede41fad057e84, type: 3}
+  - {fileID: 7613306831255574135, guid: 4d290e7ff0c82fe4cb1ab5208f0fc937, type: 3}

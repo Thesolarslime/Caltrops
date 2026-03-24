@@ -47,3 +47,4 @@ MonoBehaviour:
   PossibleRooms:
   - {fileID: 7613306831255574135, guid: 7e74ffa8d5883f04eb3b0026c318b993, type: 3}
   - {fileID: 7613306831255574135, guid: 38810510ede14fd4589464db82ccd413, type: 3}
+  - {fileID: 7613306831255574135, guid: 3542975bd1a4a4d46934d9deb910260e, type: 3}
