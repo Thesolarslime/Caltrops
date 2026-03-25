@@ -101,14 +101,25 @@ public class TrapManager : MonoBehaviour
                 }
                 break;
             case "Flip trap":
-                Sound.PlaySound(2, true, 0.8f);
-                Stats.Name = "Flipped trap";
-                TrapDelay = 0.25f;
+                if (MostRecentTriggerer.XPos == Stats.XPos && MostRecentTriggerer.YPos == Stats.YPos)
+                {
+                    MostRecentTriggerer.TakeDamage(TrapDamage);
+                    TrapAnimator.SetTrigger("TrapTrigger");
+                }
+                else
+                {
+                    Stats.Name = "Flipped trap";
+                    TrapDelay = 0.1f;
+                }
                 break;
             case "Flipped trap":
                 Sound.PlaySound(2, true, 0.8f);
-                Stats.Name = "Flipped trap";
-                TrapDelay = 1.75f;
+                if (MostRecentTriggerer.XPos == Stats.XPos && MostRecentTriggerer.YPos == Stats.YPos)
+                {
+                    MostRecentTriggerer.TakeDamage(TrapDamage);
+                }
+                Stats.Name = "Flip trap";
+                TrapDelay = 1f;
                 break;
             case "Door":
                 switch (FindAnyObjectByType<GameManager>().CurrentLevelID)
