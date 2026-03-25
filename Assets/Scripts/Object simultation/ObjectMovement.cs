@@ -31,7 +31,7 @@ public class ObjectMovement : MonoBehaviour
         Sound = GetComponent<AudioPlayer>();
         Stats.XPos = (int)transform.position.x;
         Stats.YPos = (int)transform.position.y;
-        if (Stats.Type == "Enemy") { EnemyMovement(); }
+        if (Stats.Type == "Enemy") { StartCoroutine(ChillOutEnemiesGeez()); }
     }
 
     // Update is called once per frame
@@ -326,6 +326,12 @@ public class ObjectMovement : MonoBehaviour
         MovementOnCooldown = true;
         yield return new WaitForSeconds(Time);
         MovementOnCooldown = false;
+    }
+
+    public IEnumerator ChillOutEnemiesGeez()
+    {
+        yield return new WaitForSeconds(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown));
+        EnemyMovement();
     }
 
     private void EnemyMovement()

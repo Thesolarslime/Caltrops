@@ -93,6 +93,13 @@ public class TrapManager : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
                 Sprite.sprite = TrapSprites[0];
                 break;
+            case "Ice trap":
+                Sound.PlaySound(2, true, 0.8f);
+                if (MostRecentTriggerer.XPos == Stats.XPos && MostRecentTriggerer.YPos == Stats.YPos)
+                {
+                    MostRecentTriggerer.GetComponent<ObjectMovement>().MoveObject(MostRecentTriggerer.Facing, 1);
+                }
+                break;
             case "Door":
                 switch (FindAnyObjectByType<GameManager>().CurrentLevelID)
                 {

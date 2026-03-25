@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int Mana;
     public int MaxMana;
     public int XP;
+    private int XPCarryOver;
     public int Level;
     public int[] XPRequirements;
     public int SelectedCaltrop;
@@ -50,6 +53,27 @@ public class GameManager : MonoBehaviour
     public void GainXP(int Amount)
     {
         XP += Amount; //MAKE THIS BETTER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        if (XP > XPRequirements[Level - 1])
+        {
+            XPCarryOver = XP - XPRequirements[Level - 1];
+            XP = XPRequirements[Level - 1];
+        }
+        if (XP == XPRequirements[Level - 1])
+        {
+            StartCoroutine(LevelUp());
+        }
+    }
+
+    public IEnumerator LevelUp()
+    {
+        yield return new WaitForSeconds(2);
+        Level++;
+        XP = 0;
+        // The level up ui stuff
+        yield return new WaitForSeconds(0.5f);
+        GainXP(XPCarryOver);
+        XPCarryOver = 0;
     }
 
     public void ChangeLevel(string Scene)
