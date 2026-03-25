@@ -113,7 +113,7 @@ public class TrapManager : MonoBehaviour
                 }
                 break;
             case "Key":
-                GetComponent<DoorKeyManager>().KeyGot = true;
+                GetComponent<DoorKeyManager>().KeyGet();
                 Stats.StartCoroutine(Stats.Die());
                 break;
         }

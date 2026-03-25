@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -4610368166188017814}
   - component: {fileID: 4284307293811024287}
   - component: {fileID: 6920441495953826002}
+  - component: {fileID: 3074959665516681008}
   m_Layer: 0
   m_Name: LevelExit
   m_TagString: Untagged
@@ -154,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Door
-  Type: Trap
+  Type: Wall
   Class: Construct
   Health: 10000
   MaxHealth: 10000
@@ -236,6 +237,9 @@ MonoBehaviour:
   KeyGot: 0
   DoorTrapManager: {fileID: 1809314683085213974}
   Sprite: {fileID: 9190539237955039977}
+  DoorOpenSprite: {fileID: 21300000, guid: 9752fded6047b1b40bd938b65818e617, type: 3}
+  DoorLight: {fileID: 6920441495953826002}
+  DoorStats: {fileID: 2071357139841439516}
 --- !u!82 &-4610368166188017814
 AudioSource:
   m_ObjectHideFlags: 0
@@ -365,8 +369,8 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
-  m_LightVolumeIntensity: 1
+  m_Intensity: 0
+  m_LightVolumeIntensity: 0
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -400,3 +404,63 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &3074959665516681008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3933307206485935776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.31449628, y: -0.49906564, z: 0}
+  - {x: 0.31158924, y: 0.2683921, z: 0}
+  - {x: 0.2664342, y: 0.36033058, z: 0}
+  - {x: 0.15081573, y: 0.4347515, z: 0}
+  - {x: -0.15218431, y: 0.4374094, z: 0}
+  - {x: -0.25052643, y: 0.38292265, z: 0}
+  - {x: -0.31923765, y: 0.2800207, z: 0}
+  - {x: -0.31633067, y: -0.5019727, z: 0}
+  m_ShapePathHash: 1848033607
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: -0.0009863377, z: 0}
+      m_Extent: {x: 0.5, y: 0.50098634, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.05
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 2
+  m_PreviousTrimEdge: 0.05
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 9190539237955039977}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
