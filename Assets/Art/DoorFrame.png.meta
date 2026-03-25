@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 724d6c2e69f1f914494a74e9a1cfb823
+guid: aa80db1e15708034a87e0237b52af1bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5865935373905670686
-    second: Wall1_0
+      213: 7668472358568193697
+    second: DoorFrame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,11 +48,11 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 0, y: 3, z: 0, w: 17}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -203,6 +203,26 @@ TextureImporter:
     - - {x: 16, y: 16}
       - {x: -16, y: 16}
       - {x: -16, y: -16}
+      - {x: -8, y: -16}
+      - {x: -9, y: 8}
+      - {x: -8, y: 8}
+      - {x: -8, y: 10}
+      - {x: -7, y: 10}
+      - {x: -7, y: 11}
+      - {x: -6, y: 11}
+      - {x: -6, y: 12}
+      - {x: -4, y: 12}
+      - {x: -4, y: 13}
+      - {x: 4, y: 13}
+      - {x: 4, y: 12}
+      - {x: 6, y: 12}
+      - {x: 6, y: 11}
+      - {x: 7, y: 11}
+      - {x: 7, y: 10}
+      - {x: 8, y: 10}
+      - {x: 8, y: 8}
+      - {x: 9, y: 8}
+      - {x: 8, y: -16}
       - {x: 16, y: -16}
     customData: 
     physicsShape: []
