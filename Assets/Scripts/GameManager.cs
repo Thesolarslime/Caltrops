@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public string[] PassiveItemNames; // WHEN PLAYER GAINS AN ITEM IT ADDS IT'S NAME TO THIS
 
     public PlayerManager Player;
-    private ObjectStats PlayerStats;
+    public ObjectStats PlayerStats;
     private ObjectMovement PlayerMovement;
 
     public bool HasPlayer;

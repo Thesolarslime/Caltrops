@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4fbaa4705975554f9d5f6ad8346f0bd, type: 3}
-  m_Name: Rune of regeneration
+  m_Name: RUNE OF REGENERATION
   m_EditorClassIdentifier: 
   Name: Rune of Regeneration
   Description: Reduce your regen cooldown by 1 move

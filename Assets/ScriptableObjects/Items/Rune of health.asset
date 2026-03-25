@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4fbaa4705975554f9d5f6ad8346f0bd, type: 3}
-  m_Name: Rune of health
+  m_Name: RUNE OF HEALTH
   m_EditorClassIdentifier: 
-  Name: Rune of health
-  Description: Gain 2 max health.
+  Name: RUNE OF HEALTH
+  Description: GAIN 2 MAX HEALTH.
   Image: {fileID: 21300000, guid: b7989630a84a981458e1abae6e308888, type: 3}
   MaxHealthMod: 2
   MaxManaMod: 0

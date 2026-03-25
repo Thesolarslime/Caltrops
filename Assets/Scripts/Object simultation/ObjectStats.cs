@@ -4,6 +4,7 @@ using System.Globalization;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using System.Linq;
 
 public class ObjectStats : MonoBehaviour
 {
@@ -106,7 +107,17 @@ public class ObjectStats : MonoBehaviour
         {
             ObjectParticles[1].Play();
             ObjectSprite.enabled = false;
-            if (Type == "Enemy") { ObjectLight.enabled = false; GameManager.GainXP(XPValue); }
+            if (Type == "Enemy") 
+            { 
+                ObjectLight.enabled = false;
+                GameManager.GainXP(XPValue); 
+                if (GameManager.PassiveItemNames.Contains("LESSER SOUL GEM")) 
+                {
+                    GameManager.PlayerStats.Mana += 1;
+                    if (GameManager.PlayerStats.Mana > GameManager.PlayerStats.MaxMana)
+                    {GameManager.PlayerStats.Mana = GameManager.PlayerStats.MaxMana;}
+                }
+            }
             yield return new WaitForSeconds(1);
             if (Name == "Key") { yield return new WaitForSeconds(3); }
             Destroy(gameObject);
