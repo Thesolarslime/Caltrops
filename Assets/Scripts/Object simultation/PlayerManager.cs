@@ -12,6 +12,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject TileSelect;
     public GameObject TileSelectMask;
 
+    public Sprite[] PlayerSprites;
+    public SpriteRenderer PlayerSprite;
+
     public int SelectedCaltrop;
     public CaltropType[] CaltropCycle;
     private bool CastAmountCanIncrease;
@@ -26,6 +29,7 @@ public class PlayerManager : MonoBehaviour
         Stats = GetComponent<ObjectStats>();
         Movement = GetComponent<ObjectMovement>();
         Sound = GetComponent<AudioPlayer>();
+        PlayerSprite = GetComponent<SpriteRenderer>();
 
         GameManager = FindAnyObjectByType<GameManager>();
 
@@ -40,6 +44,7 @@ public class PlayerManager : MonoBehaviour
         CheckNeighbouringTiles();
         CaltropCasting();
         SetSummonTileState();
+        SetPlayerSprite();
     }
 
     public void CaltropCasting()
@@ -123,6 +128,21 @@ public class PlayerManager : MonoBehaviour
         CastAmountCanIncrease = false;
         yield return new WaitForSeconds(1f);
         CastAmountCanIncrease = true;
+    }
+
+    public void SetPlayerSprite()
+    {
+        switch (Stats.Facing)
+        {
+            case "UP":
+                PlayerSprite.sprite = PlayerSprites[0]; break;
+            case "RIGHT":
+                PlayerSprite.sprite = PlayerSprites[1]; break;
+            case "DOWN":
+                PlayerSprite.sprite = PlayerSprites[2]; break;
+            case "LEFT":
+                PlayerSprite.sprite = PlayerSprites[3]; break;
+        }
     }
 
     public void CheckNeighbouringTiles() // checks the 4 tiles around and tells the appropriate enemies to attack

@@ -5131,7 +5131,7 @@ MonoBehaviour:
   EnemyMeleeDamage: 0
   EnemyAttacksInMelee: 0
   XPValue: 0
-  Facing: UP
+  Facing: DOWN
   FacingNumber: 0
   XPos: 0
   YPos: 0
@@ -5178,6 +5178,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileSelect: {fileID: 609010160566886909}
   TileSelectMask: {fileID: 7075364622155636746}
+  PlayerSprites:
+  - {fileID: 21300000, guid: 168d33c3865d0bd448e64481636f347f, type: 3}
+  - {fileID: 21300000, guid: e612f9e0c27c70842a4a69a797b6218d, type: 3}
+  - {fileID: 21300000, guid: f05249b9af2ed284f8288882980abd66, type: 3}
+  - {fileID: 21300000, guid: 982a03564846fb44b91ff64fb63aeca1, type: 3}
+  PlayerSprite: {fileID: 0}
   SelectedCaltrop: 0
   CaltropCycle:
   - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
