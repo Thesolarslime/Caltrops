@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5669352715365013433}
   - component: {fileID: 6705093620779517138}
   m_Layer: 0
-  m_Name: Basic Trap Random Loader
+  m_Name: CrusherRandomisation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,11 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PossibleRooms:
-  - {fileID: 192435672298137909, guid: 1aaf2df453268994c8ede41fad057e84, type: 3}
-  - {fileID: 192435672298137909, guid: 1aaf2df453268994c8ede41fad057e84, type: 3}
+  - {fileID: 2180812656686860354, guid: edc41f85d97f28d4f8bcc9da280754a0, type: 3}
   - {fileID: 7613306831255574135, guid: 4d290e7ff0c82fe4cb1ab5208f0fc937, type: 3}
-  - {fileID: 7613306831255574135, guid: 4d290e7ff0c82fe4cb1ab5208f0fc937, type: 3}
-  - {fileID: 192435672298137909, guid: 4a57a4c6befe9bd409b3ecd53af5e101, type: 3}
 --- !u!212 &6705093620779517138
 SpriteRenderer:
   m_ObjectHideFlags: 0
