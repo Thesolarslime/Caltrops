@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fbaa4705975554f9d5f6ad8346f0bd, type: 3}
   m_Name: LESSER SOUL GEM
   m_EditorClassIdentifier: 
-  Name: Lesser Soul Gem
-  Description: Gain 1 mana when a nearby enemy dies.
+  Name: LESSER SOUL GEM
+  Description: GAIN 1 MANA WHENEVER A NEARBY ENEMY DIES.
   Image: {fileID: 21300000, guid: 96f5b91c073851549ad0d28e8b2abf04, type: 3}
   MaxHealthMod: 0
   MaxManaMod: 0
