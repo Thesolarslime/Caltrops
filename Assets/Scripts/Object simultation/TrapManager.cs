@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class TrapManager : MonoBehaviour
@@ -54,12 +55,11 @@ public class TrapManager : MonoBehaviour
 
     public void TriggerTrap(bool PlayerTriggered, ObjectStats Triggerer)
     {
-        if (TrapHasAnimation) { TrapAnimator.SetTrigger("TrapTrigger"); Sound.PlaySound(3, true, 0.8f); }
-
         if ((PlayerTriggered || (!OnlyPlayerCanTrigger)) && !Stats.Dead)
         {
             if (!PlayerCantTrigger || !PlayerTriggered)
             {
+                if (TrapHasAnimation) { TrapAnimator.SetTrigger("TrapTrigger"); Sound.PlaySound(3, true, 0.8f); }
                 StartCoroutine(TrapAction(Triggerer));
             }  
         }
@@ -99,6 +99,16 @@ public class TrapManager : MonoBehaviour
                 {
                     MostRecentTriggerer.GetComponent<ObjectMovement>().MoveObject(MostRecentTriggerer.Facing, 1);
                 }
+                break;
+            case "Flip trap":
+                Sound.PlaySound(2, true, 0.8f);
+                Stats.Name = "Flipped trap";
+                TrapDelay = 0.25f;
+                break;
+            case "Flipped trap":
+                Sound.PlaySound(2, true, 0.8f);
+                Stats.Name = "Flipped trap";
+                TrapDelay = 1.75f;
                 break;
             case "Door":
                 switch (FindAnyObjectByType<GameManager>().CurrentLevelID)

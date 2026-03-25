@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int SelectedCaltrop;
     public CaltropType[] CaltropCycle;
     public PassiveItem[] PassiveItems;
+    public string[] PassiveItemNames; // WHEN PLAYER GAINS AN ITEM IT ADDS IT'S NAME TO THIS
 
     public PlayerManager Player;
     private ObjectStats PlayerStats;
