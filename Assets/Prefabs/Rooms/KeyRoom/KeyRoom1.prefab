@@ -5445,13 +5445,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363413409330503911, guid: 083b49500576555419176060b102a32b, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8411027716098264055, guid: 083b49500576555419176060b102a32b, type: 3}
+      propertyPath: ObjectLight
+      value: 
+      objectReference: {fileID: 2611254146975998963}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 083b49500576555419176060b102a32b, type: 3}
+--- !u!114 &2611254146975998963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5440056374999485784, guid: 083b49500576555419176060b102a32b, type: 3}
+  m_PrefabInstance: {fileID: 8017532946803371691}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9065071763169949984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1337117198205818763, guid: 083b49500576555419176060b102a32b, type: 3}
