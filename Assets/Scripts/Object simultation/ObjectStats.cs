@@ -108,6 +108,7 @@ public class ObjectStats : MonoBehaviour
             ObjectSprite.enabled = false;
             if (Type == "Enemy") { ObjectLight.enabled = false; GameManager.GainXP(XPValue); }
             yield return new WaitForSeconds(1);
+            if (Name == "Key") { yield return new WaitForSeconds(3); }
             Destroy(gameObject);
         }
         else

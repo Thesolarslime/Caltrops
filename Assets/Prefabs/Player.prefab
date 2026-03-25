@@ -5123,13 +5123,14 @@ MonoBehaviour:
   ArmourModifier: 1
   Mana: 0
   MaxMana: 3
-  Speed: 5
+  Speed: 6
   SpeedModifier: 0
   RegenBase: 10
   RegenModifier: 0
   RegenCount: 0
   EnemyMeleeDamage: 0
   EnemyAttacksInMelee: 0
+  XPValue: 0
   Facing: UP
   FacingNumber: 0
   XPos: 0

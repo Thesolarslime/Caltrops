@@ -114,6 +114,7 @@ public class TrapManager : MonoBehaviour
                 break;
             case "Key":
                 GetComponent<DoorKeyManager>().KeyGet();
+                Sound.PlaySound(0, false, 1f);
                 Stats.StartCoroutine(Stats.Die());
                 break;
         }
