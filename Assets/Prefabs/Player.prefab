@@ -5120,7 +5120,7 @@ MonoBehaviour:
   Health: 5
   MaxHealth: 5
   Armour: 0
-  ArmourModifier: 1
+  ArmourModifier: 0
   Mana: 0
   MaxMana: 3
   Speed: 6
@@ -5128,6 +5128,11 @@ MonoBehaviour:
   RegenBase: 10
   RegenModifier: 0
   RegenCount: 0
+  StatusVulnerable: 0
+  StatusSlowed: 0
+  StatusPoisoned: 0
+  StatusStunned: 0
+  StatusDisoriented: 0
   EnemyMeleeDamage: 0
   EnemyAttacksInMelee: 0
   XPValue: 0

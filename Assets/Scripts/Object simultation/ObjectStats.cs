@@ -15,14 +15,21 @@ public class ObjectStats : MonoBehaviour
     public int Health;
     public int MaxHealth;
     public int Armour;
-    public float ArmourModifier;
+    public int ArmourModifier;
     public int Mana; // PLAYER ONLY
     public int MaxMana; // PLAYER ONLY
     public int Speed;
-    public float SpeedModifier;
+    public int SpeedModifier;
     public int RegenBase; // PLAYER ONLY, base 10?, determines the number of times the player moves before they regen.
     public int RegenModifier; // PLAYER ONLY, base 0, deducted from RegenBase to get the number of times the player moves before they regen.
     public int RegenCount; // PLAYER ONLY, this goes up when the player moves and when it reaches RegenBase-RegenModifier the player regens and it resets to 0
+
+    //The following are all statuses, while they are above 0 they are reduced by deltatime each frame and are in effect.
+    public float StatusVulnerable;
+    public float StatusSlowed;
+    public float StatusPoisoned;
+    public float StatusStunned;
+    public float StatusDisoriented;
 
     public int EnemyMeleeDamage; // how much damage an enemy deals on a normal attack
     public bool EnemyAttacksInMelee; // if true, the enemy will attempt to melee attack the player if they move next to them
@@ -68,6 +75,8 @@ public class ObjectStats : MonoBehaviour
             case "LEFT":
                 FacingNumber = 7; break;
         }
+        EnforceMaxStats();
+        StatusTimers();
     }
     public void EnforceMaxStats()
     {
@@ -83,6 +92,8 @@ public class ObjectStats : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
+        Damage -= Armour + ArmourModifier;
+        if (Damage < 0) { Damage = 0; }
         Health -= Damage;
 
         if (Health > 0)
@@ -130,6 +141,54 @@ public class ObjectStats : MonoBehaviour
             CameraHurtAnimation.SetTrigger("Hurt");
             yield return new WaitForSeconds(1); //MAKE THE PLAYER DIE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             Destroy(gameObject);
+        }
+    }
+
+    public void GainStatus(string Type, float Seconds)
+    {
+        switch (Type)
+        {
+            case "Vulnerable":
+                if (StatusVulnerable == 0) { ArmourModifier -= 1; }
+                StatusVulnerable += Seconds; break;
+            case "Slowed":
+                if (StatusSlowed == 0) { SpeedModifier -= 2; }
+                StatusSlowed += Seconds; break;
+            case "Stunned":
+                StatusStunned += Seconds; break;
+            case "Poisoned":
+                StatusPoisoned += Seconds; break;
+            case "Disoriented":
+                StatusDisoriented += Seconds; break;
+        }
+    }
+
+    private void StatusTimers()
+    {
+        if (StatusVulnerable > 0)
+        {
+            StatusVulnerable -= Time.deltaTime;
+            if (StatusVulnerable <= 0) {  StatusVulnerable = 0; ArmourModifier += 1; }
+        }
+        if (StatusSlowed > 0)
+        {
+            StatusSlowed -= Time.deltaTime;
+            if (StatusSlowed <= 0) { StatusSlowed = 0; SpeedModifier += 2; }
+        }
+        if (StatusStunned > 0)
+        {
+            StatusStunned -= Time.deltaTime;
+            if (StatusStunned <= 0) { StatusStunned = 0; }
+        }
+        if (StatusPoisoned > 0)
+        {
+            StatusPoisoned -= Time.deltaTime;
+            if (StatusPoisoned <= 0) { StatusPoisoned = 0; }
+        }
+        if (StatusDisoriented > 0)
+        {
+            StatusDisoriented -= Time.deltaTime;
+            if (StatusDisoriented <= 0) { StatusDisoriented = 0; }
         }
     }
 
