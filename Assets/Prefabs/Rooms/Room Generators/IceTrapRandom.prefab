@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5669352715365013433}
   - component: {fileID: 6705093620779517138}
   m_Layer: 0
-  m_Name: Basic Trap Random Loader
+  m_Name: IceTrapRandom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,12 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PossibleRooms:
-  - {fileID: 192435672298137909, guid: 1aaf2df453268994c8ede41fad057e84, type: 3}
-  - {fileID: 192435672298137909, guid: 1aaf2df453268994c8ede41fad057e84, type: 3}
-  - {fileID: 7613306831255574135, guid: 4d290e7ff0c82fe4cb1ab5208f0fc937, type: 3}
   - {fileID: 7613306831255574135, guid: 4d290e7ff0c82fe4cb1ab5208f0fc937, type: 3}
   - {fileID: 192435672298137909, guid: 4a57a4c6befe9bd409b3ecd53af5e101, type: 3}
-  - {fileID: 2893150280200097522, guid: f50659325e5d95342863f92de371d29d, type: 3}
+  - {fileID: 192435672298137909, guid: 4a57a4c6befe9bd409b3ecd53af5e101, type: 3}
 --- !u!212 &6705093620779517138
 SpriteRenderer:
   m_ObjectHideFlags: 0

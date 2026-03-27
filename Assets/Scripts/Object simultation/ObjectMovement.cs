@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ public class ObjectMovement : MonoBehaviour
     private AudioPlayer Sound;
     private BoxCollider2D ObjectCollider;
 
+    private GameManager GameManager;
+
     private string[] Direction = { "UP", "RIGHT", "DOWN", "LEFT", "UP", "RIGHT", "DOWN", "LEFT", "UP", "RIGHT", "DOWN", "LEFT" };
     private Vector2[] DirectionVectors = { new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0) };
 
@@ -29,6 +32,7 @@ public class ObjectMovement : MonoBehaviour
     {
         Stats = GetComponent<ObjectStats>();
         Sound = GetComponent<AudioPlayer>();
+        GameManager = FindAnyObjectByType<GameManager>();
         Stats.XPos = (int)transform.position.x;
         Stats.YPos = (int)transform.position.y;
         if (Stats.Type == "Enemy") { StartCoroutine(ChillOutEnemiesGeez()); }
@@ -62,7 +66,9 @@ public class ObjectMovement : MonoBehaviour
                         case "Wall":
                             StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
                         case "Enemy":
-                            StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
+                            StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; 
+                            if (GameManager.PassiveItemNames.Contains("OLD DAGGER") & Stats.Type == "Player") { HitStats.TakeDamage(1); }
+                            break;
                         case "Player":
                             StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
                             if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
