@@ -63,6 +63,7 @@ public class PlayerManager : MonoBehaviour
                     if (CanSummonCaltrop && Stats.Mana >= CaltropCycle[SelectedCaltrop].ManaCost && !Movement.Moving)
                     {
                         Instantiate(CaltropCycle[SelectedCaltrop].Prefab, new Vector3(TileSelect.transform.position.x, TileSelect.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
+                        Sound.PlaySound(4, true, 0.5f);
                         CastTimeFulfilled = 0;
                         Stats.Mana -= CaltropCycle[SelectedCaltrop].ManaCost;
                         if (SelectedCaltrop == 2) { SelectedCaltrop = 0; }

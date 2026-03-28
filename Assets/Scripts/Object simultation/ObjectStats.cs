@@ -144,7 +144,7 @@ public class ObjectStats : MonoBehaviour
                 if (DistanceToPlayer <= 8f)
                 {
                     GameManager.GainXP(XPValue);
-                    if (GameManager.PassiveItemNames.Contains("LESSER SOUL GEM"))
+                    if (GameManager.PassiveItemNames.Contains("LESSER SOUL GEM"))  // ITEM
                     {
                         GameManager.PlayerStats.Mana += 1;
                         if (GameManager.PlayerStats.Mana > GameManager.PlayerStats.MaxMana)

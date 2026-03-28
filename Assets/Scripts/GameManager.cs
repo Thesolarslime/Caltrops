@@ -75,8 +75,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         Level++;
         XP = 0;
-        if (PassiveItemNames.Contains("REFILLING POTION"))
-        {PlayerStats.Health += 3; if (PlayerStats.Health > PlayerStats.MaxHealth) { PlayerStats.Health = PlayerStats.MaxHealth; } }
+        if (PassiveItemNames.Contains("REFILLING POTION")) { PlayerStats.Health += 3; } // ITEM
         // The level up ui stuff
         yield return new WaitForSeconds(0.5f);
         GainXP(XPCarryOver);
