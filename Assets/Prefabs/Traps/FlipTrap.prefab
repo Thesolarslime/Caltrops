@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Caltrop: {fileID: 0}
   TrapSprites: []
-  TrapDelay: 1
+  TrapDelay: 2
   TrapDamage: 2
   TrapDurability: 0
   OnlyPlayerCanTrigger: 0

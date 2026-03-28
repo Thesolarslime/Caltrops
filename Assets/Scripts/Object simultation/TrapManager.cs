@@ -125,7 +125,7 @@ public class TrapManager : MonoBehaviour
                     MostRecentTriggerer.TakeDamage(TrapDamage);
                 }
                 Stats.Name = "Flip trap";
-                TrapDelay = 1f;
+                TrapDelay = 2f;
                 break;
             case "Door":
                 switch (FindAnyObjectByType<GameManager>().CurrentLevelID)
