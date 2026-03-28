@@ -133,9 +133,9 @@ public class TrapManager : MonoBehaviour
                     case 1:
                         FindAnyObjectByType<GameManager>().ChangeLevel("Level2"); break;
                     case 2:
-                        FindAnyObjectByType<GameManager>().ChangeLevel("Boss1"); break;
-                    case 3:
                         FindAnyObjectByType<GameManager>().ChangeLevel("Level3"); break;
+                    case 3:
+                        FindAnyObjectByType<GameManager>().ChangeLevel("Boss1"); break;
                     case 4:
                         FindAnyObjectByType<GameManager>().ChangeLevel("Boss2"); break;
                     case 5:

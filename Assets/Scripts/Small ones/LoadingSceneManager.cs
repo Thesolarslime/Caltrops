@@ -36,7 +36,7 @@ public class LoadingSceneManager : MonoBehaviour
                 break;
             case "Level3":
                 Text.text = "LEVEL 3\n\nMIDDLE RING";
-                GameManager.CurrentLevelID = 4;
+                GameManager.CurrentLevelID = 3;
                 break;
             case "Level4":
                 Text.text = "LEVEL 4\n\nOUTER RING";
@@ -48,7 +48,7 @@ public class LoadingSceneManager : MonoBehaviour
                 break;
             case "Boss1":
                 Text.text = "THE ROGUE";
-                GameManager.CurrentLevelID = 3;
+                GameManager.CurrentLevelID = 4;
                 break;
             case "Boss2":
                 Text.text = "THE ARCHMAGE";
