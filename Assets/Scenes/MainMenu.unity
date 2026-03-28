@@ -10865,7 +10865,7 @@ GameObject:
   - component: {fileID: 500082650}
   - component: {fileID: 500082649}
   m_Layer: 5
-  m_Name: Secret 3rd button
+  m_Name: Story
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10934,7 +10934,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 500082650}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1992613922}
+        m_TargetAssemblyTypeName: SceneSwitches, Assembly-CSharp
+        m_MethodName: StartCutscene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &500082650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11319,10 +11331,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.045454543
-    y: -0.045454547
-    width: 1.090909
-    height: 1.0909091
+    x: 0.031189084
+    y: 0.032467533
+    width: 0.9356725
+    height: 0.9350649
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -36776,7 +36788,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SECRET THIRD ONE
+  m_text: STORY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4768c38b0b6b2146a0c6dc9a0e2e118, type: 2}
   m_sharedMaterial: {fileID: 166861131007775860, guid: d4768c38b0b6b2146a0c6dc9a0e2e118, type: 2}

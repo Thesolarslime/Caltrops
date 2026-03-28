@@ -58,6 +58,10 @@ public class LoadingSceneManager : MonoBehaviour
                 Text.text = "THE HERO";
                 GameManager.CurrentLevelID = 7;
                 break;
+            case "IntroCutscene":
+                Text.text = "STORY\n\nSPACE TO SKIP";
+                GameManager.CurrentLevelID = 0;
+                break;
         }
     }
 

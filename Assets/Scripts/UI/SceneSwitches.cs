@@ -9,4 +9,10 @@ public class SceneSwitches : MonoBehaviour
         GameManager = FindAnyObjectByType<GameManager>();
         GameManager.ChangeLevel("Level1");
     }
+
+    public void StartCutscene()
+    {
+        GameManager = FindAnyObjectByType<GameManager>();
+        GameManager.ChangeLevel("IntroCutscene");
+    }
 }

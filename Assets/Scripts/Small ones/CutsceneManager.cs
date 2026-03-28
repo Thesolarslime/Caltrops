@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -55,6 +56,11 @@ public class CutsceneManager : MonoBehaviour
 
     void Update()
     {
+        //skipping back to main menu early
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
         //change counter to either 0 or 1 depending on if the next step is fading in or out
         //TEXT 1 SHOW
         if (cutsceneStep == 0)
@@ -280,7 +286,7 @@ public class CutsceneManager : MonoBehaviour
         }
         if (cutsceneStep == 36)
         {
-
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
