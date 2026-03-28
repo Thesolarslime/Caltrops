@@ -5570,10 +5570,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.027531957
-    y: 0.027868852
-    width: 0.94395286
-    height: 0.94426227
+    x: 0.018054163
+    y: 0.018394649
+    width: 0.96288866
+    height: 0.9632107
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -15555,11 +15555,13 @@ MonoBehaviour:
   MaxMana: 0
   XP: 0
   Level: 1
-  XPRequirements: 320000007d000000e10000007701000026020000ee020000e80300001405000072060000d0070000c4090000
+  XPRequirements: 640000007d000000e10000007701000026020000ee020000e80300001405000072060000d0070000c4090000
   SelectedCaltrop: 0
   CaltropCycle: []
   PassiveItems: []
+  PassiveItemNames: []
   Player: {fileID: 0}
+  PlayerStats: {fileID: 0}
   HasPlayer: 0
   SceneToGoTo: 
   CurrentLevelID: 0

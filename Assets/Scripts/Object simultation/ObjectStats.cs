@@ -5,6 +5,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class ObjectStats : MonoBehaviour
 {
@@ -102,6 +103,7 @@ public class ObjectStats : MonoBehaviour
             else { Sound.PlaySound(0, true, 0.5f); }
             if (Type == "Player") { CameraHurtAnimation.SetTrigger("Hurt"); }
             ObjectParticles[2].Play();
+            StartCoroutine(DamageColourPulse());
         }
         else
         {
@@ -109,6 +111,13 @@ public class ObjectStats : MonoBehaviour
             else { Sound.PlaySound(1, true, 0.5f); }
             StartCoroutine(Die());
         }
+    }
+
+    private IEnumerator DamageColourPulse()
+    {
+        ObjectSprite.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        ObjectSprite.color = Color.white;
     }
 
     public IEnumerator Die()
@@ -121,12 +130,19 @@ public class ObjectStats : MonoBehaviour
             if (Type == "Enemy") 
             { 
                 ObjectLight.enabled = false;
-                GameManager.GainXP(XPValue); 
-                if (GameManager.PassiveItemNames.Contains("LESSER SOUL GEM")) 
+
+                //things that happen if the player is near
+                float DistanceToPlayer = Vector2.Distance(GameManager.PlayerStats.gameObject.transform.position, transform.position);
+
+                if (DistanceToPlayer <= 8f)
                 {
-                    GameManager.PlayerStats.Mana += 1;
-                    if (GameManager.PlayerStats.Mana > GameManager.PlayerStats.MaxMana)
-                    {GameManager.PlayerStats.Mana = GameManager.PlayerStats.MaxMana;}
+                    GameManager.GainXP(XPValue);
+                    if (GameManager.PassiveItemNames.Contains("LESSER SOUL GEM"))
+                    {
+                        GameManager.PlayerStats.Mana += 1;
+                        if (GameManager.PlayerStats.Mana > GameManager.PlayerStats.MaxMana)
+                        { GameManager.PlayerStats.Mana = GameManager.PlayerStats.MaxMana; }
+                    }
                 }
             }
             yield return new WaitForSeconds(1);
