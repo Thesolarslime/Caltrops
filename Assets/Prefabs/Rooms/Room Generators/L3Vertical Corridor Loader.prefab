@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6647042443113417930}
   - component: {fileID: 5669352715365013433}
   m_Layer: 0
-  m_Name: Vertical Corridor Loader
+  m_Name: L3Vertical Corridor Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,6 @@ MonoBehaviour:
   - {fileID: 7613306831255574135, guid: 6bcd0bd560c59334d8c443edbfc446d7, type: 3}
   - {fileID: 7613306831255574135, guid: 7adc6ae72ca45de40bd5db91cc26fa17, type: 3}
   - {fileID: 7613306831255574135, guid: 0fadadf715701294885a66d23b2f649c, type: 3}
-  - {fileID: 7613306831255574135, guid: 71d79258f17ad5b449c6cb8afcef3224, type: 3}
+  - {fileID: 7613306831255574135, guid: 1cfedbf0e0b58e8418a4c614635c67bd, type: 3}
   - {fileID: 7613306831255574135, guid: 89043ed5c96c3d24d96e2dd23bbae315, type: 3}
-  - {fileID: 7613306831255574135, guid: 0edab3629ef02a04db674a6bda0d89d7, type: 3}
+  - {fileID: 7613306831255574135, guid: d1892a6da1a22cd43b63b7d0d1065d51, type: 3}
