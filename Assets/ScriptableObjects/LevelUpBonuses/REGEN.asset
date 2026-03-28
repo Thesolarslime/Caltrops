@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db6c627d1f8f2654e97ae10300e8af54, type: 3}
-  m_Name: SPEED
+  m_Name: REGEN
   m_EditorClassIdentifier: 
-  Name: SPEED
-  Icon: {fileID: 21300000, guid: c9b107ed8f460c147afc9010887685b9, type: 3}
-  Description: SWIFTNESS\n\nCHANNEL THE SMALL SPACE AROUND YOU AND GAIN +1 SPEED
+  Name: REGEN
+  Icon: {fileID: 0}
+  Description: REGENERATION\n\nACCELERATE YOUR NATURAL HEALING AND REDUCE REGEN COOLDOWN
+    BY 1 MOVE
