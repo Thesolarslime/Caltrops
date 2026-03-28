@@ -41,10 +41,13 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckNeighbouringTiles();
-        CaltropCasting();
-        SetSummonTileState();
-        SetPlayerSprite();
+        if (!GameManager.Paused)
+        {
+            CheckNeighbouringTiles();
+            CaltropCasting();
+            SetSummonTileState();
+            SetPlayerSprite();
+        }     
     }
 
     public void CaltropCasting()

@@ -77,7 +77,11 @@ public class ObjectStats : MonoBehaviour
                 FacingNumber = 7; break;
         }
         EnforceMaxStats();
-        StatusTimers();
+
+        if (!GameManager.Paused)
+        {
+            StatusTimers();
+        }
     }
     public void EnforceMaxStats()
     {
@@ -93,23 +97,26 @@ public class ObjectStats : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
-        Damage -= Armour + ArmourModifier;
-        if (Damage < 0) { Damage = 0; }
-        Health -= Damage;
+        if (!GameManager.Paused)
+        {
+            Damage -= Armour + ArmourModifier;
+            if (Damage < 0) { Damage = 0; }
+            Health -= Damage;
 
-        if (Health > 0)
-        {
-            if (Type == "Player") { Sound.PlaySound(Random.Range(0, 2), true, 0.6f); }
-            else { Sound.PlaySound(0, true, 0.5f); }
-            if (Type == "Player") { CameraHurtAnimation.SetTrigger("Hurt"); }
-            ObjectParticles[2].Play();
-            StartCoroutine(DamageColourPulse());
-        }
-        else
-        {
-            if (Type == "Player") { Sound.PlaySound(3, true, 0.6f); }
-            else { Sound.PlaySound(1, true, 0.5f); }
-            StartCoroutine(Die());
+            if (Health > 0)
+            {
+                if (Type == "Player") { Sound.PlaySound(Random.Range(0, 2), true, 0.6f); }
+                else { Sound.PlaySound(0, true, 0.5f); }
+                if (Type == "Player") { CameraHurtAnimation.SetTrigger("Hurt"); }
+                ObjectParticles[2].Play();
+                StartCoroutine(DamageColourPulse());
+            }
+            else
+            {
+                if (Type == "Player") { Sound.PlaySound(3, true, 0.6f); }
+                else { Sound.PlaySound(1, true, 0.5f); }
+                StartCoroutine(Die());
+            }
         }
     }
 

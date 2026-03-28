@@ -41,7 +41,7 @@ public class ObjectMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsControlledByPlayer) { PlayerControlsMovement(); }
+        if (IsControlledByPlayer && !GameManager.Paused) { PlayerControlsMovement(); }
     }
 
     public void MoveObject(string Direction, int Distance)
@@ -361,19 +361,26 @@ public class ObjectMovement : MonoBehaviour
 
     private void EnemyMovement()
     {
-        if (!MovementOnCooldown)
+        if (!GameManager.Paused)
         {
-            if (EnemyMeleeAttacking)
+            if (!MovementOnCooldown)
             {
-                StartCoroutine(EnemyActions("FORWARD"));
-                EnemyMeleeAttacking = false;
+                if (EnemyMeleeAttacking)
+                {
+                    StartCoroutine(EnemyActions("FORWARD"));
+                    EnemyMeleeAttacking = false;
+                }
+                else
+                {
+                    StartCoroutine(EnemyActions(EnemyPath[EnemyPathCount]));
+                    EnemyPathCount++;
+                    if (EnemyPathCount >= EnemyPath.Length) { EnemyPathCount = 0; }
+                }
             }
-            else
-            {
-                StartCoroutine(EnemyActions(EnemyPath[EnemyPathCount]));
-                EnemyPathCount++;
-                if (EnemyPathCount >= EnemyPath.Length) { EnemyPathCount = 0; }
-            } 
+        }
+        else
+        {
+            EnemyMovement();
         }
     }
 

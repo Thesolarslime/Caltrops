@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public string SceneToGoTo;
     public int CurrentLevelID;
 
+    public bool Paused;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         HasPlayer = false;
+        Paused = false;
     }
 
     // Update is called once per frame
