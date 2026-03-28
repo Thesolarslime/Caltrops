@@ -85,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 699ad492a3c32de4cab1aa24ebf863b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,8 +123,15 @@ MonoBehaviour:
   RegenBase: 0
   RegenModifier: 0
   RegenCount: 0
+  StatusVulnerable: 0
+  StatusSlowed: 0
+  StatusPoisoned: 0
+  StatusStunned: 0
+  StatusDisoriented: 0
   EnemyMeleeDamage: 0
   EnemyAttacksInMelee: 0
+  XPValue: 0
+  CaltropThatMoves: 0
   Facing: UP
   FacingNumber: 0
   XPos: 0
@@ -152,6 +159,7 @@ MonoBehaviour:
   IsControlledByPlayer: 0
   IsPlayer: 0
   MovementOnCooldown: 0
+  Moving: 0
   EnemyMeleeAttacking: 0
   BaseMovementCooldown: 1.1
   SpeedIncrementOnMovementCooldown: 0.2

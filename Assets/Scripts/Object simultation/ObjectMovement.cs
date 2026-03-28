@@ -35,7 +35,7 @@ public class ObjectMovement : MonoBehaviour
         GameManager = FindAnyObjectByType<GameManager>();
         Stats.XPos = (int)transform.position.x;
         Stats.YPos = (int)transform.position.y;
-        if (Stats.Type == "Enemy") { StartCoroutine(ChillOutEnemiesGeez()); }
+        if (Stats.Type == "Enemy" || Stats.CaltropThatMoves) { StartCoroutine(ChillOutEnemiesGeez()); }
     }
 
     // Update is called once per frame
@@ -67,11 +67,12 @@ public class ObjectMovement : MonoBehaviour
                             StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
                         case "Enemy":
                             StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; 
-                            if (GameManager.PassiveItemNames.Contains("OLD DAGGER") & Stats.Type == "Player") { HitStats.TakeDamage(1); }
+                            if (GameManager.PassiveItemNames.Contains("OLD DAGGER") & Stats.Type == "Player") { HitStats.TakeDamage(1); } // ITEM
                             break;
                         case "Player":
                             StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
                             if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
+                            if (Stats.Type == "Enemy" && GameManager.PassiveItemNames.Contains("SHIELD")) { Stats.GainStatus("Slowed", 20); } // ITEM
                             break;
                         case "Trap":
                             StartCoroutine(Movement(Direction, Distance)); ShouldMove = false;

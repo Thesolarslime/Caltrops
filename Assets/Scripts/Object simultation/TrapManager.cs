@@ -74,7 +74,13 @@ public class TrapManager : MonoBehaviour
             case "Caltrop":
                 switch (Caltrop.Name)
                 {
-                    case "Mundane":
+                    case "MUNDANE":
+                        Triggerer.TakeDamage(TrapDamage);
+                        break;
+                    case "SOUTHWARD":
+                        Triggerer.TakeDamage(TrapDamage);
+                        break;
+                    case "NORTHWARD":
                         Triggerer.TakeDamage(TrapDamage);
                         break;
                 }

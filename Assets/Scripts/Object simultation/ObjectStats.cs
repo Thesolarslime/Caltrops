@@ -36,6 +36,8 @@ public class ObjectStats : MonoBehaviour
     public bool EnemyAttacksInMelee; // if true, the enemy will attempt to melee attack the player if they move next to them
     public int XPValue; // how valuable a member to society this enemy is
 
+    public bool CaltropThatMoves; // true if this object, is a caltrop that moves. it lets them move.
+
     public string Facing; // UP DOWN LEFT RIGHT
     public int FacingNumber; // A numerical version of which way you're facing, use 4 for up, 5 for right, 6 for down, and 7 for left. 0-3 and 8-11 also follow this pattern, thats for spinning related mechanics.
     public int XPos;

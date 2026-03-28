@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2681092ba85092441bc453be9a05cd5b, type: 3}
+  m_Name: Southward
+  m_EditorClassIdentifier: 
+  Name: SOUTHWARD
+  Prefab: {fileID: 1266272448489078347, guid: 18e8699fba22b3146a96b1c623259c24, type: 3}
+  Description: 'SOUTHWARD ENCHANTMENT\nPLACED 1 TILE NORTH\nCAST SPEED: MEDIUM\nDAMAGE:
+    MEDIUM\nDURABILITY: 2\n\nMOVES SOUTH EVERY 2 SECONDS'
+  Icon: {fileID: 21300000, guid: 1148b7a46f71d8b4f9c8a6677cc33c52, type: 3}
+  Tile: {fileID: 21300000, guid: 1148b7a46f71d8b4f9c8a6677cc33c52, type: 3}
+  DirectionPlaced: Up
+  DistancePlaced: 1
+  CastTime: 0.7
+  ManaCost: 1
+  Damage: 4
+  Durability: 2
+  Infliction: None
+  InflictionDuration: 0
+  PlayerImmune: 0
