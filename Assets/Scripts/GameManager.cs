@@ -95,8 +95,10 @@ public class GameManager : MonoBehaviour
 
     public void ChangeLevel(string Scene)
     {
-        if (HasPlayer) { StoreStats(); }
+        if (Scene == "MainMenu") { ResetStats(); }
+        else if (HasPlayer) { StoreStats(); }
 
+        Paused = false;
         HasPlayer = false;
         SceneToGoTo = Scene;
         SceneManager.LoadScene("Loading"); //THIS SHOULD GO TO A LOADING SCENE THAT CHECKS THE GAMEMANAGERS SCENETOGOTO STRING AND THEN LOADS THE RIGHT ONE
@@ -124,8 +126,12 @@ public class GameManager : MonoBehaviour
         CastTimeModifier = 0;
         Speed = 5;
         RegenBase = 10;
+        XP = 0;
+        Level = 1;
         SelectedCaltrop = 0;
         CaltropCycle = CaltropCycleBase;
+
+        Paused = false;
     }
 
     public void GiveStats()

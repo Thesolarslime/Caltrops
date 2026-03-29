@@ -155,7 +155,7 @@ public class LevelUpManager : MonoBehaviour
         MenuAnimator.SetBool("MenuUp", false);
         GameManager.Paused = false;
         MenuActive = false;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         SelectionMade = false;
         TimeToSelect = false;
         this.gameObject.SetActive(false);
