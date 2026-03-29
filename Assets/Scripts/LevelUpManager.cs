@@ -54,16 +54,16 @@ public class LevelUpManager : MonoBehaviour
 
             // a really unoptimised but simple way of getting 3 random bonuses
             int ChosenBonus = Random.Range(0, Bonuses.Count);
-            ChoiceBoxes[0].Bonus = PossibleBonuses[ChosenBonus];
-            ChoiceSprites[0].sprite = PossibleBonuses[ChosenBonus].Icon;
+            ChoiceBoxes[0].Bonus = Bonuses[ChosenBonus];
+            ChoiceSprites[0].sprite = Bonuses[ChosenBonus].Icon;
             Bonuses.RemoveAt(ChosenBonus);
             ChosenBonus = Random.Range(0, Bonuses.Count);
-            ChoiceBoxes[1].Bonus = PossibleBonuses[ChosenBonus];
-            ChoiceSprites[1].sprite = PossibleBonuses[ChosenBonus].Icon;
+            ChoiceBoxes[1].Bonus = Bonuses[ChosenBonus];
+            ChoiceSprites[1].sprite = Bonuses[ChosenBonus].Icon;
             Bonuses.RemoveAt(ChosenBonus);
             ChosenBonus = Random.Range(0, Bonuses.Count);
-            ChoiceBoxes[2].Bonus = PossibleBonuses[ChosenBonus];
-            ChoiceSprites[2].sprite = PossibleBonuses[ChosenBonus].Icon;
+            ChoiceBoxes[2].Bonus = Bonuses[ChosenBonus];
+            ChoiceSprites[2].sprite = Bonuses[ChosenBonus].Icon;
             Bonuses.RemoveAt(ChosenBonus);
         }
         if (phase == 2)
@@ -99,6 +99,7 @@ public class LevelUpManager : MonoBehaviour
 
     public IEnumerator LevelUpSequence()
     {
+        Audio.PlaySound(3, false, 0.5f);
         SelectionMade = false;
         MainCamera = FindAnyObjectByType<Camera>();
         LevelUpPhase = 0;
@@ -150,6 +151,7 @@ public class LevelUpManager : MonoBehaviour
         ApplyCaltrop();
         SelectedBox = 3;
         yield return new WaitForSeconds(0.5f);
+        Audio.PlaySound(4, false, 0.5f);
         MenuAnimator.SetBool("MenuUp", false);
         GameManager.Paused = false;
         MenuActive = false;

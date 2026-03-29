@@ -15,14 +15,14 @@ MonoBehaviour:
   Name: GHOSTLY
   Prefab: {fileID: 1266272448489078347, guid: 54a6c325cfacb1649be1fc5a842e546a, type: 3}
   Description: 'GHOSTLY ENCHANTMENT\nPLACED 2 TILES FORWARD\nCAST SPEED: VERY SLOW\nDAMAGE:
-    MEDIUM\nDURABILITY: 1\n\nDOESN''T DAMAGE YOU'
+    LOW\nDURABILITY: 1\n\nDOESN''T DAMAGE YOU'
   Icon: {fileID: 21300000, guid: c2a6c333bc494904984189159655cfc4, type: 3}
   Tile: {fileID: 21300000, guid: 1a0deca26ca53a745ba2fd99ae6ee641, type: 3}
   DirectionPlaced: Forward
   DistancePlaced: 2
   CastTime: 1.5
   ManaCost: 1
-  Damage: 3
+  Damage: 2
   Durability: 1
   Infliction: None
   InflictionDuration: 0

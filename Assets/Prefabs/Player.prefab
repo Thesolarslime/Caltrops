@@ -5123,7 +5123,7 @@ MonoBehaviour:
   ArmourModifier: 0
   Mana: 0
   MaxMana: 3
-  Speed: 6
+  Speed: 5
   SpeedModifier: 0
   RegenBase: 10
   RegenModifier: 0

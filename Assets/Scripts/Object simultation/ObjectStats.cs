@@ -164,8 +164,10 @@ public class ObjectStats : MonoBehaviour
             ObjectParticles[2].Play();
             ObjectSprite.enabled = false;
             CameraHurtAnimation.SetTrigger("Hurt");
-            yield return new WaitForSeconds(1); //MAKE THE PLAYER DIE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            Destroy(gameObject);
+            GameManager.Paused = true;
+            yield return new WaitForSeconds(2); //MAKE THE PLAYER DIE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            GameManager.ChangeLevel("MainMenu");
+            //Destroy(gameObject);
         }
     }
 

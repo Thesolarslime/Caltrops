@@ -47,7 +47,7 @@ public class LoadingSceneManager : MonoBehaviour
                 GameManager.CurrentLevelID = 0;
                 break;
             case "Boss1":
-                Text.text = "THE ROGUE";
+                Text.text = "YOU WIN\n\n(THE GAME JAM EDITION OF THE GAME)";
                 GameManager.CurrentLevelID = 4;
                 break;
             case "Boss2":

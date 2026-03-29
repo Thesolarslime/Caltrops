@@ -16546,8 +16546,8 @@ MonoBehaviour:
   PossibleCaltrops:
   - {fileID: 11400000, guid: 62a469e1fdbe9d341b7840b1fa7b6b2d, type: 2}
   - {fileID: 11400000, guid: e15fcf4cf380bc44bb30b5683bc89263, type: 2}
-  - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
   - {fileID: 11400000, guid: adc149657a7f8ad4fa80407ad1c44801, type: 2}
+  - {fileID: 11400000, guid: b26c550c869d1d04fa3bfe24ec1856d4, type: 2}
   PossibleBonuses:
   - {fileID: 11400000, guid: fff62c30e08411247ab5cd523ff4e9eb, type: 2}
   - {fileID: 11400000, guid: 8076b4a0ccfa7bb49a50cabe4b2df065, type: 2}
@@ -16671,6 +16671,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df253dfb334c87b4b8d5345ad828835a, type: 3}
   - {fileID: 8300000, guid: 8b01e4bf0f1770d4e9390947cbeddc83, type: 3}
   - {fileID: 8300000, guid: 39abcfd86ccd6ae4ab0aaf5f69b6ec59, type: 3}
+  - {fileID: 8300000, guid: 8fa51d3865d136e41bf849650c1a2eaa, type: 3}
+  - {fileID: 8300000, guid: 94f5e23cd07e6364786d6988c1238af1, type: 3}
 --- !u!1 &1755893161
 GameObject:
   m_ObjectHideFlags: 0
@@ -21935,6 +21937,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
   - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
   - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
+  CaltropCycleBase: []
   PassiveItems: []
   PassiveItemNames: []
   Player: {fileID: 0}

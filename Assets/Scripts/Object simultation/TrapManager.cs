@@ -86,6 +86,10 @@ public class TrapManager : MonoBehaviour
                     case "GHOSTLY":
                         Triggerer.TakeDamage(TrapDamage);
                         break;
+                    case "STUNNING":
+                        Triggerer.TakeDamage(TrapDamage);
+                        Triggerer.GainStatus("Stunned", 10);
+                        break;
                 }
                 TrapDurability -= 1;
                 if (TrapDurability <= 0) { Stats.StartCoroutine(Stats.Die()); }

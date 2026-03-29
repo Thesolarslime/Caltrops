@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public int[] XPRequirements;
     public int SelectedCaltrop;
     public CaltropType[] CaltropCycle;
+    public CaltropType[] CaltropCycleBase;
     public PassiveItem[] PassiveItems;
     public string[] PassiveItemNames; // WHEN PLAYER GAINS AN ITEM IT ADDS IT'S NAME TO THIS
 
@@ -112,6 +113,19 @@ public class GameManager : MonoBehaviour
         RegenBase = PlayerStats.RegenBase;
         SelectedCaltrop = Player.SelectedCaltrop;
         CaltropCycle = Player.CaltropCycle;
+    }
+
+    public void ResetStats()
+    {
+        Health = 5;
+        MaxHealth = 5;
+        Mana = 0;
+        MaxMana = 3;
+        CastTimeModifier = 0;
+        Speed = 5;
+        RegenBase = 10;
+        SelectedCaltrop = 0;
+        CaltropCycle = CaltropCycleBase;
     }
 
     public void GiveStats()
