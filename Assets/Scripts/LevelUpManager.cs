@@ -22,6 +22,8 @@ public class LevelUpManager : MonoBehaviour
     private bool SelectionMade; // becomes true to signal that a choice has been made and it's time to move on with the levelup sequence.
     private bool TimeToSelect;
 
+    private CaltropType SelectedCaltrop;
+
     public CaltropType[] PossibleCaltrops;
     public LevelBonus[] PossibleBonuses;
 
@@ -88,7 +90,9 @@ public class LevelUpManager : MonoBehaviour
         }
         if (phase == 3)
         {
-
+            ChoiceBoxes[0].Caltrop = GameManager.Player.CaltropCycle[0];
+            ChoiceBoxes[1].Caltrop = GameManager.Player.CaltropCycle[1];
+            ChoiceBoxes[2].Caltrop = GameManager.Player.CaltropCycle[2];
         }
     }
 
@@ -116,28 +120,39 @@ public class LevelUpManager : MonoBehaviour
         LevelUpPhase = 2;
         SelectedBox = 3;
         yield return new WaitForSeconds(1);
+        Audio.PlaySound(Random.Range(0, 2), true, 0.5f);
         Title.text = "LEVEL UP!\nCHOOSE A CALTROP ENCHANTMENT";
         PickOptions(2);
         SelectedBox = 1;
+        UpdateDescription();
         TimeToSelect = true;
     }
     public IEnumerator LevelUpSequence3()
     {
-        ApplyCaltrop();
+        SelectedCaltrop = ChoiceBoxes[SelectedBox].Caltrop;
+        Title.text = "LEVEL UP!";
         SelectedBox = 3;
         yield return new WaitForSeconds(1);
+        Audio.PlaySound(Random.Range(0, 2), true, 0.5f);
+        Title.text = "LEVEL UP!\nCHOOSE A CALTROP TO REPLACE";
+        SelectionMade = false;
+        LevelUpPhase = 3;
+        yield return new WaitForSeconds(1);
+        PickOptions(3);
+        SelectedBox = 1;
+        UpdateDescription();
+        TimeToSelect = true;
+    }
+
+    public IEnumerator LevelUpDone()
+    {
+        ApplyCaltrop();
+        SelectedBox = 3;
         MenuAnimator.SetBool("MenuUp", false);
         GameManager.Paused = false;
         MenuActive = false;
         yield return new WaitForSeconds(1.5f);
         this.gameObject.SetActive(false);
-
-        /*SelectionMade = false;
-        LevelUpPhase = 3;
-        yield return new WaitForSeconds(1);
-        PickOptions(3);
-        SelectedBox = 1;
-        TimeToSelect = true;*/
     }
 
     public void ApplyBonus()
@@ -166,7 +181,7 @@ public class LevelUpManager : MonoBehaviour
 
     public void ApplyCaltrop()
     {
-        GameManager.Player.CaltropCycle[2] = ChoiceBoxes[SelectedBox].Caltrop;
+        GameManager.Player.CaltropCycle[SelectedBox] = SelectedCaltrop;
     }
 
     private void UpdateDescription()
@@ -178,6 +193,10 @@ public class LevelUpManager : MonoBehaviour
         if (LevelUpPhase == 2)
         {
             Description.text = ChoiceBoxes[SelectedBox].Caltrop.Description;
+        }
+        if (LevelUpPhase == 3)
+        {
+            Description.text = "REPLACE " + ChoiceBoxes[SelectedBox].Caltrop.Description;
         }
     }
 
@@ -211,6 +230,10 @@ public class LevelUpManager : MonoBehaviour
                 else if (LevelUpPhase == 2)
                 {
                     StartCoroutine(LevelUpSequence3());
+                }
+                else if (LevelUpPhase == 3)
+                {
+                    StartCoroutine(LevelUpDone());
                 }
 
             }
