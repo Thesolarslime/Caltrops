@@ -37,6 +37,7 @@ public class LoadingSceneManager : MonoBehaviour
             case "Level3":
                 Text.text = "LEVEL 3\n\nMIDDLE RING";
                 GameManager.CurrentLevelID = 3;
+                Sound.PlaySound(2, false, 1);
                 break;
             case "Level4":
                 Text.text = "LEVEL 4\n\nOUTER RING";
