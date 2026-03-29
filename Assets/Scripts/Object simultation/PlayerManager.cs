@@ -120,6 +120,23 @@ public class PlayerManager : MonoBehaviour
                         break;
                 }
                 break;
+            case "Backward":
+                switch (Stats.Facing)
+                {
+                    case "DOWN":
+                        TileSelect.transform.position = new Vector3(Stats.XPos, Stats.YPos + CaltropCycle[SelectedCaltrop].DistancePlaced, 0);
+                        break;
+                    case "UP":
+                        TileSelect.transform.position = new Vector3(Stats.XPos, Stats.YPos - CaltropCycle[SelectedCaltrop].DistancePlaced, 0);
+                        break;
+                    case "RIGHT":
+                        TileSelect.transform.position = new Vector3(Stats.XPos - CaltropCycle[SelectedCaltrop].DistancePlaced, Stats.YPos, 0);
+                        break;
+                    case "LEFT":
+                        TileSelect.transform.position = new Vector3(Stats.XPos + CaltropCycle[SelectedCaltrop].DistancePlaced, Stats.YPos, 0);
+                        break;
+                }
+                break;
         }
         if (CastTimeFulfilled <= 0)
         {

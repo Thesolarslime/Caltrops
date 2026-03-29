@@ -98,6 +98,9 @@ public class TrapManager : MonoBehaviour
                     case "WANDERING":
                         Triggerer.TakeDamage(TrapDamage);
                         break;
+                    case "HURRIED":
+                        Triggerer.TakeDamage(TrapDamage);
+                        break;
                 }
                 TrapDurability -= 1;
                 if (TrapDurability <= 0) { Stats.StartCoroutine(Stats.Die()); }

@@ -62,19 +62,19 @@ public class HealthAndManaSlots : MonoBehaviour
                 {
                     if (ID > Player.Health)
                     {
+                        Sprite.enabled = false;
                         if (ActiveSlot)
                         {
                             Particles.Stop();
-                            Sprite.enabled = false;
                             ActiveSlot = false;
                         }
                     }
                     else
                     {
+                        Sprite.enabled = true;
                         if (!ActiveSlot)
                         {
                             Particles.Play();
-                            Sprite.enabled = true;
                             ActiveSlot = true;
                         }
 
