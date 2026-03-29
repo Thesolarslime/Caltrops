@@ -16,8 +16,8 @@ MonoBehaviour:
   Prefab: {fileID: 1266272448489078347, guid: 80029c10c1a3aa3498b268820a9f2161, type: 3}
   Description: 'ETERNAL ENCHANTMENT\nPLACED 1 TILE FORWARD\nCAST SPEED: SLOW\nDAMAGE:
     LOW\nDURABILITY: 1\n\nNEVER BREAKS ON USE'
-  Icon: {fileID: 21300000, guid: 548f7dd42ba61694ca976ff628879c3d, type: 3}
-  Tile: {fileID: 21300000, guid: e5acebbc57cb3c441b794976d995df91, type: 3}
+  Icon: {fileID: 21300000, guid: 5d390c69eadf6ed459a9ebd35b7473ef, type: 3}
+  Tile: {fileID: 21300000, guid: 1ee4fa23c2641bd42a70dc87443f8e95, type: 3}
   DirectionPlaced: Forward
   DistancePlaced: 1
   CastTime: 2

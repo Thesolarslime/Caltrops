@@ -89,6 +89,12 @@ public class TrapManager : MonoBehaviour
                         Triggerer.TakeDamage(TrapDamage);
                         Triggerer.GainStatus("Stunned", 10);
                         break;
+                    case "ETERNAL":
+                        Triggerer.TakeDamage(TrapDamage);
+                        break;
+                    case "WANDERING":
+                        Triggerer.TakeDamage(TrapDamage);
+                        break;
                 }
                 TrapDurability -= 1;
                 if (TrapDurability <= 0) { Stats.StartCoroutine(Stats.Die()); }
