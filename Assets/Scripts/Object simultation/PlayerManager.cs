@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
 
     public Sprite[] PlayerSprites;
     public SpriteRenderer PlayerSprite;
+    public SpriteRenderer CurrentCaltrop;
 
     public int SelectedCaltrop;
     public CaltropType[] CaltropCycle;
@@ -54,6 +55,7 @@ public class PlayerManager : MonoBehaviour
 
     public void CaltropCasting()
     {
+        CurrentCaltrop.sprite = CaltropCycle[SelectedCaltrop].Icon;
         if (Input.GetKey(KeyCode.Space))
         {
             if (CastAmountCanIncrease)

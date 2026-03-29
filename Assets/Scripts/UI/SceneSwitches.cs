@@ -15,4 +15,9 @@ public class SceneSwitches : MonoBehaviour
         GameManager = FindAnyObjectByType<GameManager>();
         GameManager.ChangeLevel("IntroCutscene");
     }
+
+    public void Oblivion()
+    {
+        Application.Quit();
+    }
 }

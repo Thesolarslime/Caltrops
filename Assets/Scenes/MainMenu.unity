@@ -11331,10 +11331,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.031189084
-    y: 0.032467533
-    width: 0.9356725
-    height: 0.9350649
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -37031,7 +37031,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1254077313}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1992613922}
+        m_TargetAssemblyTypeName: SceneSwitches, Assembly-CSharp
+        m_MethodName: Oblivion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1254077313
 MonoBehaviour:
   m_ObjectHideFlags: 0
