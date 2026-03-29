@@ -59,8 +59,8 @@ public class PlayerManager : MonoBehaviour
             if (CastAmountCanIncrease)
             {
                 CastTimeFulfilled += Time.deltaTime;
-                if (CastTimeFulfilled > CaltropCycle[SelectedCaltrop].CastTime) { CastTimeFulfilled = CaltropCycle[SelectedCaltrop].CastTime; } //making sure it doesn't go over
-                if (CastTimeFulfilled >= CaltropCycle[SelectedCaltrop].CastTime)
+                if (CastTimeFulfilled > CaltropCycle[SelectedCaltrop].CastTime + CastTimeModifier) { CastTimeFulfilled = CaltropCycle[SelectedCaltrop].CastTime; } //making sure it doesn't go over
+                if (CastTimeFulfilled >= CaltropCycle[SelectedCaltrop].CastTime + CastTimeModifier)
                 {
                     if (CanSummonCaltrop && Stats.Mana >= CaltropCycle[SelectedCaltrop].ManaCost && !Movement.Moving)
                     {

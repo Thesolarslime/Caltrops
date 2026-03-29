@@ -49,22 +49,19 @@ public class LevelUpManager : MonoBehaviour
     {
         if (phase == 1)
         {
-            List<int> Bonuses = new List<int>();
-            Bonuses.Add(0); Bonuses.Add(1); Bonuses.Add(2); Bonuses.Add(3); Bonuses.Add(4); Bonuses.Add(5);
+            List<LevelBonus> Bonuses;
+            Bonuses = PossibleBonuses.ToList();
 
             // a really unoptimised but simple way of getting 3 random bonuses
             int ChosenBonus = Random.Range(0, Bonuses.Count);
-            Debug.Log(ChosenBonus + PossibleBonuses[ChosenBonus].Name);
             ChoiceBoxes[0].Bonus = PossibleBonuses[ChosenBonus];
             ChoiceSprites[0].sprite = PossibleBonuses[ChosenBonus].Icon;
             Bonuses.RemoveAt(ChosenBonus);
             ChosenBonus = Random.Range(0, Bonuses.Count);
-            Debug.Log(ChosenBonus + PossibleBonuses[ChosenBonus].Name);
             ChoiceBoxes[1].Bonus = PossibleBonuses[ChosenBonus];
             ChoiceSprites[1].sprite = PossibleBonuses[ChosenBonus].Icon;
             Bonuses.RemoveAt(ChosenBonus);
             ChosenBonus = Random.Range(0, Bonuses.Count);
-            Debug.Log(ChosenBonus + PossibleBonuses[ChosenBonus].Name);
             ChoiceBoxes[2].Bonus = PossibleBonuses[ChosenBonus];
             ChoiceSprites[2].sprite = PossibleBonuses[ChosenBonus].Icon;
             Bonuses.RemoveAt(ChosenBonus);
@@ -158,6 +155,7 @@ public class LevelUpManager : MonoBehaviour
         MenuActive = false;
         yield return new WaitForSeconds(1.5f);
         SelectionMade = false;
+        TimeToSelect = false;
         this.gameObject.SetActive(false);
     }
 
