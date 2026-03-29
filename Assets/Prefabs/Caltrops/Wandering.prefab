@@ -437,8 +437,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sound: {fileID: 0}
   AudioClips:
-  - {fileID: 8300000, guid: 7f4a154d57f5a874a9e5dbfd30b8c086, type: 3}
-  - {fileID: 8300000, guid: 7f4a154d57f5a874a9e5dbfd30b8c086, type: 3}
+  - {fileID: 8300000, guid: 39abcfd86ccd6ae4ab0aaf5f69b6ec59, type: 3}
+  - {fileID: 8300000, guid: 16793dd382b2e604dbffa231ebdd3b46, type: 3}
+  - {fileID: 8300000, guid: 26fe91049dc1566409d59701302cf791, type: 3}
+  - {fileID: 8300000, guid: 26fe91049dc1566409d59701302cf791, type: 3}
+  - {fileID: 8300000, guid: 26fe91049dc1566409d59701302cf791, type: 3}
 --- !u!1001 &4650971186932824534
 PrefabInstance:
   m_ObjectHideFlags: 0

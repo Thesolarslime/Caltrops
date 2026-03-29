@@ -22,9 +22,12 @@ public class TrapManager : MonoBehaviour
 
     public ObjectStats MostRecentTriggerer;
 
+    private GameManager GameManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameManager = FindAnyObjectByType<GameManager>();
         Stats = GetComponent<ObjectStats>();
         Movement = GetComponent<ObjectMovement>();
         Sound = GetComponent<AudioPlayer>();
@@ -161,6 +164,7 @@ public class TrapManager : MonoBehaviour
             case "Key":
                 GetComponent<DoorKeyManager>().KeyGet();
                 Sound.PlaySound(0, false, 1f);
+                GameManager.GainXP(100);
                 Stats.StartCoroutine(Stats.Die());
                 break;
         }
