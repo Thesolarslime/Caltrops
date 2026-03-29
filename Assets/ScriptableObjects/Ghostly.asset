@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ghostly
   m_EditorClassIdentifier: 
   Name: GHOSTLY
-  Prefab: {fileID: 1266272448489078347, guid: e3514c1ed2a3df749bd1793278ea1dea, type: 3}
+  Prefab: {fileID: 1266272448489078347, guid: 54a6c325cfacb1649be1fc5a842e546a, type: 3}
   Description: 'GHOSTLY ENCHANTMENT\nPLACED 2 TILES FORWARD\nCAST SPEED: VERY SLOW\nDAMAGE:
     MEDIUM\nDURABILITY: 1\n\nDOESN''T DAMAGE YOU'
   Icon: {fileID: 21300000, guid: c2a6c333bc494904984189159655cfc4, type: 3}

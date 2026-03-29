@@ -550,7 +550,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6010,10 +6010,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.018054163
-    y: 0.018394649
-    width: 0.96288866
-    height: 0.9632107
+    x: 0.08016032
+    y: 0.16026711
+    width: 0.48096192
+    height: 0.4808013
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -6175,9 +6175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bonus: {fileID: 0}
   Caltrop: {fileID: 0}
-  BoxAnimator: {fileID: 0}
-  SpriteAnimator: {fileID: 0}
-  LevelUpManager: {fileID: 0}
+  BoxAnimator: {fileID: 1100616736}
+  SpriteAnimator: {fileID: 1339799372}
+  LevelUpManager: {fileID: 1617239718}
   ID: 0
 --- !u!1 &1144160186
 GameObject:
@@ -6314,7 +6314,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6494,10 +6494,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bonus: {fileID: 0}
   Caltrop: {fileID: 0}
-  BoxAnimator: {fileID: 0}
-  SpriteAnimator: {fileID: 0}
-  LevelUpManager: {fileID: 0}
-  ID: 0
+  BoxAnimator: {fileID: 1342280729}
+  SpriteAnimator: {fileID: 373567862}
+  LevelUpManager: {fileID: 1617239718}
+  ID: 1
 --- !u!1 &1383492488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6554,7 +6554,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6665,9 +6665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'LEVEL UP!
-
-    CHOOSE A CALTROP ENCHANTMENT'
+  m_text: LEVEL UP!\nCHOOSE A CALTROP ENCHANTMENT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4768c38b0b6b2146a0c6dc9a0e2e118, type: 2}
   m_sharedMaterial: {fileID: 166861131007775860, guid: d4768c38b0b6b2146a0c6dc9a0e2e118, type: 2}
@@ -11679,6 +11677,8 @@ GameObject:
   - component: {fileID: 1617239716}
   - component: {fileID: 1617239715}
   - component: {fileID: 1617239717}
+  - component: {fileID: 1617239720}
+  - component: {fileID: 1617239719}
   m_Layer: 0
   m_Name: LevelUpMenu
   m_TagString: Untagged
@@ -11695,7 +11695,7 @@ Transform:
   m_GameObject: {fileID: 1617239713}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 11, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -16530,6 +16530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuActive: 0
   MenuAnimator: {fileID: 0}
+  Audio: {fileID: 0}
   ChoiceBoxes:
   - {fileID: 1100616738}
   - {fileID: 1342280730}
@@ -16539,11 +16540,14 @@ MonoBehaviour:
   - {fileID: 373567861}
   - {fileID: 1383492490}
   SelectedBox: 0
+  Description: {fileID: 951077400}
+  Title: {fileID: 1491191421}
   LevelUpPhase: 0
   PossibleCaltrops:
   - {fileID: 11400000, guid: 62a469e1fdbe9d341b7840b1fa7b6b2d, type: 2}
   - {fileID: 11400000, guid: e15fcf4cf380bc44bb30b5683bc89263, type: 2}
   - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
+  - {fileID: 11400000, guid: adc149657a7f8ad4fa80407ad1c44801, type: 2}
   PossibleBonuses:
   - {fileID: 11400000, guid: fff62c30e08411247ab5cd523ff4e9eb, type: 2}
   - {fileID: 11400000, guid: 8076b4a0ccfa7bb49a50cabe4b2df065, type: 2}
@@ -16552,6 +16556,121 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c272384a5a9bc324f906d6fb7c1e3757, type: 2}
   - {fileID: 11400000, guid: 487a7c775e9e4ee40a16919f993fb064, type: 2}
   GameManager: {fileID: 1929739288}
+  MainCamera: {fileID: 0}
+--- !u!82 &1617239719
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617239713}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 2320571667374045404, guid: 1327d93529670bc428a0a97c249e2f5c, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.503
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1617239720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617239713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66f07764e9b179489b8e09cc581b256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sound: {fileID: 1617239719}
+  AudioClips:
+  - {fileID: 8300000, guid: df253dfb334c87b4b8d5345ad828835a, type: 3}
+  - {fileID: 8300000, guid: 8b01e4bf0f1770d4e9390947cbeddc83, type: 3}
+  - {fileID: 8300000, guid: 39abcfd86ccd6ae4ab0aaf5f69b6ec59, type: 3}
 --- !u!1 &1755893161
 GameObject:
   m_ObjectHideFlags: 0
@@ -21587,10 +21706,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bonus: {fileID: 0}
   Caltrop: {fileID: 0}
-  BoxAnimator: {fileID: 0}
-  SpriteAnimator: {fileID: 0}
-  LevelUpManager: {fileID: 0}
-  ID: 0
+  BoxAnimator: {fileID: 1808133266}
+  SpriteAnimator: {fileID: 1383492491}
+  LevelUpManager: {fileID: 1617239718}
+  ID: 2
 --- !u!1 &1808727492
 GameObject:
   m_ObjectHideFlags: 0
@@ -21821,7 +21940,7 @@ MonoBehaviour:
   SceneToGoTo: 
   CurrentLevelID: 0
   Paused: 0
-  LevelUpManager: {fileID: 0}
+  LevelUpManager: {fileID: 1617239718}
 --- !u!1 &2017669347
 GameObject:
   m_ObjectHideFlags: 0

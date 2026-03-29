@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: XP
   m_EditorClassIdentifier: 
   Name: XP
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: e68607aa6f8125344989839ff1fb5024, type: 3}
   Description: EXPERIENCE\n\nRECALL YOUR PAST ESCAPE ATTEMPTS AND GAIN A THIRD OF
     THE XP NEEDED TO LEVEL UP AGAIN

@@ -381,8 +381,14 @@ public class ObjectMovement : MonoBehaviour
         }
         else
         {
-            EnemyMovement();
+            StartCoroutine(ChillOutEnemiesTheSequel());
         }
+    }
+
+    private IEnumerator ChillOutEnemiesTheSequel()
+    {
+        yield return new WaitForSeconds(0.1f);
+        EnemyMovement();
     }
 
     private IEnumerator EnemyActions(string Act)

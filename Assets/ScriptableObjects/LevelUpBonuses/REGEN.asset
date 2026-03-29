@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: REGEN
   m_EditorClassIdentifier: 
   Name: REGEN
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: f6a4f26861dcea843a6251a341c5ce77, type: 3}
   Description: REGENERATION\n\nACCELERATE YOUR NATURAL HEALING AND REDUCE REGEN COOLDOWN
     BY 1 MOVE

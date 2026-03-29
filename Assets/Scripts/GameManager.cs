@@ -46,7 +46,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (HasPlayer)
+        {
+            transform.position = Player.gameObject.transform.position;
+        }
     }
 
     public void GetPlayer(PlayerManager Input)
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         Level++;
         Paused = true;
+        LevelUpManager.gameObject.SetActive(true);
         LevelUpManager.StartCoroutine(LevelUpManager.LevelUpSequence());
         XP = 0;
         if (PassiveItemNames.Contains("REFILLING POTION")) { PlayerStats.Health += 3; } // ITEM
