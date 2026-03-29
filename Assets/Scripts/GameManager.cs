@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LevelUp()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         Level++;
         Paused = true;
         LevelUpManager.gameObject.SetActive(true);

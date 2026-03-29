@@ -5193,10 +5193,11 @@ MonoBehaviour:
   SelectedCaltrop: 0
   CaltropCycle:
   - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
-  - {fileID: 11400000, guid: 62a469e1fdbe9d341b7840b1fa7b6b2d, type: 2}
-  - {fileID: 11400000, guid: e15fcf4cf380bc44bb30b5683bc89263, type: 2}
+  - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
+  - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
   CanSummonCaltrop: 0
   CastTimeFulfilled: 0
+  CastTimeModifier: 0
   GameManager: {fileID: 0}
 --- !u!114 &-6365384018845183432
 MonoBehaviour:
