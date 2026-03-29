@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public int MaxHealth;
     public int Mana;
     public int MaxMana;
+    public float CastTimeModifier;
+    public int Speed;
+    public int RegenBase;
     public int XP;
     private int XPCarryOver;
     public int Level;
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
     public int CurrentLevelID;
 
     public bool Paused;
+    public LevelUpManager LevelUpManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -74,6 +78,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Level++;
+        Paused = true;
+        LevelUpManager.StartCoroutine(LevelUpManager.LevelUpSequence());
         XP = 0;
         if (PassiveItemNames.Contains("REFILLING POTION")) { PlayerStats.Health += 3; } // ITEM
         // The level up ui stuff
@@ -97,6 +103,9 @@ public class GameManager : MonoBehaviour
         MaxHealth = PlayerStats.MaxHealth;
         Mana = PlayerStats.Mana;
         MaxMana = PlayerStats.MaxMana;
+        CastTimeModifier = Player.CastTimeModifier;
+        Speed = PlayerStats.Speed;
+        RegenBase = PlayerStats.RegenBase;
         SelectedCaltrop = Player.SelectedCaltrop;
         CaltropCycle = Player.CaltropCycle;
     }
@@ -107,6 +116,9 @@ public class GameManager : MonoBehaviour
         PlayerStats.MaxHealth = MaxHealth;
         PlayerStats.Mana = Mana;
         PlayerStats.MaxMana = MaxMana;
+        Player.CastTimeModifier = CastTimeModifier;
+        PlayerStats.Speed = Speed;
+        PlayerStats.RegenBase = RegenBase;
         Player.SelectedCaltrop = SelectedCaltrop;
         Player.CaltropCycle = CaltropCycle;
     }

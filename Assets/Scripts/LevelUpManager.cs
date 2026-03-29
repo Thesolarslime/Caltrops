@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelUpManager : MonoBehaviour
@@ -50,15 +51,40 @@ public class LevelUpManager : MonoBehaviour
             // a really unoptimised but simple way of getting 3 random bonuses
             int ChosenBonus = Random.Range(0, Bonuses.Count);
             ChoiceBoxes[0].Bonus = PossibleBonuses[ChosenBonus];
+            ChoiceSprites[0].sprite = PossibleBonuses[ChosenBonus].Icon;
             Bonuses.RemoveAt(ChosenBonus);
             ChosenBonus = Random.Range(0, Bonuses.Count);
             ChoiceBoxes[1].Bonus = PossibleBonuses[ChosenBonus];
+            ChoiceSprites[1].sprite = PossibleBonuses[ChosenBonus].Icon;
             Bonuses.RemoveAt(ChosenBonus);
             ChosenBonus = Random.Range(0, Bonuses.Count);
             ChoiceBoxes[2].Bonus = PossibleBonuses[ChosenBonus];
+            ChoiceSprites[2].sprite = PossibleBonuses[ChosenBonus].Icon;
             Bonuses.RemoveAt(ChosenBonus);
         }
-        
+        if (phase == 2)
+        {
+            List<CaltropType> TempCaltrops;
+            TempCaltrops = PossibleCaltrops.ToList();
+
+            // a really unoptimised but simple way of getting 3 random bonuses
+            int ChosenBonus = Random.Range(0, TempCaltrops.Count);
+            ChoiceBoxes[0].Caltrop = TempCaltrops[ChosenBonus];
+            ChoiceSprites[0].sprite = TempCaltrops[ChosenBonus].Icon;
+            TempCaltrops.RemoveAt(ChosenBonus);
+            ChosenBonus = Random.Range(0, TempCaltrops.Count);
+            ChoiceBoxes[1].Caltrop = TempCaltrops[ChosenBonus];
+            ChoiceSprites[1].sprite = TempCaltrops[ChosenBonus].Icon;
+            TempCaltrops.RemoveAt(ChosenBonus);
+            ChosenBonus = Random.Range(0, TempCaltrops.Count);
+            ChoiceBoxes[2].Caltrop = TempCaltrops[ChosenBonus];
+            ChoiceSprites[2].sprite = TempCaltrops[ChosenBonus].Icon;
+            TempCaltrops.RemoveAt(ChosenBonus);
+        }
+        if (phase == 3)
+        {
+
+        }
     }
 
     public IEnumerator LevelUpSequence()
@@ -75,6 +101,42 @@ public class LevelUpManager : MonoBehaviour
         Selection();
     }
 
+    public IEnumerator LevelUpSequence2()
+    {
+        ApplyBonus();
+        SelectionMade = false;
+        LevelUpPhase = 2;
+        SelectedBox = 3;
+        yield return new WaitForSeconds(1);
+        PickOptions(2);
+        SelectedBox = 1;
+        Selection();
+    }
+
+    public void ApplyBonus()
+    {
+        switch (ChoiceBoxes[SelectedBox].Bonus.Name)
+        {
+            case "HEALTH":
+                GameManager.PlayerStats.MaxHealth++;
+                GameManager.MaxHealth++; break;
+            case "MANA":
+                GameManager.PlayerStats.MaxMana++;
+                GameManager.MaxMana++; break;
+            case "SPEED":
+                GameManager.PlayerStats.Speed++;
+                GameManager.Speed++; break;
+            case "CAST TIME":
+                GameManager.Player.CastTimeModifier -= 0.1f;
+                GameManager.CastTimeModifier -= 0.1f; break;
+            case "REGEN":
+                GameManager.PlayerStats.RegenBase--;
+                GameManager.RegenBase--; break;
+            case "XP":
+                GameManager.GainXP(GameManager.XPRequirements[GameManager.Level-1] / 3); break;
+        }
+    }
+
     public void Selection()
     {
         if (Input.GetKeyDown(KeyCode.A))
@@ -88,7 +150,12 @@ public class LevelUpManager : MonoBehaviour
             else { SelectedBox++; }
         }
 
-        if (MenuActive)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SelectionMade = true;
+            StartCoroutine(LevelUpSequence2());
+        }
+        else if (MenuActive)
         {
             Selection();
         }

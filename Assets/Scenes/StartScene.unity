@@ -6010,10 +6010,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.050530255
-    y: 0.05093555
-    width: 0.8983156
-    height: 0.8981289
+    x: 0.018054163
+    y: 0.018394649
+    width: 0.96288866
+    height: 0.9632107
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -16543,6 +16543,7 @@ MonoBehaviour:
   PossibleCaltrops:
   - {fileID: 11400000, guid: 62a469e1fdbe9d341b7840b1fa7b6b2d, type: 2}
   - {fileID: 11400000, guid: e15fcf4cf380bc44bb30b5683bc89263, type: 2}
+  - {fileID: 11400000, guid: 9b7a3caf267f9024983bd3adddd55ec6, type: 2}
   PossibleBonuses:
   - {fileID: 11400000, guid: fff62c30e08411247ab5cd523ff4e9eb, type: 2}
   - {fileID: 11400000, guid: 8076b4a0ccfa7bb49a50cabe4b2df065, type: 2}
@@ -21804,6 +21805,9 @@ MonoBehaviour:
   MaxHealth: 0
   Mana: 0
   MaxMana: 0
+  CastTimeModifier: 0
+  Speed: 6
+  RegenBase: 10
   XP: 0
   Level: 1
   XPRequirements: 640000007d000000e10000007701000026020000ee020000e80300001405000072060000d0070000c4090000
@@ -21817,6 +21821,7 @@ MonoBehaviour:
   SceneToGoTo: 
   CurrentLevelID: 0
   Paused: 0
+  LevelUpManager: {fileID: 0}
 --- !u!1 &2017669347
 GameObject:
   m_ObjectHideFlags: 0

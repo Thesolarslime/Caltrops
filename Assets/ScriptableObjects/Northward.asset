@@ -16,7 +16,7 @@ MonoBehaviour:
   Prefab: {fileID: 1266272448489078347, guid: 4cad09a9529541a4392232e2f63e88a6, type: 3}
   Description: 'NORTHWARD ENCHANTMENT\nPLACED 1 TILE SOUTH\nCAST SPEED: MEDIUM\nDAMAGE:
     MEDIUM\nDURABILITY: 4\n\nMOVES NORTH EVERY 1.5 SECONDS'
-  Icon: {fileID: 21300000, guid: 9b90be05ed442af4dbc4acb279e164e1, type: 3}
+  Icon: {fileID: 21300000, guid: 553621f68baa5dd4e805c1eb7f87aa5d, type: 3}
   Tile: {fileID: 21300000, guid: 9b90be05ed442af4dbc4acb279e164e1, type: 3}
   DirectionPlaced: Down
   DistancePlaced: 1

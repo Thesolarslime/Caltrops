@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     private bool CastAmountCanIncrease;
     public bool CanSummonCaltrop; // false if the selected tile for a caltrop isn't an empty space
     public float CastTimeFulfilled;
+    public float CastTimeModifier; // the stat that changes for upgrades
 
     public GameManager GameManager;
 

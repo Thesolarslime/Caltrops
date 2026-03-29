@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2681092ba85092441bc453be9a05cd5b, type: 3}
-  m_Name: Mundane
+  m_Name: Ghostly
   m_EditorClassIdentifier: 
-  Name: MUNDANE
+  Name: GHOSTLY
   Prefab: {fileID: 1266272448489078347, guid: e3514c1ed2a3df749bd1793278ea1dea, type: 3}
-  Description: 'MUNDANE CALTROP\nPLACED 1 TILE FORWARD\nCAST SPEED: SLOW\nDAMAGE:
-    MEDIUM\nDURABILITY: 1'
-  Icon: {fileID: 21300000, guid: b2595c4ed35aebe48bc048cba17e9618, type: 3}
-  Tile: {fileID: 21300000, guid: 699ad492a3c32de4cab1aa24ebf863b5, type: 3}
+  Description: 'GHOSTLY ENCHANTMENT\nPLACED 2 TILES FORWARD\nCAST SPEED: VERY SLOW\nDAMAGE:
+    MEDIUM\nDURABILITY: 1\n\nDOESN''T DAMAGE YOU'
+  Icon: {fileID: 21300000, guid: c2a6c333bc494904984189159655cfc4, type: 3}
+  Tile: {fileID: 21300000, guid: 1a0deca26ca53a745ba2fd99ae6ee641, type: 3}
   DirectionPlaced: Forward
-  DistancePlaced: 1
-  CastTime: 1
+  DistancePlaced: 2
+  CastTime: 1.5
   ManaCost: 1
   Damage: 3
   Durability: 1
   Infliction: None
   InflictionDuration: 0
-  PlayerImmune: 0
+  PlayerImmune: 1
