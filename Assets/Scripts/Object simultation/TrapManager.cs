@@ -83,6 +83,9 @@ public class TrapManager : MonoBehaviour
                     case "NORTHWARD":
                         Triggerer.TakeDamage(TrapDamage);
                         break;
+                    case "GHOSTLY":
+                        Triggerer.TakeDamage(TrapDamage);
+                        break;
                 }
                 TrapDurability -= 1;
                 if (TrapDurability <= 0) { Stats.StartCoroutine(Stats.Die()); }

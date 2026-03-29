@@ -93,11 +93,16 @@ public class LevelUpManager : MonoBehaviour
             ChoiceBoxes[0].Caltrop = GameManager.Player.CaltropCycle[0];
             ChoiceBoxes[1].Caltrop = GameManager.Player.CaltropCycle[1];
             ChoiceBoxes[2].Caltrop = GameManager.Player.CaltropCycle[2];
+
+            ChoiceSprites[0].sprite = GameManager.Player.CaltropCycle[0].Icon;
+            ChoiceSprites[1].sprite = GameManager.Player.CaltropCycle[1].Icon;
+            ChoiceSprites[2].sprite = GameManager.Player.CaltropCycle[2].Icon;
         }
     }
 
     public IEnumerator LevelUpSequence()
     {
+        SelectionMade = false;
         MainCamera = FindAnyObjectByType<Camera>();
         LevelUpPhase = 0;
         MenuActive = true;
@@ -137,7 +142,6 @@ public class LevelUpManager : MonoBehaviour
         Title.text = "LEVEL UP!\nCHOOSE A CALTROP TO REPLACE";
         SelectionMade = false;
         LevelUpPhase = 3;
-        yield return new WaitForSeconds(1);
         PickOptions(3);
         SelectedBox = 1;
         UpdateDescription();
@@ -148,10 +152,12 @@ public class LevelUpManager : MonoBehaviour
     {
         ApplyCaltrop();
         SelectedBox = 3;
+        yield return new WaitForSeconds(0.5f);
         MenuAnimator.SetBool("MenuUp", false);
         GameManager.Paused = false;
         MenuActive = false;
         yield return new WaitForSeconds(1.5f);
+        SelectionMade = false;
         this.gameObject.SetActive(false);
     }
 
