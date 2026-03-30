@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 public class PlayerManager : MonoBehaviour
 {
-    private ObjectStats Stats;
+    public ObjectStats Stats;
     private ObjectMovement Movement;
     private AudioPlayer Sound;
 

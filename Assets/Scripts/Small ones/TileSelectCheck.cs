@@ -13,21 +13,21 @@ public class TileSelectCheck : MonoBehaviour
         RaycastHit2D Hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.1f);
         if (Hit.collider != null)
         {
-            if (Hit.collider.gameObject.GetComponent<ObjectStats>().Name != "Ice trap")
+            Player.CanSummonCaltrop = false;
+            Animator.SetInteger("SummonState", 0);
+        }
+        else
+        {
+            if (Player.Stats.Mana == 0)
             {
                 Player.CanSummonCaltrop = false;
-                Animator.SetBool("CanSummon", false);
+                Animator.SetInteger("SummonState", 1);
             }
             else
             {
                 Player.CanSummonCaltrop = true;
-                Animator.SetBool("CanSummon", true);
+                Animator.SetInteger("SummonState", 2);
             }
-        }
-        else
-        {
-            Player.CanSummonCaltrop = true;
-            Animator.SetBool("CanSummon", true);
         }
     }
 }
