@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2681092ba85092441bc453be9a05cd5b, type: 3}
+  m_Name: Disorienting
+  m_EditorClassIdentifier: 
+  Name: DISORIENTING
+  Prefab: {fileID: 1266272448489078347, guid: 2a7f7497be1767b46b381895ddf9c1cb, type: 3}
+  Description: 'DISORIENTING ENCHANTMENT\nPLACED 1 TILE TO YOUR LEFT\nCAST SPEED:
+    FAST\nDAMAGE: LOW\nDURABILITY: 2\n\nDISORIENTS VICTIM FOR 30 SECONDS, CAUSING
+    REVERSE MOVEMENT'
+  Icon: {fileID: 21300000, guid: 913efeed21e57174084571231b2df804, type: 3}
+  Tile: {fileID: 21300000, guid: 5ede65189955a34439398f7a76ff4acc, type: 3}
+  DirectionPlaced: Leftward
+  DistancePlaced: 1
+  CastTime: 0.3
+  ManaCost: 1
+  Damage: 2
+  Durability: 2
+  Infliction: Disoriented
+  InflictionDuration: 30
+  PlayerImmune: 0

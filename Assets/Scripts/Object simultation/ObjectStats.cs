@@ -47,6 +47,7 @@ public class ObjectStats : MonoBehaviour
 
     public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 is for hurt particle, 3 is for bump into something particle 4 and above are for particles the object uses for other things
     private SpriteRenderer ObjectSprite;
+    private BoxCollider2D ObjectCollider;
     public Light2D ObjectLight; //EVERY ENEMY NEEDS A LIGHT NOW
 
     private AudioPlayer Sound;
@@ -60,6 +61,7 @@ public class ObjectStats : MonoBehaviour
     {
         GameManager = FindAnyObjectByType<GameManager>();
         ObjectSprite = GetComponent<SpriteRenderer>();
+        ObjectCollider = GetComponent<BoxCollider2D>();
         Sound = GetComponent<AudioPlayer>();
         Dead = false;
     }
@@ -132,6 +134,7 @@ public class ObjectStats : MonoBehaviour
     public IEnumerator Die()
     {
         Dead = true;
+        ObjectCollider.enabled = false;
         if (Type != "Player")
         {
             ObjectParticles[1].Play();

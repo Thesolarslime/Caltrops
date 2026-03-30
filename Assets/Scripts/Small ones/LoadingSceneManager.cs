@@ -46,6 +46,7 @@ public class LoadingSceneManager : MonoBehaviour
             case "MainMenu":
                 Text.text = "ESCAPE FAILED";
                 GameManager.CurrentLevelID = 0;
+                Sound.PlaySound(4, false, 1);
                 break;
             case "Boss1":
                 Text.text = "YOU WIN\n\n(THE GAME JAM EDITION OF THE GAME)";
@@ -62,6 +63,7 @@ public class LoadingSceneManager : MonoBehaviour
             case "IntroCutscene":
                 Text.text = "STORY\n\nSPACE TO SKIP";
                 GameManager.CurrentLevelID = 0;
+                Sound.PlaySound(3, false, 1);
                 break;
         }
     }

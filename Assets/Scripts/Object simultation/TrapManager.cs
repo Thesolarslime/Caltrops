@@ -101,6 +101,13 @@ public class TrapManager : MonoBehaviour
                     case "HURRIED":
                         Triggerer.TakeDamage(TrapDamage);
                         break;
+                    case "DISORIENTING":
+                        Triggerer.TakeDamage(TrapDamage);
+                        Triggerer.GainStatus("Disoriented", 30);
+                        break;
+                    case "BIG":
+                        Triggerer.TakeDamage(TrapDamage);
+                        break;
                 }
                 TrapDurability -= 1;
                 if (TrapDurability <= 0) { Stats.StartCoroutine(Stats.Die()); }

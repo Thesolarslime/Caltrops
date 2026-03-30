@@ -85,6 +85,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stumbling Magma
       objectReference: {fileID: 0}
+    - target: {fileID: 5440056374999485784, guid: 083b49500576555419176060b102a32b, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: -0.046875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440056374999485784, guid: 083b49500576555419176060b102a32b, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: 0.03125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440056374999485784, guid: 083b49500576555419176060b102a32b, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 0.203125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440056374999485784, guid: 083b49500576555419176060b102a32b, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.1875
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -109,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811690354998159560, guid: 1aaf2df453268994c8ede41fad057e84, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.072886705
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1811690354998159560, guid: 1aaf2df453268994c8ede41fad057e84, type: 3}
       propertyPath: m_LocalPosition.y

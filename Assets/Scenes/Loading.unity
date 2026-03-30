@@ -210,7 +210,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291085567
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -446,6 +446,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d68491908ff1fef438594b1add8c04ed, type: 3}
   - {fileID: 8300000, guid: 90044c67360f3aa428d51e8a4e33ac3c, type: 3}
   - {fileID: 8300000, guid: c8b508704230595409a90b9f1d600fd7, type: 3}
+  - {fileID: 8300000, guid: e8e055e7dbb8a004390e693f02ac0650, type: 3}
+  - {fileID: 8300000, guid: c4c133739383aa34db87566ead3eefb7, type: 3}
 --- !u!82 &498371601
 AudioSource:
   m_ObjectHideFlags: 0
@@ -681,6 +683,22 @@ PrefabInstance:
     - target: {fileID: 6392767743559161207, guid: 56e720b919f9ae74db22c72bf4018bea, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882420152276579011, guid: 56e720b919f9ae74db22c72bf4018bea, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882420152276579011, guid: 56e720b919f9ae74db22c72bf4018bea, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882420152276579011, guid: 56e720b919f9ae74db22c72bf4018bea, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882420152276579011, guid: 56e720b919f9ae74db22c72bf4018bea, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

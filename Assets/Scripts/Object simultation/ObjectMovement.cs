@@ -46,45 +46,48 @@ public class ObjectMovement : MonoBehaviour
 
     public void MoveObject(string Direction, int Distance)
     {
-        if (Stats.StatusStunned > 0)
+        if (!Stats.Dead)
         {
-            //STUN VISUALS GO HERE
-        }
-        else
-        {
-            if (Stats.StatusDisoriented > 0) { Distance *= -1; } //if the disoriented status is in effect, move in the opposite ditection
-            RaycastHit2D Hit = Physics2D.Raycast(new Vector2(Stats.XPos, Stats.YPos) + (DirectionVectors[Stats.GetFacingDirection(Direction)] * Distance), DirectionVectors[Stats.GetFacingDirection(Direction)], 0.45f);
-            bool ShouldMove = true;
-
-            if (Hit.collider != null)
+            if (Stats.StatusStunned > 0)
             {
-                if (Hit.collider.GetComponent<ObjectStats>() != null)
-                {
-                    ObjectStats HitStats = Hit.collider.GetComponent<ObjectStats>();
-                    switch (HitStats.Type) // Decides what to do based on what this object is about to move into
-                    {
-                        case "Wall":
-                            StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
-                        case "Enemy":
-                            StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; 
-                            if (GameManager.PassiveItemNames.Contains("OLD DAGGER") & Stats.Type == "Player") { HitStats.TakeDamage(1); } // ITEM
-                            break;
-                        case "Player":
-                            StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
-                            if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
-                            if (Stats.Type == "Enemy" && GameManager.PassiveItemNames.Contains("SHIELD")) { Stats.GainStatus("Slowed", 20); } // ITEM
-                            break;
-                        case "Trap":
-                            StartCoroutine(Movement(Direction, Distance)); ShouldMove = false;
-                            if (Stats.Type == "Player") { Hit.collider.GetComponent<TrapManager>().TriggerTrap(true, Stats); }
-                            else { Hit.collider.GetComponent<TrapManager>().TriggerTrap(false, Stats); }
-                            Hit.collider.GetComponent<TrapManager>().MostRecentTriggerer = Stats;
-                            break;
+                //STUN VISUALS GO HERE
+            }
+            else
+            {
+                if (Stats.StatusDisoriented > 0) { Distance *= -1; } //if the disoriented status is in effect, move in the opposite ditection
+                RaycastHit2D Hit = Physics2D.Raycast(new Vector2(Stats.XPos, Stats.YPos) + (DirectionVectors[Stats.GetFacingDirection(Direction)] * Distance), DirectionVectors[Stats.GetFacingDirection(Direction)], 0.45f);
+                bool ShouldMove = true;
 
+                if (Hit.collider != null)
+                {
+                    if (Hit.collider.GetComponent<ObjectStats>() != null)
+                    {
+                        ObjectStats HitStats = Hit.collider.GetComponent<ObjectStats>();
+                        switch (HitStats.Type) // Decides what to do based on what this object is about to move into
+                        {
+                            case "Wall":
+                                StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
+                            case "Enemy":
+                                StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
+                                if (GameManager.PassiveItemNames.Contains("OLD DAGGER") & Stats.Type == "Player") { HitStats.TakeDamage(1); } // ITEM
+                                break;
+                            case "Player":
+                                StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
+                                if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
+                                if (Stats.Type == "Enemy" && GameManager.PassiveItemNames.Contains("SHIELD")) { Stats.GainStatus("Slowed", 20); } // ITEM
+                                break;
+                            case "Trap":
+                                StartCoroutine(Movement(Direction, Distance)); ShouldMove = false;
+                                if (Stats.Type == "Player") { Hit.collider.GetComponent<TrapManager>().TriggerTrap(true, Stats); }
+                                else { Hit.collider.GetComponent<TrapManager>().TriggerTrap(false, Stats); }
+                                Hit.collider.GetComponent<TrapManager>().MostRecentTriggerer = Stats;
+                                break;
+
+                        }
                     }
                 }
+                if (ShouldMove) { StartCoroutine(Movement(Direction, Distance)); }
             }
-            if (ShouldMove) { StartCoroutine(Movement(Direction, Distance)); }
         }
     }
 
