@@ -108,6 +108,13 @@ public class TrapManager : MonoBehaviour
                     case "BIG":
                         Triggerer.TakeDamage(TrapDamage);
                         break;
+                    case "HEALING":
+                        Triggerer.Heal(TrapDamage);
+                        Sound.PlaySound(0, true, 0.7f);
+                        break;
+                    case "DRAINING":
+                        Triggerer.TakeDamage(TrapDamage);
+                        break;
                 }
                 TrapDurability -= 1;
                 if (TrapDurability <= 0) { Stats.StartCoroutine(Stats.Die()); }

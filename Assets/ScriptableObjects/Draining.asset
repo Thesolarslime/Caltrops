@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2681092ba85092441bc453be9a05cd5b, type: 3}
+  m_Name: Draining
+  m_EditorClassIdentifier: 
+  Name: DRAINING
+  Prefab: {fileID: 1266272448489078347, guid: fa7e3754c719861448c6083296f381f0, type: 3}
+  Description: 'DRAINING ENCHANTMENT\nPLACED 2 TILES BACKWARDS\nCAST SPEED: SLOW\nDAMAGE:
+    LOW\nDURABILITY: 10\n\nDAMAGES EVERYTHING WITHIN 1 TILE EVERY 2 SECONDS'
+  Icon: {fileID: 21300000, guid: 6fa746225ac31be4386e89a154a305af, type: 3}
+  Tile: {fileID: 21300000, guid: 2ffbd74970916d2498b388a5c5b11f47, type: 3}
+  DirectionPlaced: Backward
+  DistancePlaced: 2
+  CastTime: 1
+  ManaCost: 1
+  Damage: 1
+  Durability: 10
+  Infliction: None
+  InflictionDuration: 0
+  PlayerImmune: 0

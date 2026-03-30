@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class ObjectMovement : MonoBehaviour
 {
@@ -420,6 +421,9 @@ public class ObjectMovement : MonoBehaviour
                 break;
             case "WAIT":
                 break;
+            case "CALTROPSPECIAL":
+                CaltropSpecial();
+                break;
         }
         yield return new WaitForSeconds(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown));
         EnemyMovement();
@@ -432,6 +436,43 @@ public class ObjectMovement : MonoBehaviour
             EnemyMeleeAttacking = true;
             Stats.Facing = Direction;
             Stats.ObjectParticles[0].Play(); // play the surprise particle
+        }
+    }
+
+    public void CaltropSpecial()
+    {
+        TrapManager Trap = gameObject.GetComponent<TrapManager>();
+        switch (Trap.Caltrop.Name)
+        {
+            case "DRAINING":
+                Stats.ObjectParticles[4].Play();
+                Sound.PlaySound(2, true, 0.8f);
+                Vector2[] Directions = { new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(-1, -1), new Vector2(-1, 1), new Vector2(1, 1), new Vector2(1, -1) };
+
+                foreach (var HitDirection in Directions)
+                {
+                    RaycastHit2D Hit = Physics2D.Raycast(new Vector2(Stats.XPos, Stats.YPos) + HitDirection, HitDirection, 0.3f);
+                    if (Hit.collider != null)
+                    {
+                        if (Hit.collider.GetComponent<ObjectStats>() != null)
+                        {
+                            ObjectStats HitStats = Hit.collider.GetComponent<ObjectStats>();
+                            switch (HitStats.Type) // Decides what to do based on what this object is about to move into
+                            {
+                                case "Enemy":
+                                    HitStats.TakeDamage(Trap.TrapDamage);
+                                    break;
+                                case "Player":
+                                    HitStats.TakeDamage(Trap.TrapDamage);
+                                    break;
+
+                            }
+                        }
+                    }
+                }
+                Trap.TrapDurability--;
+                if (Trap.TrapDurability <= 0) { Stats.StartCoroutine(Stats.Die()); }
+                break;
         }
     }
 }

@@ -124,6 +124,26 @@ public class ObjectStats : MonoBehaviour
         }
     }
 
+    public void Heal(int Healing)
+    {
+        if (Type == "Enemy")
+        {
+            MaxHealth += Healing;
+            Health += Healing;
+        }
+        else
+        {
+            if (Health + Healing > MaxHealth)
+            {
+                Health = MaxHealth;
+            }
+            else
+            {
+                Health += Healing;
+            }
+        }
+    }
+
     private IEnumerator DamageColourPulse()
     {
         ObjectSprite.color = Color.red;

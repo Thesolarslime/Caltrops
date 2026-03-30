@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2681092ba85092441bc453be9a05cd5b, type: 3}
+  m_Name: Healing
+  m_EditorClassIdentifier: 
+  Name: HEALING
+  Prefab: {fileID: 1266272448489078347, guid: 19947f382b62aa04795e5e7cb565daae, type: 3}
+  Description: 'HEALING CALTROP\nPLACED 3 TILES TO YOUR LEFT\nCAST SPEED: VERY SLOW\nHEALING:
+    1\nDURABILITY: 1\n\nHEALS INSTEAD OF DAMAGES'
+  Icon: {fileID: 21300000, guid: 4d32565917ec78a4ca53a086c3bb6d92, type: 3}
+  Tile: {fileID: 21300000, guid: 495da86701e4dfa4cbd367cd9da02581, type: 3}
+  DirectionPlaced: Leftward
+  DistancePlaced: 3
+  CastTime: 2
+  ManaCost: 1
+  Damage: 1
+  Durability: 1
+  Infliction: None
+  InflictionDuration: 0
+  PlayerImmune: 0
