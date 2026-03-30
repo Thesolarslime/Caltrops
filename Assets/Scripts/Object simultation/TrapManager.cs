@@ -115,6 +115,13 @@ public class TrapManager : MonoBehaviour
                     case "DRAINING":
                         Triggerer.TakeDamage(TrapDamage);
                         break;
+                    case "WARPING":
+                        Triggerer.TakeDamage(TrapDamage);
+                        Stats.ObjectParticles[4].Play();
+                        Sound.PlaySound(4, true, 0.6f);
+                        if (Triggerer.Type=="Enemy") { Triggerer.GetComponent<ObjectMovement>().Warp(); }
+                        Triggerer.GetComponent<ObjectMovement>().MoveObject(Triggerer.Facing, 2);
+                        break;
                 }
                 TrapDurability -= 1;
                 if (TrapDurability <= 0) { Stats.StartCoroutine(Stats.Die()); }

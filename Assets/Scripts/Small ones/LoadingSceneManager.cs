@@ -50,7 +50,7 @@ public class LoadingSceneManager : MonoBehaviour
                 break;
             case "Boss1":
                 Text.text = "YOU WIN\n\n(THE GAME JAM EDITION OF THE GAME)";
-                GameManager.CurrentLevelID = 4;
+                GameManager.CurrentLevelID = 0;
                 break;
             case "Boss2":
                 Text.text = "THE ARCHMAGE";
@@ -71,6 +71,7 @@ public class LoadingSceneManager : MonoBehaviour
     public IEnumerator Loading()
     {
         yield return new WaitForSecondsRealtime(5.5f);
+        if (GameManager.SceneToGoTo == "Boss1") { GameManager.SceneToGoTo = "MainMenu"; }
         SceneManager.LoadScene(GameManager.SceneToGoTo);
     }
 }

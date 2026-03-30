@@ -45,7 +45,7 @@ public class ObjectStats : MonoBehaviour
 
     public bool Dead;
 
-    public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 is for hurt particle, 3 is for bump into something particle 4 and above are for particles the object uses for other things
+    public ParticleSystem[] ObjectParticles; // 0 is for the surprise particle, 1 is for death particle, 2 is for hurt particle, 3 is for bump into something particle, 4 is for wait, 5 and above are for particles the object uses for other things
     private SpriteRenderer ObjectSprite;
     private BoxCollider2D ObjectCollider;
     public Light2D ObjectLight; //EVERY ENEMY NEEDS A LIGHT NOW

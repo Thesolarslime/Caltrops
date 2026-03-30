@@ -99,6 +99,7 @@ public class LevelUpManager : MonoBehaviour
 
     public IEnumerator LevelUpSequence()
     {
+        PickOptions(1);
         Audio.PlaySound(3, false, 0.5f);
         SelectionMade = false;
         MainCamera = FindAnyObjectByType<Camera>();
@@ -109,9 +110,9 @@ public class LevelUpManager : MonoBehaviour
         SelectedBox = 3;
         Title.text = "LEVEL UP!\nCHOOSE A STAT BOOST";
         yield return new WaitForSeconds(1);
-        PickOptions(1);
         SelectedBox = 1;
         LevelUpPhase = 1;
+        UpdateDescription();
         TimeToSelect = true;
     }
 
@@ -167,9 +168,11 @@ public class LevelUpManager : MonoBehaviour
         {
             case "HEALTH":
                 GameManager.PlayerStats.MaxHealth++;
+                GameManager.PlayerStats.Health++;
                 GameManager.MaxHealth++; break;
             case "MANA":
                 GameManager.PlayerStats.MaxMana++;
+                GameManager.PlayerStats.Mana++;
                 GameManager.MaxMana++; break;
             case "SPEED":
                 GameManager.PlayerStats.Speed++;

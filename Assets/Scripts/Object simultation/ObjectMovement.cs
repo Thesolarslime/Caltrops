@@ -10,6 +10,7 @@ public class ObjectMovement : MonoBehaviour
     public bool IsPlayer;
     public bool MovementOnCooldown;
     public bool Moving; // true while the move animation is happening
+    public bool Warping; // for the warping caltrop
     private bool GoBack; // becomes true temporarily mid-move when an enemy needs to go back instead.
     public bool EnemyMeleeAttacking; // true while an enemy is interrupting it's path to melee attack the player.
     public float BaseMovementCooldown = 1.1f; // the base time to wait at a speed of 5 before the player can move again
@@ -73,10 +74,17 @@ public class ObjectMovement : MonoBehaviour
                                 if (GameManager.PassiveItemNames.Contains("OLD DAGGER") & Stats.Type == "Player") { HitStats.TakeDamage(1); } // ITEM
                                 break;
                             case "Player":
-                                StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
-                                if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
-                                if (Stats.Type == "Enemy" && GameManager.PassiveItemNames.Contains("SHIELD")) { Stats.GainStatus("Slowed", 20); } // ITEM
-                                break;
+                                if (!Warping)
+                                {
+                                    StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
+                                    if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
+                                    if (Stats.Type == "Enemy" && GameManager.PassiveItemNames.Contains("SHIELD")) { Stats.GainStatus("Slowed", 20); } // ITEM
+                                    break;
+                                }
+                                else
+                                {
+                                    StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
+                                }
                             case "Trap":
                                 StartCoroutine(Movement(Direction, Distance)); ShouldMove = false;
                                 if (Stats.Type == "Player") { Hit.collider.GetComponent<TrapManager>().TriggerTrap(true, Stats); }
@@ -94,7 +102,7 @@ public class ObjectMovement : MonoBehaviour
 
     private IEnumerator Movement(string Direction, int Distance)
     {
-        if (!Moving && !Stats.Dead)
+        if ((!Moving || Warping) && !Stats.Dead)
         {
             Moving = true;
             Stats.Facing = Direction;
@@ -224,6 +232,7 @@ public class ObjectMovement : MonoBehaviour
                 Stats.YPos = (int)transform.position.y;
                 if (Stats.Type == "Player") { Stats.Regen(); }
                 Moving = false;
+                Warping = false;
             }
                 
         }
@@ -420,6 +429,7 @@ public class ObjectMovement : MonoBehaviour
                 MoveObject(Stats.Facing, -1);
                 break;
             case "WAIT":
+                Stats.ObjectParticles[4].Play();
                 break;
             case "CALTROPSPECIAL":
                 CaltropSpecial();
@@ -433,9 +443,51 @@ public class ObjectMovement : MonoBehaviour
     {
         if (!Stats.Dead)
         {
-            EnemyMeleeAttacking = true;
-            Stats.Facing = Direction;
             Stats.ObjectParticles[0].Play(); // play the surprise particle
+            StartCoroutine(InterruptDelay(Direction));
+        }
+    }
+
+    public IEnumerator InterruptDelay(string Direction)
+    {
+        yield return new WaitForSeconds(0.02f);
+        EnemyMeleeAttacking = true;
+        Stats.Facing = Direction;
+        
+    }
+
+    public void Warp()
+    {
+        Vector2 CurrentPos = new Vector2(Stats.XPos, Stats.YPos);
+        Vector2 WarpPos = new Vector2(Stats.XPos, Stats.YPos) + DirectionVectors[Stats.FacingNumber] * 2;
+        Stats.XPos = (int)WarpPos.x;
+        Stats.YPos = (int)WarpPos.y;
+        transform.position = WarpPos;
+        WarpPos = new Vector2(Stats.XPos, Stats.YPos) + DirectionVectors[Stats.FacingNumber];
+        
+        bool DontWarpActually = false;
+        RaycastHit2D Hit = Physics2D.Raycast(WarpPos, new Vector2(1, 0), 0.01f);
+        if (Hit.collider != null)
+        {
+            if (Hit.collider.GetComponent<ObjectStats>() != null)
+            {
+                if (Hit.collider.GetComponent<ObjectStats>().Type == "Wall")
+                {
+                    DontWarpActually = true;
+                }
+                if (Hit.collider.GetComponent<ObjectStats>().Type == "Trap")
+                {
+                    Hit.collider.GetComponent<TrapManager>().TriggerTrap(false, Stats);
+                    Hit.collider.GetComponent<TrapManager>().MostRecentTriggerer = Stats;
+                }
+            }
+        }
+
+        if (DontWarpActually)
+        {
+            Stats.XPos = (int)CurrentPos.x;
+            Stats.YPos = (int)CurrentPos.y;
+            transform.position = WarpPos;
         }
     }
 
