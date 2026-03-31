@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ObjectMovement : MonoBehaviour
 {
@@ -425,12 +426,49 @@ public class ObjectMovement : MonoBehaviour
             case "WAIT":
                 Stats.ObjectParticles[4].Play();
                 break;
+            case "SPECIAL":
+                Special();
+                break;
             case "CALTROPSPECIAL":
                 CaltropSpecial();
                 break;
         }
         yield return new WaitForSeconds(BaseMovementCooldown - ((Stats.Speed + Stats.SpeedModifier - 5) * SpeedIncrementOnMovementCooldown));
         EnemyMovement();
+    }
+
+    public void Special()
+    {
+        switch (Stats.Name)
+        {
+            case "Wall critter":
+                Stats.ObjectParticles[3].Play();
+                Sound.PlaySound(3, true, 0.8f);
+                Vector2[] Directions = { new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(-1, -1), new Vector2(-1, 1), new Vector2(1, 1), new Vector2(1, -1) };
+
+                foreach (var HitDirection in Directions)
+                {
+                    RaycastHit2D Hit = Physics2D.Raycast(new Vector2(Stats.XPos, Stats.YPos) + HitDirection, HitDirection, 0.3f);
+                    if (Hit.collider != null)
+                    {
+                        if (Hit.collider.GetComponent<ObjectStats>() != null)
+                        {
+                            ObjectStats HitStats = Hit.collider.GetComponent<ObjectStats>();
+                            switch (HitStats.Type) // Decides what to do based on what this object is about to move into
+                            {
+                                case "Enemy":
+                                    HitStats.TakeDamage(Stats.EnemyMeleeDamage);
+                                    break;
+                                case "Player":
+                                    HitStats.TakeDamage(Stats.EnemyMeleeDamage);
+                                    break;
+
+                            }
+                        }
+                    }
+                }
+                break;
+        }
     }
 
     public void InterruptToAttackPlayer(string Direction)
