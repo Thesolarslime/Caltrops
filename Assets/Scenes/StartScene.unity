@@ -149,7 +149,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: de1bd4fdcee64444f9b9f7d161f24831, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.411
+  m_Volume: 0.25
   m_Pitch: 0.57
   Loop: 0
   Mute: 0
@@ -16731,6 +16731,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e340ef2c776aa44586dd752f3a6ae0d, type: 2}
   - {fileID: 11400000, guid: 0ca5e760cedf01f40bec2ce47a53e2a0, type: 2}
   - {fileID: 11400000, guid: 30c9b119cad947e459b496cdcd7b6dfa, type: 2}
+  - {fileID: 11400000, guid: eee7fb2d430e65a42bc98becc95d697f, type: 2}
   PossibleBonuses:
   - {fileID: 11400000, guid: fff62c30e08411247ab5cd523ff4e9eb, type: 2}
   - {fileID: 11400000, guid: 8076b4a0ccfa7bb49a50cabe4b2df065, type: 2}

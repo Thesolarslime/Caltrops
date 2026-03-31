@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2681092ba85092441bc453be9a05cd5b, type: 3}
-  m_Name: Copycat
+  m_Name: Explosive
   m_EditorClassIdentifier: 
-  Name: COPYCAT
-  Prefab: {fileID: 1266272448489078347, guid: 3f1170ad12432c448abc66712099a33c, type: 3}
-  Description: 'COPYCAT ENCHANTMENT\nPLACED 2 TILES TO YOUR RIGHT\nCAST SPEED: SLOW\nDAMAGE:
-    MEDIUM\nDURABILITY: 1\n\nCOPIES YOUR MOVEMENTS'
-  Icon: {fileID: 21300000, guid: 61c88118a7f4457469414cf5d0aafa95, type: 3}
-  Tile: {fileID: 21300000, guid: 98ff6eb9234896447bb11dec583e59e5, type: 3}
-  DirectionPlaced: Rightward
+  Name: EXPLOSIVE
+  Prefab: {fileID: 1266272448489078347, guid: 89a3d5b460efff64aa6c16e6ac4f598f, type: 3}
+  Description: 'EXPLOSIVE ENCHANTMENT\nPLACED 2 TILES NORTH\nCAST SPEED: VERY VERY
+    SLOW\nDAMAGE: HIGH\nDURABILITY: 0'
+  Icon: {fileID: 21300000, guid: 28dac719064989148a5d94e3835172ef, type: 3}
+  Tile: {fileID: 21300000, guid: 1e0edb5915cecc446ba20788ae9269fc, type: 3}
+  DirectionPlaced: Up
   DistancePlaced: 2
-  CastTime: 1
+  CastTime: 2.5
   ManaCost: 1
-  Damage: 3
+  Damage: 5
   Durability: 1
   Infliction: None
   InflictionDuration: 0

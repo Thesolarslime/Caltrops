@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TrapManager : MonoBehaviour
 {
@@ -41,6 +42,11 @@ public class TrapManager : MonoBehaviour
             TrapDamage = Caltrop.Damage;
             TrapDurability = Caltrop.Durability;
             PlayerCantTrigger = Caltrop.PlayerImmune;
+
+            if (Caltrop.Name == "EXPLOSIVE")
+            {
+                StartCoroutine(ExplodeAtOnce());
+            }
         }
         else
         {
@@ -53,6 +59,37 @@ public class TrapManager : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    private IEnumerator ExplodeAtOnce()
+    {
+        yield return new WaitForEndOfFrame();
+        Stats.ObjectParticles[2].Play();
+        Sound.PlaySound(2, true, 0.8f);
+        Vector2[] Directions = { new Vector2(0, 1), new Vector2(1, 0), new Vector2(0, -1), new Vector2(-1, 0), new Vector2(-1, -1), new Vector2(-1, 1), new Vector2(1, 1), new Vector2(1, -1) };
+
+        foreach (var HitDirection in Directions)
+        {
+            RaycastHit2D Hit = Physics2D.Raycast(new Vector2(Stats.XPos, Stats.YPos) + HitDirection, HitDirection, 0.3f);
+            if (Hit.collider != null)
+            {
+                if (Hit.collider.GetComponent<ObjectStats>() != null)
+                {
+                    ObjectStats HitStats = Hit.collider.GetComponent<ObjectStats>();
+                    switch (HitStats.Type) // Decides what to do based on what this object is about to move into
+                    {
+                        case "Enemy":
+                            HitStats.TakeDamage(TrapDamage);
+                            break;
+                        case "Player":
+                            HitStats.TakeDamage(TrapDamage);
+                            break;
+
+                    }
+                }
+            }
+        }
+        Stats.StartCoroutine(Stats.Die());
     }
 
     public void TriggerTrap(bool PlayerTriggered, ObjectStats Triggerer)

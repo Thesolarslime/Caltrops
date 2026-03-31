@@ -11297,7 +11297,7 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.06212425
+    x: 0.06312625
     y: 0
     width: 0.48096192
     height: 0.4808013
@@ -47674,7 +47674,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e3f587ab13a00354b892e0722b5e6413, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.736
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
