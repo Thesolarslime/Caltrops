@@ -131,7 +131,7 @@ MonoBehaviour:
   EnemyMeleeDamage: 1
   EnemyAttacksInMelee: 1
   EnemyAttackStatus: Slowed
-  EnemyAttackStatusDuration: 4
+  EnemyAttackStatusDuration: 3
   XPValue: 25
   CaltropThatMoves: 0
   Facing: LEFT
