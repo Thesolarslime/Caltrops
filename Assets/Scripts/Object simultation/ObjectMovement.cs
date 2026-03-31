@@ -196,13 +196,16 @@ public class ObjectMovement : MonoBehaviour
                 }
                 if (Stats.StatusPoisoned > 0) // POISONED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 {
-                    if (Stats.Mana <= 0)
+                    if (Stats.Health != 1)
                     {
                         Stats.TakeDamage(1);
                     }
                     else
                     {
-                        Stats.Mana--;
+                        if (Stats.Mana > 0)
+                        {
+                            Stats.Mana--;
+                        }
                     }
                 }
                 yield return new WaitForSeconds(0.04f);
