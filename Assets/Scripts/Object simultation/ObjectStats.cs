@@ -257,6 +257,7 @@ public class ObjectStats : MonoBehaviour
     {
         if (Type == "Player")
         {
+            GameManager.Player.Timer.Tick();
             RegenCount++;
             if (RegenCount >= RegenBase - RegenModifier)
             {

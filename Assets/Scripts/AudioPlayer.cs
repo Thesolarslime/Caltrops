@@ -14,7 +14,8 @@ public class AudioPlayer : MonoBehaviour
     public void PlaySound(int SoundID, bool PitchVariance, float Volume)
     {
         if (PitchVariance) { Sound.pitch = Random.Range(0.85f, 1.15f); }
-        Sound.volume = Volume;
+        else { Sound.pitch = 1f; }
+            Sound.volume = Volume;
         Sound.clip = AudioClips[SoundID];
         Sound.Play();
     }

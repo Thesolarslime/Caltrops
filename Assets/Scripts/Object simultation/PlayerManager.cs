@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     public float CastTimeModifier; // the stat that changes for upgrades
 
     public GameManager GameManager;
+    public TimerManager Timer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +36,7 @@ public class PlayerManager : MonoBehaviour
         PlayerSprite = GetComponent<SpriteRenderer>();
 
         GameManager = FindAnyObjectByType<GameManager>();
+        Timer = FindAnyObjectByType<TimerManager>();
 
         GameManager.GetPlayer(this);
 
