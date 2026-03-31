@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: DRAINING
   Prefab: {fileID: 1266272448489078347, guid: fa7e3754c719861448c6083296f381f0, type: 3}
   Description: 'DRAINING ENCHANTMENT\nPLACED 2 TILES BACKWARDS\nCAST SPEED: SLOW\nDAMAGE:
-    LOW\nDURABILITY: 10\n\nDAMAGES EVERYTHING WITHIN 1 TILE EVERY 2 SECONDS'
+    LOW\nDURABILITY: 8\n\nDAMAGES EVERYTHING WITHIN 1 TILE EVERY 2 SECONDS'
   Icon: {fileID: 21300000, guid: 6fa746225ac31be4386e89a154a305af, type: 3}
   Tile: {fileID: 21300000, guid: 2ffbd74970916d2498b388a5c5b11f47, type: 3}
   DirectionPlaced: Backward
@@ -23,7 +23,7 @@ MonoBehaviour:
   CastTime: 1
   ManaCost: 1
   Damage: 1
-  Durability: 10
+  Durability: 8
   Infliction: None
   InflictionDuration: 0
   PlayerImmune: 0

@@ -122,6 +122,9 @@ public class TrapManager : MonoBehaviour
                         if (Triggerer.Type=="Enemy") { Triggerer.GetComponent<ObjectMovement>().Warp(); }
                         Triggerer.GetComponent<ObjectMovement>().MoveObject(Triggerer.Facing, 2);
                         break;
+                    case "COPYCAT":
+                        Triggerer.TakeDamage(TrapDamage);
+                        break;
                 }
                 TrapDurability -= 1;
                 if (TrapDurability <= 0) { Stats.StartCoroutine(Stats.Die()); }
