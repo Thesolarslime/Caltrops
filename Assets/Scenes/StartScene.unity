@@ -6184,10 +6184,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.013513514
-    y: 0.013513514
-    width: 0.972973
-    height: 0.972973
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -22132,6 +22132,12 @@ MonoBehaviour:
   CurrentLevelID: 0
   Paused: 0
   LevelUpManager: {fileID: 1617239718}
+  StatusParticles:
+  - {fileID: 1189116813513617229, guid: 7faa1843169aa39448937496135d33e8, type: 3}
+  - {fileID: 1189116813513617229, guid: 85179c43f954b034fbbfc025c4b9117f, type: 3}
+  - {fileID: 1189116813513617229, guid: 4c7dacdb8b1f6744790e0fc6b60af790, type: 3}
+  - {fileID: 1189116813513617229, guid: 992bd93d58967d4409fbe419bca6ba55, type: 3}
+  - {fileID: 1189116813513617229, guid: 7a0edb348944f8242841a5221d03e87e, type: 3}
 --- !u!1 &2017669347
 GameObject:
   m_ObjectHideFlags: 0

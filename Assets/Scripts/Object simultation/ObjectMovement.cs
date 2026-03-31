@@ -10,7 +10,6 @@ public class ObjectMovement : MonoBehaviour
     public bool IsPlayer;
     public bool MovementOnCooldown;
     public bool Moving; // true while the move animation is happening
-    public bool Warping; // for the warping caltrop
     private bool GoBack; // becomes true temporarily mid-move when an enemy needs to go back instead.
     public bool EnemyMeleeAttacking; // true while an enemy is interrupting it's path to melee attack the player.
     public float BaseMovementCooldown = 1.1f; // the base time to wait at a speed of 5 before the player can move again
@@ -74,17 +73,11 @@ public class ObjectMovement : MonoBehaviour
                                 if (GameManager.PassiveItemNames.Contains("OLD DAGGER") & Stats.Type == "Player") { HitStats.TakeDamage(1); } // ITEM
                                 break;
                             case "Player":
-                                if (!Warping)
-                                {
-                                    StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
-                                    if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
-                                    if (Stats.Type == "Enemy" && GameManager.PassiveItemNames.Contains("SHIELD")) { Stats.GainStatus("Slowed", 20); } // ITEM
-                                    break;
-                                }
-                                else
-                                {
-                                    StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false; break;
-                                }
+                                StartCoroutine(MoveBump(Direction, Distance)); ShouldMove = false;
+                                if (Stats.Type == "Enemy") { HitStats.TakeDamage(Stats.EnemyMeleeDamage); }
+                                if (Stats.Type == "Enemy" && Stats.EnemyAttackStatus != "None") { HitStats.GainStatus(Stats.EnemyAttackStatus, Stats.EnemyAttackStatusDuration); }
+                                if (Stats.Type == "Enemy" && GameManager.PassiveItemNames.Contains("SHIELD")) { Stats.GainStatus("Slowed", 20); } // ITEM
+                                break;
                             case "Trap":
                                 StartCoroutine(Movement(Direction, Distance)); ShouldMove = false;
                                 if (Stats.Type == "Player") { Hit.collider.GetComponent<TrapManager>().TriggerTrap(true, Stats); }
@@ -102,7 +95,7 @@ public class ObjectMovement : MonoBehaviour
 
     private IEnumerator Movement(string Direction, int Distance)
     {
-        if ((!Moving || Warping) && !Stats.Dead)
+        if (!Moving && !Stats.Dead)
         {
             Moving = true;
             Stats.Facing = Direction;
@@ -232,7 +225,6 @@ public class ObjectMovement : MonoBehaviour
                 Stats.YPos = (int)transform.position.y;
                 if (Stats.Type == "Player") { Stats.Regen(); }
                 Moving = false;
-                Warping = false;
             }
                 
         }

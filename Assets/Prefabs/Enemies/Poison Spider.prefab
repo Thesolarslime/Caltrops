@@ -132,6 +132,8 @@ MonoBehaviour:
   StatusDisoriented: 0
   EnemyMeleeDamage: 1
   EnemyAttacksInMelee: 1
+  EnemyAttackStatus: Poisoned
+  EnemyAttackStatusDuration: 8
   XPValue: 30
   CaltropThatMoves: 0
   Facing: LEFT

@@ -34,6 +34,8 @@ public class ObjectStats : MonoBehaviour
 
     public int EnemyMeleeDamage; // how much damage an enemy deals on a normal attack
     public bool EnemyAttacksInMelee; // if true, the enemy will attempt to melee attack the player if they move next to them
+    public string EnemyAttackStatus; // None, or the name of the status this enemy inflicts
+    public float EnemyAttackStatusDuration; // The length of an inflicted status inflicted by an attack from this enemy
     public int XPValue; // how valuable a member to society this enemy is
 
     public bool CaltropThatMoves; // true if this object, is a caltrop that moves. it lets them move.
@@ -55,6 +57,12 @@ public class ObjectStats : MonoBehaviour
     private GameManager GameManager;
 
     [SerializeField] private Animator CameraHurtAnimation;
+
+    private GameObject VulnerableParticle;
+    private GameObject PoisonedParticle;
+    private GameObject DisorientedParticle;
+    private GameObject SlowedParticle;
+    private GameObject StunnedParticle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -199,16 +207,19 @@ public class ObjectStats : MonoBehaviour
         switch (Type)
         {
             case "Vulnerable":
-                if (StatusVulnerable == 0) { ArmourModifier -= 1; }
+                if (StatusVulnerable == 0) { ArmourModifier -= 1; VulnerableParticle = Instantiate(GameManager.StatusParticles[0], this.gameObject.transform, false); }
                 StatusVulnerable += Seconds; break;
             case "Slowed":
-                if (StatusSlowed == 0) { SpeedModifier -= 2; }
+                if (StatusSlowed == 0) { SpeedModifier -= 2; SlowedParticle = Instantiate(GameManager.StatusParticles[1], this.gameObject.transform, false); }
                 StatusSlowed += Seconds; break;
             case "Stunned":
+                if (StatusStunned == 0) { StunnedParticle = Instantiate(GameManager.StatusParticles[2], this.gameObject.transform, false); }
                 StatusStunned += Seconds; break;
             case "Poisoned":
+                if (StatusPoisoned == 0) { PoisonedParticle = Instantiate(GameManager.StatusParticles[3], this.gameObject.transform, false); }
                 StatusPoisoned += Seconds; break;
             case "Disoriented":
+                if (StatusDisoriented == 0) { DisorientedParticle = Instantiate(GameManager.StatusParticles[4], this.gameObject.transform, false); }
                 StatusDisoriented += Seconds; break;
         }
     }
@@ -218,27 +229,27 @@ public class ObjectStats : MonoBehaviour
         if (StatusVulnerable > 0)
         {
             StatusVulnerable -= Time.deltaTime;
-            if (StatusVulnerable <= 0) {  StatusVulnerable = 0; ArmourModifier += 1; }
+            if (StatusVulnerable <= 0) {  StatusVulnerable = 0; ArmourModifier += 1; Destroy(VulnerableParticle); }
         }
         if (StatusSlowed > 0)
         {
             StatusSlowed -= Time.deltaTime;
-            if (StatusSlowed <= 0) { StatusSlowed = 0; SpeedModifier += 2; }
+            if (StatusSlowed <= 0) { StatusSlowed = 0; SpeedModifier += 2; Destroy(SlowedParticle); }
         }
         if (StatusStunned > 0)
         {
             StatusStunned -= Time.deltaTime;
-            if (StatusStunned <= 0) { StatusStunned = 0; }
+            if (StatusStunned <= 0) { StatusStunned = 0; Destroy(StunnedParticle); }
         }
         if (StatusPoisoned > 0)
         {
             StatusPoisoned -= Time.deltaTime;
-            if (StatusPoisoned <= 0) { StatusPoisoned = 0; }
+            if (StatusPoisoned <= 0) { StatusPoisoned = 0; Destroy(PoisonedParticle); }
         }
         if (StatusDisoriented > 0)
         {
             StatusDisoriented -= Time.deltaTime;
-            if (StatusDisoriented <= 0) { StatusDisoriented = 0; }
+            if (StatusDisoriented <= 0) { StatusDisoriented = 0; Destroy(DisorientedParticle); }
         }
     }
 
