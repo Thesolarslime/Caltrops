@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameManager GameManager;
     public TimerManager Timer;
+    public Animator DeathAnimation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

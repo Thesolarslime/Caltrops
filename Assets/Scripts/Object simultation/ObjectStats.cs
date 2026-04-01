@@ -191,6 +191,7 @@ public class ObjectStats : MonoBehaviour
         }
         else
         {
+            this.gameObject.GetComponent<PlayerManager>().DeathAnimation.SetTrigger("dying");
             ObjectParticles[1].Play();
             ObjectParticles[2].Play();
             ObjectSprite.enabled = false;

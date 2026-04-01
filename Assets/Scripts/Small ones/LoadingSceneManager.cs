@@ -49,8 +49,9 @@ public class LoadingSceneManager : MonoBehaviour
                 Sound.PlaySound(4, false, 1);
                 break;
             case "Boss1":
-                Text.text = "YOU WIN\n\n(THE GAME JAM EDITION OF THE GAME)";
+                Text.text = "YOU WIN";
                 GameManager.CurrentLevelID = 0;
+                Sound.PlaySound(5, false, 1);
                 break;
             case "Boss2":
                 Text.text = "THE ARCHMAGE";
